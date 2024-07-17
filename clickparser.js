@@ -26,7 +26,7 @@ function buy1(){
 	if(pts>=10){
 		pts-=10;
 		t1++;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -37,7 +37,7 @@ function buy1x2(){
 	if(pts>=30){
 		pts-=30;
 		t1+=2;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -48,7 +48,7 @@ function buy2(){
 	if(t1>=10){
 		t1-=10;
 		t2++;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -59,7 +59,7 @@ function buy2x2(){
 	if(t1>=30){
 		t1-=30;
 		t2+=2;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -70,7 +70,7 @@ function buy3(){
 	if(t2>=10){
 		t2-=10;
 		t3++;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -81,7 +81,7 @@ function buy3x2(){
 	if(t2>=30){
 		t2-=30;
 		t3+=2;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -92,7 +92,7 @@ function buy4(){
 	if(t3>=10){
 		t3-=10;
 		t4++;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -103,7 +103,7 @@ function buy4x2(){
 	if(t3>=30){
 		t3-=30;
 		t4+=2;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -114,7 +114,7 @@ function buy5(){
 	if(pts>=vtcost()){
 		pts-=vtcost();
 		t5++;
-		if(gupbought[5])pts+=0.15*calcpts();
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -143,7 +143,7 @@ function glitchreset(){
 	t5=0;
 }
 function calcglitch() {
-	return ((wp + wp * wp + Math.floor(Math.pow(2, 0.5 * Math.pow(wp, 1.3)))) + 1) * Math.pow((pts / 1000),0.3)*(1+0.4*gupbought[1]);
+	return ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2+0.25*gupbought[10]))) + 1) * Math.pow((pts / 1000),0.3)*(1+0.4*gupbought[1]);
 }
 
 function st1(){
