@@ -79,6 +79,8 @@ function Loadsave(){
     glitch=Number(LoadItem("glitch"));
     glitchcount=Number(LoadItem("glitchcount"));
     wp=Number(LoadItem("wp"));
+    var ttf=LoadItem("ttf");
+    if(ttf!="2221")Wipe=1;
 	var tmp=localStorage.getItem('rigc');
 	for(var i=0;i<tmp.length;i++)goalcomplete[i]=Number(tmp[i]);
 	tmp=localStorage.getItem('rigc2');
@@ -99,6 +101,7 @@ function Save(){
     SaveItem("glitch",glitch);
     SaveItem("glitchcount",glitchcount);
     SaveItem("wp",wp);
+    SaveItem("ttf","2221");
 	var tmp="";
 	for(var i=0;i<tg;i++)tmp+=goalcomplete[i];
 	localStorage.setItem('rigc',tmp);
