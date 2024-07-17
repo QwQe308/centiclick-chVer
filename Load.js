@@ -40,20 +40,21 @@ function Loadmiddle(){
     document.getElementById("b5").innerHTML="Buy a Void Thear for "+nt(vtcost())+" Points.";
     document.getElementById("b5").style.backgroundColor=(pts>=(vtcost())?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("wp").innerHTML=nt(wp);
-    document.getElementById("g1").innerHTML=(goalcomplete[0]==1?"COMPLETED":("REWARD: "+goalreward[0]+" WP"));
-    document.getElementById("g1").style.backgroundColor=(goalcomplete[0]==1?"rgb(60, 179, 113)":"rgb(255, 99, 71)");
-    document.getElementById("g2").innerHTML=(goalcomplete[1]==1?"COMPLETED":("REWARD: "+goalreward[1]+" WP"));
-    document.getElementById("g2").style.backgroundColor=(goalcomplete[1]==1?"rgb(60, 179, 113)":"rgb(255, 99, 71)");
     document.getElementById("prom0").innerHTML="Your Willpower gives a "+nt(((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2)+"x bonus to Glitch gain.";
     document.getElementById("gl").innerHTML=nt(glitch);
     document.getElementById("prom").innerHTML="You have completed "+Math.round(glitchcount)+" Centi-clicks. Last time you got "+nt(lastpt)+" Points = "+nt(lastgl)+" Glitches in 100 clicks.";
     document.getElementById("prom1andahalf").innerHTML="Your highest Point is "+nt(bestpt)+". Your highest Glitch gain on one reset is "+nt(bestgl)+".";
     document.getElementById("prom2").innerHTML="You get Glitches based on Willpower and Points. If you go Glitch now, you will get "+nt(calcglitch())+" Glitches.";
-    document.getElementById("effa1").innerHTML="Currently: "+nt(1+Math.pow(lastgl,0.5))+"x";
+    document.getElementById("effa1").innerHTML="Currently: "+nt(Math.pow(lastgl + 1, 0.2))+"x";
+    document.getElementById("effa9").innerHTML="Currently: "+nt(Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2))+"x";
     if(gupbought[7]){
         for(var i=1;i<=4;i++){
             document.getElementById("ct"+i).style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
         }
+    }
+    for(var i=0;i<tg;i++){
+        document.getElementById("g"+(i+1)).innerHTML=(goalcomplete[i]==1?"COMPLETED":("REWARD: "+goalreward[i]+" WP"));
+        document.getElementById("g"+(i+1)).style.backgroundColor=(goalcomplete[i]==1?"rgb(60, 179, 113)":"rgb(255, 99, 71)");
     }
     for(var i=0;i<Ugcount;i++){
         var s="";
