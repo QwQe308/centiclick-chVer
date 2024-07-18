@@ -20,7 +20,9 @@ function gp(){
 	Loadmiddle();
 }
 function calcpts() {
-	return t1 * Math.pow(2, t5) * (Math.pow(lastgl*gupbought[0] + 1, 0.2)) * (1+2*gupbought[4]*(clickcount<3?1:0)) * (Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2*gupbought[8]));
+	var f= Math.pow(2, t5) * (Math.pow(lastgl*gupbought[0] + 1, 0.2)) * (1+2*gupbought[4]*(clickcount<3?1:0)) * (Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2*gupbought[8]));
+	var g=(t1>8?2*Math.pow(t1,0.67):t1);
+	return f*g;
 }
 function buy1(){
 	if(pts>=10){

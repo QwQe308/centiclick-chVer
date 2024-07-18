@@ -16,7 +16,7 @@ function Loadheader(){
 function Loadmiddle(){
     if(glitchcount>=1)document.getElementById("c1").style="";
     document.getElementById("t1").innerHTML=nt(t1);
-    document.getElementById("eff1").innerHTML="Gives you "+nt(t1*Math.pow(2,t5))+" Points every click.";
+    document.getElementById("eff1").innerHTML="Gives you "+nt((t1>8?2*Math.pow(t1,0.67):t1)*Math.pow(2,t5))+" Points every click."+(t1>8?" (Softcapped)":"");
     document.getElementById("b1").innerHTML="Buy a Fault for 10 Points.";
     document.getElementById("b1").style.backgroundColor=(pts>=10?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b1d").style.backgroundColor=(pts>=30?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
@@ -56,8 +56,9 @@ function Loadmiddle(){
     }
     for(var i=0;i<Ugcount;i++){
         var s="";
-        if(gupbought[i]==1)s="rgb(22, 45, 23)";
-        else if(glitch>=Ugcost[i])s="rgb(31, 30, 51)";
+        if(gupbought[i]==1&&wp>=Ugreq[i])s="rgb(22, 45, 23)";
+        else if(glitch>=Ugcost[i]&&wp>=Ugreq[i])s="rgb(31, 30, 51)";
+        else if(wp>=Ugreq[i])s="rgb(16, 15, 26)";
         else s="rgb(0, 0, 0)";
         document.getElementById("ug"+(i+1)).style.backgroundColor=s;
     }
