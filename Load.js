@@ -15,6 +15,9 @@ function Loadheader(){
 }
 function Loadmiddle(){
     if(glitchcount>=1)document.getElementById("c1").style="";
+    if(glitchcount>=1)document.getElementById("c1x").style="width: 10px;";
+    if(gupbought[15])document.getElementById("c2").style="";
+    if(gupbought[15])document.getElementById("c2x").style="width: 10px;";
     document.getElementById("t1").innerHTML=nt(t1);
     document.getElementById("eff1").innerHTML="Gives you "+nt((t1>8?2*Math.pow(t1,0.67):t1)*Math.pow(2,t5))+" Points every click."+(t1>8?" (Softcapped)":"");
     document.getElementById("b1").innerHTML="Buy a Fault for 10 Points.";
