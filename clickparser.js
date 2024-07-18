@@ -20,7 +20,7 @@ function gp(){
 	Loadmiddle();
 }
 function calcpts() {
-	var f= Math.pow(2, t5) * (Math.pow(lastgl*gupbought[0] + 1, 0.2)) * (1+2*gupbought[4]*(clickcount<3?1:0)) * (Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2*gupbought[8]));
+	var f= Math.pow(2, t5) * (Math.pow(lastgl*gupbought[0] + 1, 0.13)) * (1+2*gupbought[4]*(clickcount<3?1:0)) * (Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2*gupbought[8]));
 	var g=(t1>8?2*Math.pow(t1,0.67):t1);
 	return f*g;
 }
@@ -47,8 +47,8 @@ function buy1x2(){
 	}
 }
 function buy2(){
-	if(t1>=10){
-		t1-=10;
+	if(t1>=10-8*gupbought[14]){
+		t1-=(10-8*gupbought[14]);
 		t2++;
 		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
@@ -58,8 +58,8 @@ function buy2(){
 	}
 }
 function buy2x2(){
-	if(t1>=30){
-		t1-=30;
+	if(t1>=30-24*gupbought[14]){
+		t1-=(30-24*gupbought[14]);
 		t2+=2;
 		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
@@ -69,8 +69,8 @@ function buy2x2(){
 	}
 }
 function buy3(){
-	if(t2>=10){
-		t2-=10;
+	if(t2>=10-8*gupbought[14]){
+		t2-=(10-8*gupbought[14]);
 		t3++;
 		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
@@ -80,8 +80,8 @@ function buy3(){
 	}
 }
 function buy3x2(){
-	if(t2>=30){
-		t2-=30;
+	if(t2>=30-24*gupbought[14]){
+		t2-=(30-24*gupbought[14]);
 		t3+=2;
 		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
@@ -91,8 +91,8 @@ function buy3x2(){
 	}
 }
 function buy4(){
-	if(t3>=10){
-		t3-=10;
+	if(t3>=10-8*gupbought[14]){
+		t3-=(10-8*gupbought[14]);
 		t4++;
 		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
@@ -102,8 +102,8 @@ function buy4(){
 	}
 }
 function buy4x2(){
-	if(t3>=30){
-		t3-=30;
+	if(t3>=30-24*gupbought[14]){
+		t3-=(30-24*gupbought[14]);
 		t4+=2;
 		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9]);
 		parsegoal();
@@ -145,7 +145,12 @@ function glitchreset(){
 	t5=0;
 }
 function calcglitch() {
-	return ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2+0.25*gupbought[10]))) + 1) * Math.pow((pts / 1000),0.3)*(1+0.4*gupbought[1]);
+	var t = Math.pow((pts / 1000), 0.43); //Base
+	t *= ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10]))) + 1); //Willpower bonus
+	t *= (1 + 0.4 * gupbought[1]); //Glitch Upgrade 1x2
+	t = Math.pow(t, 1 + 0.1 * gupbought[13]); //Glitch Upgrade 4x2
+	if (pts <= 0.6 * bestpt) t *= 0.4; //Idle penalty
+	return t;
 }
 
 function st1(){

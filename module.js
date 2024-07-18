@@ -19,7 +19,7 @@ function LoadItem(handle){
     return localStorage.getItem(handle);
 }
 function Hide(handle){
-    document.getElementById(handle).style="visibility: hidden; position: absolute; top: 320px; z-index: -1; width: 100%;";
+    document.getElementById(handle).style="display: none; position: absolute; top: 320px; z-index: -1; width: 100%;";
 }
 function Unhide(handle){
     document.getElementById(handle).style="position: absolute; top: 320px; z-index: 0; width: 100%;";

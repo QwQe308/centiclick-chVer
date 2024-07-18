@@ -20,11 +20,11 @@
 							<div style="font-size: 18px; color: white;">You have </div>
 						</div>
 						<div style="width: 10px;"></div>
-						<div style="display: flex; flex-direction: column; justify-content: center">
+						<div style="display: flex; flex-direction: column; justify-content: center;">
 							<div id="points" style="font-size: 22px; color: violet;"></div>
 						</div>
 						<div style="width: 10px;"></div>
-						<div style="display: flex; flex-direction: column; justify-content: center">
+						<div style="display: flex; flex-direction: column; justify-content: center;">
 							<div style="font-size: 18px; color: white;"> Points.</div>
 						</div>
 					</div>
@@ -36,11 +36,11 @@
 							<div id="tmp1" style="font-size: 18px; color: white;">You have clicked </div>
 						</div>
 						<div style="width: 10px;"></div>
-						<div style="display: flex; flex-direction: column; justify-content: center">
+						<div style="display: flex; flex-direction: column; justify-content: center;">
 							<div id="cl" style="font-size: 22px; color: yellowgreen;"></div>
 						</div>
 						<div style="width: 10px;"></div>
-						<div style="display: flex; flex-direction: column; justify-content: center">
+						<div style="display: flex; flex-direction: column; justify-content: center;">
 							<div id="tmp2" style="font-size: 18px; color: white;">/ 100 times this run.</div>
 						</div>
 					</div>
@@ -197,7 +197,7 @@
 							<div style="display: flex; flex-direction: row; width: 30%;">
 								<div style="width: 5%;"></div>
 								<div style="display: flex; flex-direction: column; justify-content: center;">
-									<div style="font-size: 20px; color: white;">Void Thear: </div>
+									<div style="font-size: 20px; color: white;">Void Tear: </div>
 								</div>
 								<div style="width: 13px;"></div>
 								<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -214,20 +214,21 @@
 							</div>
 						</div>
 					</div>
+					<div style="height: 120px;"></div>
 				</div>
-				<div id="ctrl2" style="visibility: hidden; z-index: -1; position: absolute; top: 320px; width: 100%;">
+				<div id="ctrl2" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;">You have </div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div id="wp" style="font-size: 22px; color: white;"></div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
-								<div style="font-size: 18px; color: white;"> Willpower this run.</div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Willpower.</div>
 							</div>
 						</div>
 					</div>
@@ -239,8 +240,14 @@
 					<div style="width: 100%; display: flex; justify-content: center;">
 						<div style="font-size: 14px; color: white;">Goals are like achievements: They never resets.</div>
 					</div>
-					<div style="height: 20px;"></div>
-					<div style="display: flex; flex-direction: row;">
+					<div style="display: flex; flex-direction: column; justify-content: center; z-index: 1;">
+						<div style="height: 15px;"></div>
+						<div style="display: flex; flex-direction: row; justify-content: center;">
+							<button id="cgd" onclick="changegoaldisplay()" style="background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Hide Completed</button>
+						</div>
+					</div>
+					<div id="sp1" style="height: 20px;"></div>
+					<div id="cg1" style="display: flex; flex-direction: row;">
 						<div style="width: 10%;"></div>
 						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
 							<div style="display: flex; flex-direction: row; width: 10%;">
@@ -259,8 +266,8 @@
 							</div>
 						</div>
 					</div>
-					<div style="height: 20px;"></div>
-					<div style="display: flex; flex-direction: row;">
+					<div id="sp2" style="height: 20px;"></div>
+					<div id="cg2" style="display: flex; flex-direction: row;">
                         <div style="width: 10%;"></div>
                         <div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
                             <div style="display: flex; flex-direction: row; width: 10%;">
@@ -279,8 +286,8 @@
                             </div>
                         </div>
                     </div>
-					<div style="height: 20px;"></div>
-					<div style="display: flex; flex-direction: row;">
+					<div id="sp3" style="height: 20px;"></div>
+					<div id="cg3" style="display: flex; flex-direction: row;">
 						<div style="width: 10%;"></div>
 						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
 							<div style="display: flex; flex-direction: row; width: 10%;">
@@ -299,8 +306,8 @@
 							</div>
 						</div>
 					</div>
-					<div style="height: 20px;"></div>
-					<div style="display: flex; flex-direction: row;">
+					<div id="sp4" style="height: 20px;"></div>
+					<div id="cg4" style="display: flex; flex-direction: row;">
 						<div style="width: 10%;"></div>
 						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
 							<div style="display: flex; flex-direction: row; width: 10%;">
@@ -319,19 +326,60 @@
 							</div>
 						</div>
 					</div>
+					<div id="sp5" style="height: 20px;"></div>
+					<div id="cg5" style="display: flex; flex-direction: row;">
+						<div style="width: 10%;"></div>
+						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
+							<div style="display: flex; flex-direction: row; width: 10%;">
+								<div style="width: 5%;"></div>
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="font-size: 20px; color: white;">Goal 5: </div>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: row; width: 70%; justify-content: center;">
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="width: 100%; color: white;">Achieve 100K Points at any time of this run.</div>
+								</div>
+							</div>
+							<div style="height: 100%; display: flex; flex-direction: column; width: 15%; justify-content: center;">
+								<button id="g5" style="font-size: 18px; height: 70%; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;"></button>
+							</div>
+						</div>
+					</div>
+					<div id="sp6" style="height: 20px;"></div>
+					<div id="cg6" style="display: flex; flex-direction: row;">
+						<div style="width: 10%;"></div>
+						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
+							<div style="display: flex; flex-direction: row; width: 10%;">
+								<div style="width: 5%;"></div>
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="font-size: 20px; color: white;">Goal 6: </div>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: row; width: 70%; justify-content: center;">
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="width: 100%; color: white;">Acquire 225 Faults.</div>
+								</div>
+							</div>
+							<div style="height: 100%; display: flex; flex-direction: column; width: 15%; justify-content: center;">
+								<button id="g6" style="font-size: 18px; height: 70%; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;"></button>
+							</div>
+						</div>
+					</div>
+					<div style="height: 120px;"></div>
                 </div>
-				<div id="ctrl3" style="visibility: hidden; z-index: -1; position: absolute; top: 320px; width: 100%;">
+				<div id="ctrl3" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;">You have </div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div id="gl" style="font-size: 22px; color: pink;"></div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;"> Glitches.</div>
 							</div>
 						</div>
@@ -347,6 +395,10 @@
 					<div style="height: 10px;"></div>
 					<div style="width: 100%; display: flex; justify-content: center;">
 						<div id="prom2" style="font-size: 14px; color: white;"></div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div id="promx" style="font-size: 14px; color: white;">You will face a 0.4x penalty if you are gaining too few points.</div>
 					</div>
 					<div style="height: 20px;"></div>
 					<div style="width: 100%; display: flex; flex-direction: row;">
@@ -391,7 +443,7 @@
 							<div style="height: 150px; display: flex; flex-direction: row;">
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug5" onclick="Bg(5)" style="height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-										<div id="desc5">Gain 3x points on the first 3 clicks of every run.</div>
+										<div id="desc5">Gain 3x Points on the first 3 clicks of every run.</div>
 										<div id="cost5">Cost: 50 Glitches.</div>
 										<div>Req: 1 Willpower.</div>
 									</button>
@@ -405,7 +457,7 @@
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug7" onclick="Bg(7)" style="height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-										<div id="desc7">Void Thears are marginally cheaper.</div>
+										<div id="desc7">Void Tears are marginally cheaper.</div>
 										<div id="cost7">Cost: 111 Glitches.</div>
 										<div>Req: 2 Willpower.</div>
 									</button>
@@ -457,19 +509,80 @@
 							</div>
 						</div>
 					</div>
+					<div style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug13" onclick="Bg(13)" style="height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc13">Gain 5x Points on the last 3 clicks of every run.</div>
+										<div id="cost13">Cost: 2500 Glitches.</div>
+										<div>Req: 4 Willpower.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug14" onclick="Bg(14)" style="height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc14">Raise Glitch gain to the power of ^1.10.</div>
+										<div id="cost14">Cost: 5432 Glitches.</div>
+										<div>Req: 5 Willpower.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug15" onclick="Bg(15)" style="height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc15">Cracks, Loopholes and Eradications costs are decreased from 10 to 2.</div>
+										<div id="cost15">Cost: 12345 Glitches.</div>
+										<div>Req: 6 Willpower.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 120px;"></div>
 				</div>
-				<div id="ctrl4" style="visibility: hidden; z-index: -1; position: absolute; top: 320px; width: 100%;">
+				<div id="ctrl4" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;">Version </div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
-								<div style="font-size: 22px; color: royalblue;">indev 0.1.2</div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: cyan;">indev 0.1.3</div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Jul 18 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Added another row of Glitch upgrades.</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Hide completed goal button and visual effect improvement.</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Major bug fixes. (Thanks to @Crimson406)</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Typo fixes. (Thanks to @card reshuffled game)</div>
+					</div>
+					<div style="height: 25px;"></div>
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: cyan;">indev 0.1.2</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;"> Jul 18 2024</div>
 							</div>
 						</div>
@@ -489,11 +602,11 @@
 								<div style="font-size: 18px; color: white;">Version </div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
-								<div style="font-size: 22px; color: royalblue;">indev 0.1.1</div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: cyan;">indev 0.1.1</div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;"> Jul 17 2024</div>
 							</div>
 						</div>
@@ -513,11 +626,11 @@
 								<div style="font-size: 18px; color: white;">Version </div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 22px; color: royalblue;">indev 0.1</div>
 							</div>
 							<div style="width: 10px;"></div>
-							<div style="display: flex; flex-direction: column; justify-content: center">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;"> Jul 17 2024</div>
 							</div>
 						</div>
@@ -530,6 +643,7 @@
 					<div style="width: 100%; display: flex; justify-content: center;">
 						<div style="font-size: 14px; color: white;">- Added 2 rows of Glitch upgrades and 2 goals.</div>
 					</div>
+					<div style="height: 120px;"></div>
 				</div>
 			</div>
 		</main>
