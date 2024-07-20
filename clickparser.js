@@ -5,6 +5,9 @@ var lastpt=0,lastwp=0,bestpt=0,lastgl=0,bestgl=0;
 var tabs=1;
 function clickparser(){
 	clickcount++;
+	if(clickcount%(10-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1))==0)t1+=t2*Math.pow(vtbase(),t5+extravtfromgpower());
+	if(clickcount%(15-4*chalcomplete[0]-6*gupbought[22])==0)t2+=t3*Math.pow(vtbase(),t5+extravtfromgpower());
+	if(clickcount%(20-4*chalcomplete[0])==0)t3+=t4*Math.pow(vtbase(),t5+extravtfromgpower());
 	if(clickcount>=100){
 		glitchreset();
 	}
@@ -16,11 +19,9 @@ function vtbase(){
 }
 function gp(){
 	pts+=calcpts();
-	if(clickcount%(10-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1))==(9-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1)))t1+=t2*Math.pow(vtbase(),t5);
-	if(clickcount%(15-4*chalcomplete[0])==(14-4*chalcomplete[0]))t2+=t3*Math.pow(vtbase(),t5);
-	if(clickcount%(20-4*chalcomplete[0])==(19-4*chalcomplete[0]))t3+=t4*Math.pow(vtbase(),t5);
 	parsegoal();
 	clickparser();
+	if(currentchal==3)for(var i=0;i<4;i++)if(clickcount<100)clickparser();
 	Loadheader();
 	Loadmiddle();
 }
@@ -36,7 +37,7 @@ function buy1(){
 	if(pts>=10){
 		pts-=10;
 		t1++;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -47,7 +48,7 @@ function buy1x2(){
 	if(pts>=30){
 		pts-=30;
 		t1+=2;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -58,7 +59,7 @@ function buy2(){
 	if(t1>=10-8*gupbought[14]*(currentchal==1?0:1)){
 		t1-=(10-8*gupbought[14]*(currentchal==1?0:1));
 		t2++;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -69,7 +70,7 @@ function buy2x2(){
 	if(t1>=30-24*gupbought[14]*(currentchal==1?0:1)){
 		t1-=(30-24*gupbought[14]*(currentchal==1?0:1));
 		t2+=2;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -80,7 +81,7 @@ function buy3(){
 	if(t2>=10-8*gupbought[14]*(currentchal==1?0:1)){
 		t2-=(10-8*gupbought[14]*(currentchal==1?0:1));
 		t3++;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -91,7 +92,7 @@ function buy3x2(){
 	if(t2>=30-24*gupbought[14]*(currentchal==1?0:1)){
 		t2-=(30-24*gupbought[14]*(currentchal==1?0:1));
 		t3+=2;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -102,7 +103,7 @@ function buy4(){
 	if(t3>=10-8*gupbought[14]*(currentchal==1?0:1)){
 		t3-=(10-8*gupbought[14]*(currentchal==1?0:1));
 		t4++;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -113,7 +114,7 @@ function buy4x2(){
 	if(t3>=30-24*gupbought[14]*(currentchal==1?0:1)){
 		t3-=(30-24*gupbought[14]*(currentchal==1?0:1));
 		t4+=2;
-		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1);
+		pts+=0.15*calcpts()*(gupbought[5]+gupbought[9])*(currentchal==1?0:1)*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -124,7 +125,7 @@ function buy5(){
 	if(pts>=vtcost()&&currentchal!=2){
 		pts-=vtcost();
 		t5++;
-		pts+=0.15*calcpts()*(gupbought[5]*(currentchal==1?0:1)+gupbought[9]*(currentchal==1?0:1));
+		pts+=0.15*calcpts()*(gupbought[5]*(currentchal==1?0:1)+gupbought[9]*(currentchal==1?0:1))*(currentchal==3?0:1)*(1+chalcomplete[2]);
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -132,7 +133,7 @@ function buy5(){
 	}
 }
 function vtcost() {
-	var tc=Math.pow(4, t5*(9+t5)/(10+gupbought[6]*(currentchal==1?0:1))) * 300;
+	var tc=Math.pow(4, t5*(3+t5)/(4+0.3*gupbought[6]*(currentchal==1?0:1))) * 300;
 	return tc;
 }
 
@@ -154,6 +155,7 @@ function glitchreset(){
 	t3=0;
 	t4=0;
 	t5=0;
+	if(!gupbought[20])glitchpower=0;
 }
 function calcglitch() {
 	var t = ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10]))) + 1); //Willpower bonus
@@ -162,6 +164,8 @@ function calcglitch() {
 	t *= (1 + 0.4 * gupbought[1]); //Glitch Upgrade 1x2
 	if (pts <= 0.6 * bestpt) t *= 0.4; //Idle penalty
 	if (chalcomplete[0]) t *= 2; //C1 reward
+	if (chalcomplete[1]) t *= 2; //C2 reward
+	if (chalcomplete[2]) t *= 2; //C3 reward
 	return t*(currentchal==1?0:1);
 }
 

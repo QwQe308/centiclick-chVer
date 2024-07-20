@@ -1,6 +1,6 @@
-var goalcomplete=[0,0,0,0,0,0];
-var goalreward=[1,1,1,1,2,1];
-var tg=6;
+var goalcomplete=[0,0,0,0,0,0,0,0];
+var goalreward=[1,1,1,1,2,1,1,1];
+var tg=8;
 function completegoal(num){
 	if(goalcomplete[num]!=1)wp+=goalreward[num];
 	goalcomplete[num]=1;
@@ -12,6 +12,8 @@ function parsegoal(){
 	if(t1>=145)completegoal(3);
 	if(pts>=1e+5)completegoal(4);
 	if(t1>=225)completegoal(5);
+	if(glitchpower>=1000)completegoal(6);
+	if(extravtfromgpower()>=0.5)completegoal(7);
 }
 var hidecompleted=0;
 function changegoaldisplay(){

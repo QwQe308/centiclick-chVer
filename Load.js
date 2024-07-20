@@ -35,7 +35,7 @@ function Loadmiddle(){
     document.getElementById("b2").style.backgroundColor=(t1>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b2d").style.backgroundColor=(t1>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t3").innerHTML=nt(t3);
-    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(vtbase(),t5+extravtfromgpower()))+" Cracks every "+(15-4*chalcomplete[0])+" clicks.";
+    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(vtbase(),t5+extravtfromgpower()))+" Cracks every "+(15-4*chalcomplete[0]-6*gupbought[22])+" clicks.";
     document.getElementById("b3").innerHTML="Buy a Loophole for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Cracks.";
     document.getElementById("b3").style.backgroundColor=(t2>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b3d").style.backgroundColor=(t2>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
@@ -61,10 +61,10 @@ function Loadmiddle(){
     if(gupbought[11])document.getElementById("ct2").style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
     document.getElementById("t6").innerHTML=nt(t6);
     document.getElementById("eff6").innerHTML="Gives you "+nt(gpps())+" Glitch Power every second.";
-    document.getElementById("b6").innerHTML="Buy one for "+gpgcost()+" Glitches.";
+    document.getElementById("b6").innerHTML="Buy one for "+nt(gpgcost())+" Glitches.";
     document.getElementById("b6").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b6m").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
-    document
+    if(gupbought[20])document.getElementById("gpprom").innerHTML="Glitch Power is not resetted on Glitch reset thanks to Glitch Upgrade 6x1."
     for(var i=0;i<tg;i++){
         document.getElementById("g"+(i+1)).innerHTML=(goalcomplete[i]==1?"COMPLETED":("REWARD: "+goalreward[i]+" WP"));
         document.getElementById("g"+(i+1)).style.backgroundColor=(goalcomplete[i]==1?"rgb(60, 179, 113)":"rgb(255, 99, 71)");
@@ -76,8 +76,8 @@ function Loadmiddle(){
     for(var i=0;i<Ugcount;i++){
         var s="";
         if(gupbought[i]==1)s="rgb(22, 45, 23)";
-        else if(glitch>=Ugcost[i]&&wp>=Ugreq[i])s="rgb(31, 30, 51)";
-        else if(wp>=Ugreq[i])s="rgb(16, 15, 26)";
+        else if(glitch>=Ugcost[i]&&buyable(i))s="rgb(31, 30, 51)";
+        else if(buyable(i))s="rgb(16, 15, 26)";
         else s="rgb(0, 0, 0)";
         document.getElementById("ug"+(i+1)).style.backgroundColor=s;
     }
