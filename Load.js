@@ -3,6 +3,10 @@ function Load(){
     Loadheader();
     Loadmiddle();
 }
+function Reload(){
+    Loadheader();
+    Loadmiddle();
+}
 function Loadheader(){
     document.getElementById("points").innerHTML=nt(pts);
     document.getElementById("cl").innerHTML=clickcount;
@@ -18,28 +22,30 @@ function Loadmiddle(){
     if(glitchcount>=1)document.getElementById("c1x").style="width: 10px;";
     if(gupbought[15])document.getElementById("c2").style="";
     if(gupbought[15])document.getElementById("c2x").style="width: 10px;";
+    if(gupbought[17])document.getElementById("c3").style="";
+    if(gupbought[17])document.getElementById("c3x").style="width: 10px;";
     document.getElementById("t1").innerHTML=nt(t1);
-    document.getElementById("eff1").innerHTML="Gives you "+nt(t1*Math.pow(vtbase(),t5))+" Points every click.";
+    document.getElementById("eff1").innerHTML="Gives you "+nt(t1*Math.pow(vtbase(),t5+extravtfromgpower()))+" Points every click.";
     document.getElementById("b1").innerHTML="Buy a Fault for 10 Points.";
     document.getElementById("b1").style.backgroundColor=(pts>=10?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b1d").style.backgroundColor=(pts>=30?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t2").innerHTML=nt(t2);
-    document.getElementById("eff2").innerHTML="Gives you "+nt(t2*Math.pow(vtbase(),t5))+" Faults every "+(10-4*(gupbought[2]+chalcomplete[0]))+" clicks.";
+    document.getElementById("eff2").innerHTML="Gives you "+nt(t2*Math.pow(vtbase(),t5+extravtfromgpower()))+" Faults every "+(10-4*(gupbought[2]+chalcomplete[0]))+" clicks.";
     document.getElementById("b2").innerHTML="Buy a Crack for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Faults.";
     document.getElementById("b2").style.backgroundColor=(t1>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b2d").style.backgroundColor=(t1>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t3").innerHTML=nt(t3);
-    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(vtbase(),t5))+" Cracks every "+(15-4*chalcomplete[0])+" clicks.";
+    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(vtbase(),t5+extravtfromgpower()))+" Cracks every "+(15-4*chalcomplete[0])+" clicks.";
     document.getElementById("b3").innerHTML="Buy a Loophole for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Cracks.";
     document.getElementById("b3").style.backgroundColor=(t2>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b3d").style.backgroundColor=(t2>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t4").innerHTML=nt(t4);
-    document.getElementById("eff4").innerHTML="Gives you "+nt(t4*Math.pow(vtbase(),t5))+" Loopholes every "+(20-4*chalcomplete[0])+" clicks.";
+    document.getElementById("eff4").innerHTML="Gives you "+nt(t4*Math.pow(vtbase(),t5+extravtfromgpower()))+" Loopholes every "+(20-4*chalcomplete[0])+" clicks.";
     document.getElementById("b4").innerHTML="Buy an Eradication for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Loopholes.";
     document.getElementById("b4").style.backgroundColor=(t3>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b4d").style.backgroundColor=(t3>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
-    document.getElementById("t5").innerHTML=nt(t5);
-    document.getElementById("eff5").innerHTML="Multiplies all production by "+nt(Math.pow(vtbase(),t5))+"x.";
+    document.getElementById("t5").innerHTML=""+nt(t5)+""+(extravtfromgpower()>0?(" [+"+nt(extravtfromgpower())+"]"):"");
+    document.getElementById("eff5").innerHTML="Multiplies all production by "+nt(Math.pow(vtbase(),t5+extravtfromgpower()))+"x.";
     document.getElementById("b5").innerHTML="Buy a Void Tear for "+nt(vtcost())+" Points.";
     document.getElementById("b5").style.backgroundColor=(pts>=(vtcost())?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("wp").innerHTML=nt(wp);
@@ -48,11 +54,17 @@ function Loadmiddle(){
     document.getElementById("prom").innerHTML="You have completed "+Math.round(glitchcount)+" Centi-clicks. Last time you got "+nt(lastpt)+" Points = "+nt(lastgl)+" Glitches in 100 clicks.";
     document.getElementById("prom1andahalf").innerHTML="Your highest Point is "+nt(bestpt)+". Your highest Glitch gain on one reset is "+nt(bestgl)+".";
     document.getElementById("prom2").innerHTML="You get Glitches based on Willpower and Points. If you go Glitch now, you will get "+nt(calcglitch())+" Glitches.";
-    document.getElementById("effa1").innerHTML="Currently: "+nt(Math.pow(lastgl + 1, 0.13))+"x";
+    document.getElementById("effa1").innerHTML="Currently: "+nt(Math.pow(lastgl + 1, 0.125+0.075*gupbought[16]))+"x";
     document.getElementById("effa9").innerHTML="Currently: "+nt(Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2))+"x";
     document.getElementById("effa11").innerHTML="Effect: "+nt(((wp+wp*wp+Math.pow(2,0.5*Math.pow(wp,1.2)))+1)/2)+"x -> "+nt(((wp+wp*wp+Math.pow(2,0.5*Math.pow(wp,1.45)))+1)/2)+"x";
     if(gupbought[7])document.getElementById("ct1").style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
     if(gupbought[11])document.getElementById("ct2").style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
+    document.getElementById("t6").innerHTML=nt(t6);
+    document.getElementById("eff6").innerHTML="Gives you "+nt(gpps())+" Glitch Power every second.";
+    document.getElementById("b6").innerHTML="Buy one for "+gpgcost()+" Glitches.";
+    document.getElementById("b6").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
+    document.getElementById("b6m").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
+    document
     for(var i=0;i<tg;i++){
         document.getElementById("g"+(i+1)).innerHTML=(goalcomplete[i]==1?"COMPLETED":("REWARD: "+goalreward[i]+" WP"));
         document.getElementById("g"+(i+1)).style.backgroundColor=(goalcomplete[i]==1?"rgb(60, 179, 113)":"rgb(255, 99, 71)");
@@ -112,6 +124,19 @@ function Loadmiddle(){
             document.getElementById("chal"+j).innerHTML="Start on next run";
         }
     }
+    document.getElementById("pageof").innerHTML="Page "+Page+" of "+mxpage;
+    if(Page==1)document.getElementById("lastpage").style.visibility="hidden";
+    else document.getElementById("lastpage").style.visibility="";
+    if(Page==mxpage)document.getElementById("nextpage").style.visibility="hidden";
+    else document.getElementById("nextpage").style.visibility="";
+	for(var i=0;i<canbeshown.length;i++){
+		if((Page-1)==(Math.floor(i/4)))canbeshown[i]=1;
+		else canbeshown[i]=0;
+	}
+	for(var i=0;i<canbeshown.length;i++){
+		if(canbeshown[i]==0)document.getElementById("ugr"+(i+1)).style.display="none";
+		else document.getElementById("ugr"+(i+1)).style.display="flex";
+	}
 }
 function Loadsave(){
     console.log("Loaded save!");
@@ -121,6 +146,7 @@ function Loadsave(){
     t3=Number(LoadItem("t3"));
     t4=Number(LoadItem("t4"));
     t5=Number(LoadItem("t5"));
+    t6=Number(LoadItem("t6"));
     pts=Number(LoadItem("pts"));
     lastpt=Number(LoadItem("lastpt"));
     bestpt=Number(LoadItem("bestpt"));
@@ -128,6 +154,7 @@ function Loadsave(){
     bestgl=Number(LoadItem("bestgl"));
     glitch=Number(LoadItem("glitch"));
     glitchcount=Number(LoadItem("glitchcount"));
+    glitchpower=Number(LoadItem("glitchpower"));
     hidecompleted=Number(LoadItem("hidecompleted"));
     currentchal=Number(LoadItem("currentchal"));
     wp=Number(LoadItem("wp"));
@@ -147,6 +174,7 @@ function Save(){
     SaveItem("t3",t3);
     SaveItem("t4",t4)
     SaveItem("t5",t5);
+    SaveItem("t6",t6);
     SaveItem("pts",pts);
     SaveItem("lastpt",lastpt);
     SaveItem("bestpt",bestpt);
@@ -154,6 +182,7 @@ function Save(){
     SaveItem("bestgl",bestgl);
     SaveItem("glitch",glitch);
     SaveItem("glitchcount",glitchcount);
+    SaveItem("glitchpower",glitchpower);
     SaveItem("hidecompleted",hidecompleted);
     SaveItem("currentchal",currentchal);
     SaveItem("wp",wp);
@@ -180,6 +209,7 @@ setInterval(function(){
         SaveItem("t3",0);
         SaveItem("t4",0);
         SaveItem("t5",0);
+        SaveItem("t6",0);
         SaveItem("pts",0);
         SaveItem("lastpt",0);
         SaveItem("bestpt",0);
@@ -187,6 +217,7 @@ setInterval(function(){
         SaveItem("bestgl",0);
         SaveItem("glitch",0);
         SaveItem("glitchcount",0);
+        SaveItem("glitchpower",0);
         SaveItem("hidecompleted",0);
         SaveItem("currentchal",0);
         SaveItem("wp",0);

@@ -25,9 +25,10 @@ function gp(){
 	Loadmiddle();
 }
 function calcpts() {
-	var f= Math.pow(vtbase(), t5);
-	f*= (Math.pow(lastgl*gupbought[0]*(currentchal==1?0:1) + 1, 0.13));
+	var f= Math.pow(vtbase(), t5+extravtfromgpower());
+	f*= (Math.pow(lastgl*gupbought[0]*(currentchal==1?0:1) + 1, 0.125+0.075*gupbought[16]));
 	f*= (1+2*gupbought[4]*(currentchal==1?0:1)*(clickcount<3?1:0));
+	f*= (1+4*gupbought[12]*(currentchal==1?0:1)*(clickcount>=95?1:0));
 	f*= (Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2*gupbought[8]*(currentchal==1?0:1)));
 	return f*t1;
 }
@@ -155,11 +156,12 @@ function glitchreset(){
 	t5=0;
 }
 function calcglitch() {
-	var t = Math.pow((pts / 1000), 0.43); //Base
-	t *= ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10]))) + 1); //Willpower bonus
-	t *= (1 + 0.4 * gupbought[1]); //Glitch Upgrade 1x2
+	var t = ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10]))) + 1); //Willpower bonus
 	t = Math.pow(t, 1 + 0.1 * gupbought[13]); //Glitch Upgrade 4x2
+	t *= Math.pow((pts / 1000), 0.43); //Base
+	t *= (1 + 0.4 * gupbought[1]); //Glitch Upgrade 1x2
 	if (pts <= 0.6 * bestpt) t *= 0.4; //Idle penalty
+	if (chalcomplete[0]) t *= 2; //C1 reward
 	return t*(currentchal==1?0:1);
 }
 
@@ -170,6 +172,7 @@ function st1(){
 	Hide("ctrl3");
 	Hide("ctrl4");
 	Hide("ctrl5");
+	Hide("ctrl6");
 }
 function st2(){
 	console.log("Set Tab to 2");
@@ -178,6 +181,7 @@ function st2(){
 	Hide("ctrl3");
 	Hide("ctrl4");
 	Hide("ctrl5");
+	Hide("ctrl6");
 }
 function st3(){
 	console.log("Set Tab to 3");
@@ -186,6 +190,7 @@ function st3(){
 	Unhide("ctrl3");
 	Hide("ctrl4");
 	Hide("ctrl5");
+	Hide("ctrl6");
 }
 function st4(){
 	console.log("Set Tab to 4");
@@ -194,6 +199,7 @@ function st4(){
 	Hide("ctrl3");
 	Unhide("ctrl4");
 	Hide("ctrl5");
+	Hide("ctrl6");
 }
 function st5(){
 	console.log("Set Tab to 5");
@@ -202,4 +208,14 @@ function st5(){
 	Hide("ctrl3");
 	Hide("ctrl4");
 	Unhide("ctrl5");
+	Hide("ctrl6");
+}
+function st6(){
+	console.log("Set Tab to 6");
+	Hide("ctrl1");
+	Hide("ctrl2");
+	Hide("ctrl3");
+	Hide("ctrl4");
+	Hide("ctrl5");
+	Unhide("ctrl6");
 }
