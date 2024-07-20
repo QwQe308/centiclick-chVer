@@ -2,7 +2,11 @@ var goalcomplete=[0,0,0,0,0,0,0,0];
 var goalreward=[1,1,1,1,2,1,1,1];
 var tg=8;
 function completegoal(num){
-	if(goalcomplete[num]!=1)wp+=goalreward[num];
+	if(goalcomplete[num]!=1){
+		wp+=goalreward[num];
+		tl=3000;
+		document.getElementById("completeprom").innerHTML="Goal "+(num+1)+" completed!";
+	}
 	goalcomplete[num]=1;
 }
 function parsegoal(){

@@ -28,10 +28,15 @@ function EnterChal(num){
 	}
 	Loadmiddle();
 }
+function awa(num){
+	chalcomplete[num]=1;
+	tl=3000;
+	document.getElementById("completeprom").innerHTML="Challenge "+(num+1)+" completed!";
+}
 function parsechallenge(){
-	if(currentchal==1&&pts>=1070)chalcomplete[0]=1;
-	if(currentchal==2&&pts>=52000)chalcomplete[1]=1;
-	if(currentchal==3&&pts>=2.34e+14)chalcomplete[2]=1;
+	if(currentchal==1&&pts>=1070)awa(0);
+	if(currentchal==2&&pts>=52000)awa(1);
+	if(currentchal==3&&pts>=2.34e+14)awa(2);
 }
 function dpage(num){
 	Page+=num;
@@ -63,8 +68,16 @@ function buy6max(){
 function gpps(){
 	return t6*(Math.pow(4+2*gupbought[18],t6));
 }
+var tl=0;
 setInterval(function(){
 	glitchpower+=gpps()/20;
 	document.getElementById("gpnum").innerHTML=nt(glitchpower);
 	document.getElementById("gpeff").innerHTML=nt(extravtfromgpower());
+	tl-=50;
+	if(tl<=0)document.getElementById("completeprom").style.display="none";
+	else if(tl<=1000)document.getElementById("completeprom").style.opacity=(""+Math.floor(tl/10)+"%");
+	else{
+		document.getElementById("completeprom").style.display="";
+		document.getElementById("completeprom").style.opacity="100%";
+	}
 },50);
