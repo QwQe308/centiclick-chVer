@@ -9,23 +9,27 @@ function clickparser(){
 		glitchreset();
 	}
 }
+function vtbase(){
+	var base=2;
+	if(chalcomplete[1])base+=0.2; //C2
+	return base;
+}
 function gp(){
 	pts+=calcpts();
-	if(clickcount%(10-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1))==(9-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1)))t1+=t2*Math.pow(2,t5);
-	if(clickcount%(15-4*chalcomplete[0])==(14-4*chalcomplete[0]))t2+=t3*Math.pow(2,t5);
-	if(clickcount%(20-4*chalcomplete[0])==(19-4*chalcomplete[0]))t3+=t4*Math.pow(2,t5);
+	if(clickcount%(10-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1))==(9-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1)))t1+=t2*Math.pow(vtbase(),t5);
+	if(clickcount%(15-4*chalcomplete[0])==(14-4*chalcomplete[0]))t2+=t3*Math.pow(vtbase(),t5);
+	if(clickcount%(20-4*chalcomplete[0])==(19-4*chalcomplete[0]))t3+=t4*Math.pow(vtbase(),t5);
 	parsegoal();
 	clickparser();
 	Loadheader();
 	Loadmiddle();
 }
 function calcpts() {
-	var f= Math.pow(2, t5);
+	var f= Math.pow(vtbase(), t5);
 	f*= (Math.pow(lastgl*gupbought[0]*(currentchal==1?0:1) + 1, 0.13));
 	f*= (1+2*gupbought[4]*(currentchal==1?0:1)*(clickcount<3?1:0));
 	f*= (Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2*gupbought[8]*(currentchal==1?0:1)));
-	var g=(t1>8?2*Math.pow(t1,0.67):t1);
-	return f*g;
+	return f*t1;
 }
 function buy1(){
 	if(pts>=10){
@@ -116,7 +120,7 @@ function buy4x2(){
 	}
 }
 function buy5(){
-	if(pts>=vtcost()){
+	if(pts>=vtcost()&&currentchal!=2){
 		pts-=vtcost();
 		t5++;
 		pts+=0.15*calcpts()*(gupbought[5]*(currentchal==1?0:1)+gupbought[9]*(currentchal==1?0:1));

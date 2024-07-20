@@ -19,27 +19,27 @@ function Loadmiddle(){
     if(gupbought[15])document.getElementById("c2").style="";
     if(gupbought[15])document.getElementById("c2x").style="width: 10px;";
     document.getElementById("t1").innerHTML=nt(t1);
-    document.getElementById("eff1").innerHTML="Gives you "+nt((t1>8?2*Math.pow(t1,0.67):t1)*Math.pow(2,t5))+" Points every click."+(t1>8?" (Softcapped)":"");
+    document.getElementById("eff1").innerHTML="Gives you "+nt(t1*Math.pow(vtbase(),t5))+" Points every click.";
     document.getElementById("b1").innerHTML="Buy a Fault for 10 Points.";
     document.getElementById("b1").style.backgroundColor=(pts>=10?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b1d").style.backgroundColor=(pts>=30?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t2").innerHTML=nt(t2);
-    document.getElementById("eff2").innerHTML="Gives you "+nt(t2*Math.pow(2,t5))+" Faults every "+(10-4*(gupbought[2]+chalcomplete[0]))+" clicks.";
+    document.getElementById("eff2").innerHTML="Gives you "+nt(t2*Math.pow(vtbase(),t5))+" Faults every "+(10-4*(gupbought[2]+chalcomplete[0]))+" clicks.";
     document.getElementById("b2").innerHTML="Buy a Crack for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Faults.";
     document.getElementById("b2").style.backgroundColor=(t1>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b2d").style.backgroundColor=(t1>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t3").innerHTML=nt(t3);
-    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(2,t5))+" Cracks every "+(15-4*chalcomplete[0])+" clicks.";
+    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(vtbase(),t5))+" Cracks every "+(15-4*chalcomplete[0])+" clicks.";
     document.getElementById("b3").innerHTML="Buy a Loophole for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Cracks.";
     document.getElementById("b3").style.backgroundColor=(t2>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b3d").style.backgroundColor=(t2>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t4").innerHTML=nt(t4);
-    document.getElementById("eff4").innerHTML="Gives you "+nt(t4*Math.pow(2,t5))+" Loopholes every "+(20-4*chalcomplete[0])+" clicks.";
+    document.getElementById("eff4").innerHTML="Gives you "+nt(t4*Math.pow(vtbase(),t5))+" Loopholes every "+(20-4*chalcomplete[0])+" clicks.";
     document.getElementById("b4").innerHTML="Buy an Eradication for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Loopholes.";
     document.getElementById("b4").style.backgroundColor=(t3>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b4d").style.backgroundColor=(t3>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t5").innerHTML=nt(t5);
-    document.getElementById("eff5").innerHTML="Multiplies all production by "+nt(Math.pow(2,t5))+"x.";
+    document.getElementById("eff5").innerHTML="Multiplies all production by "+nt(Math.pow(vtbase(),t5))+"x.";
     document.getElementById("b5").innerHTML="Buy a Void Tear for "+nt(vtcost())+" Points.";
     document.getElementById("b5").style.backgroundColor=(pts>=(vtcost())?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("wp").innerHTML=nt(wp);
@@ -56,6 +56,10 @@ function Loadmiddle(){
     for(var i=0;i<tg;i++){
         document.getElementById("g"+(i+1)).innerHTML=(goalcomplete[i]==1?"COMPLETED":("REWARD: "+goalreward[i]+" WP"));
         document.getElementById("g"+(i+1)).style.backgroundColor=(goalcomplete[i]==1?"rgb(60, 179, 113)":"rgb(255, 99, 71)");
+    }
+    if(currentchal==2){
+        document.getElementById("b5").innerHTML="Locked by Challenge 2.";
+        document.getElementById("b5").style.backgroundColor=("rgb(60, 60, 60)");
     }
     for(var i=0;i<Ugcount;i++){
         var s="";

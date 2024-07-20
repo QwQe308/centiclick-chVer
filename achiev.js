@@ -11,13 +11,13 @@ function Bg(num){
 	Loadheader();
 	Loadmiddle();
 }
-var totalchal=1;
-var chalcomplete=[0];
+var totalchal=2;
+var chalcomplete=[0,0];
 var currentchal=0,pendingchal=0;
-function EnterChal1(){
+function EnterChal(num){
 	if(currentchal==0){
-		if(pendingchal==1)pendingchal=0;
-		else if(pendingchal==0)pendingchal=1;
+		if(pendingchal==num)pendingchal=0;
+		else if(pendingchal==0)pendingchal=num;
 	}
 	Loadmiddle();
 }
