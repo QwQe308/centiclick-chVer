@@ -50,4 +50,5 @@ function stagereset(){
     for(var i=0;i<tg;i++)goalcomplete[i]=0;
     for(var i=0;i<Ugcount;i++)gupbought[i]=0;
     for(var i=0;i<totalchal;i++)chalcomplete[i]=0;
+    gupbought[15]=1;
 }

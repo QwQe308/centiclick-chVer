@@ -60,6 +60,8 @@ function Loadmiddle(){
     document.getElementById("effa9").innerHTML="Currently: "+nt(Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2))+"x";
     document.getElementById("effa11").innerHTML="Effect: "+nt(((wp+wp*wp+Math.pow(2,0.5*Math.pow(wp,1.2)))+1)/2)+"x -> "+nt(((wp+wp*wp+Math.pow(2,0.5*Math.pow(wp,1.45)))+1)/2)+"x";
     document.getElementById("effa25").innerHTML="Effect: "+nt(Math.pow(glitchpower,0.5))+"x";
+    document.getElementById("effa29").innerHTML="Effect: "+nt(glitch)+"x";
+    document.getElementById("effa30").innerHTML="Effect: +"+nt(0.1 * Math.log2(extravtfromgpower()))+"";
     if(gupbought[7])document.getElementById("ct1").style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
     if(gupbought[11])document.getElementById("ct2").style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
     document.getElementById("t6").innerHTML=nt(t6);
@@ -67,6 +69,8 @@ function Loadmiddle(){
     document.getElementById("b6").innerHTML="Buy one for "+nt(gpgcost())+" Glitches.";
     document.getElementById("b6").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b6m").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
+    if(gupbought[29])document.getElementById("gpc1").style.display="";
+    if(gupbought[29])document.getElementById("gpc2").style.display="flex";
     if(gupbought[20])document.getElementById("gpprom").innerHTML="Glitch Power is not resetted on Glitch reset thanks to Glitch Upgrade 6x1.";
     if(stage>=2)document.getElementById("hcp").innerHTML="Extra Void Tears are not hardcapped because of you being in a Malfunctioning Reality!";
     for(var i=0;i<tg;i++){

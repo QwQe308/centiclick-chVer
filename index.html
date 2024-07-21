@@ -2,7 +2,7 @@
 <html style="background-color: black;">
 	<head>
 		<meta charset="utf-8">
-		<title>Centiclick indev 0.1</title>
+		<title>Centiclick indev 0.3.2</title>
 		<link rel="icon" href="pic/test.png">
 		<script src="module.js" ></script>
 		<script src="goal.js" ></script>
@@ -479,6 +479,26 @@
 							</div>
 						</div>
 					</div>
+					<div id="sp12" style="height: 20px;"></div>
+					<div id="cg12" style="display: flex; flex-direction: row;">
+						<div style="width: 10%;"></div>
+						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
+							<div style="display: flex; flex-direction: row; width: 10%;">
+								<div style="width: 5%;"></div>
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="font-size: 20px; color: white;">Goal 12: </div>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: row; width: 70%; justify-content: center;">
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="width: 100%; color: white;">Achieve 6.9 DVg (6.9e69) Points at any time of this run.  Nice.</div>
+								</div>
+							</div>
+							<div style="height: 100%; display: flex; flex-direction: column; width: 15%; justify-content: center;">
+								<button id="g12" style="font-family: inherit; font-size: 18px; height: 70%; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;"></button>
+							</div>
+						</div>
+					</div>
 					<div style="height: 120px;"></div>
                 </div>
 				<div id="ctrl3" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
@@ -608,14 +628,14 @@
 									<button id="ug11" onclick="Bg(11)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc11">[3x3] Willpower's effect on Glitches is better.</div>
 										<div id="effa11"></div>
-										<div id="cost11">Cost: 1671 Glitches.</div>
+										<div id="cost11">Cost: 4000 Glitches.</div>
 										<div>Req: 3 Willpower.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug12" onclick="Bg(12)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc12">[3x4] Unlock the ability to buy two Cracks once at the cost of 30 Faults.</div>
-										<div id="cost12">Cost: 2330 Glitches.</div>
+										<div id="cost12">Cost: 8000 Glitches.</div>
 										<div>Req: 4 Willpower.</div>
 									</button>
 								</div>
@@ -629,28 +649,28 @@
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug13" onclick="Bg(13)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc13">[4x1] Gain 5x Points on the last 3 clicks of every run.</div>
-										<div id="cost13">Cost: 2500 Glitches.</div>
+										<div id="cost13">Cost: 12500 Glitches.</div>
 										<div>Req: 4 Willpower.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug14" onclick="Bg(14)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc14">[4x2] Raise Glitch gain to the power of ^1.10.</div>
-										<div id="cost14">Cost: 5432 Glitches.</div>
+										<div id="cost14">Cost: 25000 Glitches.</div>
 										<div>Req: 5 Willpower.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug15" onclick="Bg(15)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc15">[4x3] Cracks, Loopholes and Eradications costs are decreased from 10 to 2.</div>
-										<div id="cost15">Cost: 12345 Glitches.</div>
+										<div id="cost15">Cost: 80000 Glitches.</div>
 										<div>Req: 6 Willpower.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug16" onclick="Bg(16)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc16">[4x4] Unlocks Challenges.</div>
-										<div id="cost16">Cost: 40000 Glitches.</div>
+										<div id="cost16">Cost: 200 K Glitches.</div>
 										<div>Req: 7 Willpower.</div>
 									</button>
 								</div>
@@ -664,28 +684,28 @@
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug17" onclick="Bg(17)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc17">[5x1] Glitch Upgrade 1x1 effect is raised. (^1.6)</div>
-										<div id="cost17">Cost: 1.00 B Glitches.</div>
+										<div id="cost17">Cost: 5.00 B Glitches.</div>
 										<div>Req: Challenge 1 Completed.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug18" onclick="Bg(18)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc18">[5x2] Unlocks the Glitch Power Generator.</div>
-										<div id="cost18">Cost: 10.0 B Glitches.</div>
+										<div id="cost18">Cost: 50.0 B Glitches.</div>
 										<div>Req: Challenge 1 Completed.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug19" onclick="Bg(19)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc19">[5x3] Increases Glitch Power Generators' multiplier per purchase. (x4 -> x6)</div>
-										<div id="cost19">Cost: 50.0 B Glitches.</div>
+										<div id="cost19">Cost: 300 B Glitches.</div>
 										<div>Req: Challenge 1 Completed.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug20" onclick="Bg(20)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc20">[5x4] Decreases Glitch Power Generators' cost scaling.</div>
-										<div id="cost20">Cost: 100 B Glitches.</div>
+										<div id="cost20">Cost: 600 B Glitches.</div>
 										<div>Req: Challenge 1 Completed.</div>
 									</button>
 								</div>
@@ -699,28 +719,28 @@
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug21" onclick="Bg(21)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc21">[6x1] Glitch Power is no longer reset on Glitch reset.</div>
-										<div id="cost21">Cost: 175B Glitches.</div>
+										<div id="cost21">Cost: 500 B Glitches.</div>
 										<div>Req: Challenge 2 Completed.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug22" onclick="Bg(22)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc22">[6x2] You gain 1.5x more Void Tears from Glitch Power.</div>
-										<div id="cost22">Cost: 250B Glitches.</div>
+										<div id="cost22">Cost: 1.00 T Glitches.</div>
 										<div>Req: Challenge 2 Completed.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug23" onclick="Bg(23)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc23">[6x3] Loopholes production interval decreases by 7.</div>
-										<div id="cost23">Cost: 1.00T Glitches.</div>
+										<div id="cost23">Cost: 5.00T Glitches.</div>
 										<div>Req: Challenge 2 Completed.</div>
 									</button>
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug24" onclick="Bg(24)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc24">[6x4] Decreases Glitch Power Generators' cost scaling again.</div>
-										<div id="cost24">Cost: 8.00T Glitches.</div>
+										<div id="cost24">Cost: 30.00T Glitches.</div>
 										<div>Req: Challenge 2 Completed.</div>
 									</button>
 								</div>
@@ -763,6 +783,43 @@
 							</div>
 						</div>
 					</div>
+					<div id="ugr8" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug29" onclick="Bg(29)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc29">[8x1] Glitches boost Glitch Power gain.</div>
+										<div id="cost29">Cost: 10.0 No Glitches.</div>
+										<div id="effa29"></div>
+										<div>Req: In a Malfunctioning Reality.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug30" onclick="Bg(30)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc30">[8x2] Glitch Power boosts Void Tear base by a bit.</div>
+										<div id="cost30">Cost: 100.00 Dc Glitches.</div>
+										<div id="effa30"></div>
+										<div>Req: In a Malfunctioning Reality.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug31" onclick="Bg(31)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc31">[8x3] Void Tear effect boosts Glitch Power gain.</div>
+										<div id="cost31">Cost: 80.0 UDc Glitches.</div>
+										<div>Req: In a Malfunctioning Reality.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug32" onclick="Bg(32)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc32">[8x4] Unlocks Minigames. (In challenges tab)</div>
+										<div id="cost32">Cost: 1.00 DDc Glitches.</div>
+										<div>Req: In a Malfunctioning Reality.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div style="height: 10px;"></div>
 					<div style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly;">
 						<div style="width: 15%;"></div>
@@ -794,6 +851,22 @@
 							<div style="width: 10px;"></div>
 							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 18px; color: white;"> extra Void Tears.</div>
+							</div>
+						</div>
+					</div>
+					<div id="gpc1" style="height: 10px; display: none;"></div>
+					<div id="gpc2" style="display: none; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Your Glitch Power also provides +</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div id="gpeff2" style="font-size: 22px; color: darkseagreen;"></div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> to Void Tear's base.</div>
 							</div>
 						</div>
 					</div>
@@ -869,7 +942,7 @@
 										<div style="height: 28%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
 											<button id="chal2" onclick="EnterChal(2)" style="font-family: inherit; font-size: 16px; height: 36px; width: 55%; border-width: 5px; border-radius: 15px; border-color: lime; background-color: white; color: black;">Start on next run</button>
 										</div>
-										<div style="font-size: 14px; text-align: center; height: 8%;">Goal: 52000 Points.</div>
+										<div style="font-size: 14px; text-align: center; height: 8%;">Goal: 400 K Points.</div>
 										<div style="font-size: 14px; text-align: center; text-align: center; height: 24%;">Reward: Void Tear effect base is improved by a bit. You also get another x2 multiplier to Glitch gain. Isn't that great?</div>
 										<div style="font-size: 14px; text-align: center; height: 8%;">Effect: +0.2</div>
 									</div>
@@ -894,6 +967,46 @@
 					<div style="height: 120px;"></div>
 				</div>
 				<div id="ctrl4" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: plum;">indev 0.3.2</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Jul 21 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Major bug fixes and rebalance, thanks to @ACrazySteve</div>
+					</div>
+					<div style="height: 25px;"></div>
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: plum;">indev 0.3.1</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Jul 21 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Mid-game rebalance.</div>
+					</div>
+					<div style="height: 25px;"></div>
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -1160,7 +1273,7 @@
 				</div>
 				<button id="staged2" onclick="closestage()" style="font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Start</button>
 				<div style="height: 25px;"></div>
-				<div id="staged3" style="font-size: 18px; text-align: center;">Version indev 0.3</div>
+				<div id="staged3" style="font-size: 18px; text-align: center;">Version indev 0.3.2</div>
 				<div id="staged4" style="font-size: 18px; text-align: center;">Developed by l319836</div>
 			</div>
 		</main>
