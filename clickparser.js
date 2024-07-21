@@ -6,8 +6,8 @@ var tabs=1;
 function clickparser(){
 	clickcount++;
 	if(clickcount%(10-4*(gupbought[2]+chalcomplete[0])*(currentchal==1?0:1))==0)t1+=t2*Math.pow(vtbase(),t5+extravtfromgpower());
-	if(clickcount%(15-4*chalcomplete[0]-6*gupbought[22])==0)t2+=t3*Math.pow(vtbase(),t5+extravtfromgpower());
-	if(clickcount%(20-4*chalcomplete[0])==0)t3+=t4*Math.pow(vtbase(),t5+extravtfromgpower());
+	if(clickcount%(15-4*chalcomplete[0]-7*gupbought[22])==0)t2+=t3*Math.pow(vtbase(),t5+extravtfromgpower());
+	if(clickcount%(20-4*chalcomplete[0]-10*gupbought[26])==0)t3+=t4*Math.pow(vtbase(),t5+extravtfromgpower());
 	if(clickcount>=100){
 		glitchreset();
 	}
@@ -15,6 +15,7 @@ function clickparser(){
 function vtbase(){
 	var base=2;
 	if(chalcomplete[1])base+=0.2; //C2
+	if(gupbought[25])base+=0.3; //Glitch Upgrade 7x2
 	return base;
 }
 function gp(){
@@ -141,7 +142,7 @@ function glitchreset(){
 	parsechallenge();
 	currentchal=pendingchal;
 	pendingchal=0;
-	if(glitchcount==0)st3();
+	if(glitchcount==0&&stage==0)st3();
 	glitchcount++;
 	lastgl=calcglitch();
 	if(bestgl<calcglitch())bestgl=calcglitch();
@@ -158,7 +159,7 @@ function glitchreset(){
 	if(!gupbought[20])glitchpower=0;
 }
 function calcglitch() {
-	var t = ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10]))) + 1); //Willpower bonus
+	var t = ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10] + 0.05 * stage))) + 1); //Willpower bonus
 	t = Math.pow(t, 1 + 0.1 * gupbought[13]); //Glitch Upgrade 4x2
 	t *= Math.pow((pts / 1000), 0.43); //Base
 	t *= (1 + 0.4 * gupbought[1]); //Glitch Upgrade 1x2
@@ -170,56 +171,65 @@ function calcglitch() {
 }
 
 function st1(){
-	console.log("Set Tab to 1");
 	Unhide("ctrl1");
 	Hide("ctrl2");
 	Hide("ctrl3");
 	Hide("ctrl4");
 	Hide("ctrl5");
 	Hide("ctrl6");
+	Hide("ctrl7");
 }
 function st2(){
-	console.log("Set Tab to 2");
 	Hide("ctrl1");
 	Unhide("ctrl2");
 	Hide("ctrl3");
 	Hide("ctrl4");
 	Hide("ctrl5");
 	Hide("ctrl6");
+	Hide("ctrl7");
 }
 function st3(){
-	console.log("Set Tab to 3");
 	Hide("ctrl1");
 	Hide("ctrl2");
 	Unhide("ctrl3");
 	Hide("ctrl4");
 	Hide("ctrl5");
 	Hide("ctrl6");
+	Hide("ctrl7");
 }
 function st4(){
-	console.log("Set Tab to 4");
 	Hide("ctrl1");
 	Hide("ctrl2");
 	Hide("ctrl3");
 	Unhide("ctrl4");
 	Hide("ctrl5");
 	Hide("ctrl6");
+	Hide("ctrl7");
 }
 function st5(){
-	console.log("Set Tab to 5");
 	Hide("ctrl1");
 	Hide("ctrl2");
 	Hide("ctrl3");
 	Hide("ctrl4");
 	Unhide("ctrl5");
 	Hide("ctrl6");
+	Hide("ctrl7");
 }
 function st6(){
-	console.log("Set Tab to 6");
 	Hide("ctrl1");
 	Hide("ctrl2");
 	Hide("ctrl3");
 	Hide("ctrl4");
 	Hide("ctrl5");
 	Unhide("ctrl6");
+	Hide("ctrl7");
+}
+function st7(){
+	Hide("ctrl1");
+	Hide("ctrl2");
+	Hide("ctrl3");
+	Hide("ctrl4");
+	Hide("ctrl5");
+	Hide("ctrl6");
+	Unhide("ctrl7");
 }

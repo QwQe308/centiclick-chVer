@@ -1,11 +1,12 @@
-var gupbought=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var Ugcount=24;
-var Ugcost=[4,10,20,35,50,75,111,150,666,1283,1671,2330,2500,5432,12345,40000,1e+9,1e+10,5e+10,1e+11,1.75e+11,2.5e+11,1e12,8e12];
-var Ugreq=[0,0,1,1,1,1,2,2,2,3,3,4,4,5,6,7,0,0,0,0,0,0,0,0];
+var gupbought=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var Ugcount=28;
+var Ugcost=[4,10,20,35,50,75,111,150,666,1283,1671,2330,2500,5432,12345,4e4,1e9,1e10,5e10,1e11,1.75e11,2.5e11,1e12,8e12,1e16,2e21,4e25,8e28];
+var Ugreq=[0,0,1,1,1,1,2,2,2,3,3,4,4,5,6,7,0,0,0,0,0,0,0,0,0,0,0,0];
 function buyable(num){
 	if(num<16)return (wp>=Ugreq[num]);
 	else if(num<20)return (chalcomplete[0]);
 	else if(num<24)return (chalcomplete[1]);
+	else if(num<28)return (stage>=1);
 }
 function Bg(num){
 	num=num-1;
@@ -20,7 +21,7 @@ var totalchal=3;
 var chalcomplete=[0,0,0];
 var currentchal=0,pendingchal=0;
 var Page=1,mxpage=2;
-var canbeshown=[1,1,1,1,0,0];
+var canbeshown=[1,1,1,1,0,0,0];
 function EnterChal(num){
 	if(currentchal==0){
 		if(pendingchal==num)pendingchal=0;
@@ -44,10 +45,12 @@ function dpage(num){
 }
 var glitchpower=0,t6=0;
 function extravtfromgpower(){
-	return Math.log2(1+glitchpower)*0.02*(1+0.5*gupbought[21]+chalcomplete[2]);
+	var k=Math.log2(1+glitchpower)*0.02*(1+0.5*gupbought[21]+chalcomplete[2]);
+	if(stage<=1&&k>=6)return 6;
+	else return k;
 }
 function gpgcost(){
-	var x=1e+4*(Math.pow(6-2*gupbought[19]-gupbought[23],t6));
+	var x=1e+4*(Math.pow(6-2*gupbought[19]-gupbought[23],t6-0.6*gupbought[27]));
 	if(t6>=10)x*=Math.pow(1.1,(t6-10)*(t6-10));
 	return x;
 }
@@ -66,7 +69,7 @@ function buy6max(){
 	Loadmiddle();
 }
 function gpps(){
-	return t6*(Math.pow(4+2*gupbought[18],t6));
+	return t6*(Math.pow(4+2*gupbought[18],t6))*Math.pow(glitchpower,0.5*gupbought[24]);
 }
 var tl=0;
 setInterval(function(){
@@ -80,4 +83,6 @@ setInterval(function(){
 		document.getElementById("completeprom").style.display="";
 		document.getElementById("completeprom").style.opacity="100%";
 	}
+    document.getElementById("effa25").innerHTML="Effect: "+nt(Math.pow(glitchpower,0.5))+"x";
+	parsegoal();
 },50);

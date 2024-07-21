@@ -18,12 +18,14 @@ function Loadheader(){
     document.getElementById("getpoint").innerHTML="Click to get "+nt(calcpts())+" points.";
 }
 function Loadmiddle(){
-    if(glitchcount>=1)document.getElementById("c1").style="";
-    if(glitchcount>=1)document.getElementById("c1x").style="width: 10px;";
-    if(gupbought[15])document.getElementById("c2").style="";
-    if(gupbought[15])document.getElementById("c2x").style="width: 10px;";
-    if(gupbought[17])document.getElementById("c3").style="";
-    if(gupbought[17])document.getElementById("c3x").style="width: 10px;";
+    if(glitchcount>=1||stage>=1)document.getElementById("c1").style="";
+    if(glitchcount>=1||stage>=1)document.getElementById("c1x").style="width: 10px;";
+    if(gupbought[15]||stage>=1)document.getElementById("c2").style="";
+    if(gupbought[15]||stage>=1)document.getElementById("c2x").style="width: 10px;";
+    if(gupbought[17]||stage>=1)document.getElementById("c3").style="";
+    if(gupbought[17]||stage>=1)document.getElementById("c3x").style="width: 10px;";
+    if(stage>=1)document.getElementById("c4").style="";
+    if(stage>=1)document.getElementById("c4x").style="width: 10px;";
     document.getElementById("t1").innerHTML=nt(t1);
     document.getElementById("eff1").innerHTML="Gives you "+nt(t1*Math.pow(vtbase(),t5+extravtfromgpower()))+" Points every click.";
     document.getElementById("b1").innerHTML="Buy a Fault for 10 Points.";
@@ -35,12 +37,12 @@ function Loadmiddle(){
     document.getElementById("b2").style.backgroundColor=(t1>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b2d").style.backgroundColor=(t1>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t3").innerHTML=nt(t3);
-    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(vtbase(),t5+extravtfromgpower()))+" Cracks every "+(15-4*chalcomplete[0]-6*gupbought[22])+" clicks.";
+    document.getElementById("eff3").innerHTML="Gives you "+nt(t3*Math.pow(vtbase(),t5+extravtfromgpower()))+" Cracks every "+(15-4*chalcomplete[0]-7*gupbought[22])+" clicks.";
     document.getElementById("b3").innerHTML="Buy a Loophole for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Cracks.";
     document.getElementById("b3").style.backgroundColor=(t2>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b3d").style.backgroundColor=(t2>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("t4").innerHTML=nt(t4);
-    document.getElementById("eff4").innerHTML="Gives you "+nt(t4*Math.pow(vtbase(),t5+extravtfromgpower()))+" Loopholes every "+(20-4*chalcomplete[0])+" clicks.";
+    document.getElementById("eff4").innerHTML="Gives you "+nt(t4*Math.pow(vtbase(),t5+extravtfromgpower()))+" Loopholes every "+(20-4*chalcomplete[0]-10*gupbought[26])+" clicks.";
     document.getElementById("b4").innerHTML="Buy an Eradication for "+(gupbought[14]*(currentchal==1?0:1)?2:10)+" Loopholes.";
     document.getElementById("b4").style.backgroundColor=(t3>=10-8*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b4d").style.backgroundColor=(t3>=30-24*gupbought[14]*(currentchal==1?0:1)?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
@@ -57,6 +59,7 @@ function Loadmiddle(){
     document.getElementById("effa1").innerHTML="Currently: "+nt(Math.pow(lastgl + 1, 0.125+0.075*gupbought[16]))+"x";
     document.getElementById("effa9").innerHTML="Currently: "+nt(Math.pow((((wp+wp*wp+Math.floor(Math.pow(2,0.5*Math.pow(wp,1.3))))+1)/2),0.2))+"x";
     document.getElementById("effa11").innerHTML="Effect: "+nt(((wp+wp*wp+Math.pow(2,0.5*Math.pow(wp,1.2)))+1)/2)+"x -> "+nt(((wp+wp*wp+Math.pow(2,0.5*Math.pow(wp,1.45)))+1)/2)+"x";
+    document.getElementById("effa25").innerHTML="Effect: "+nt(Math.pow(glitchpower,0.5))+"x";
     if(gupbought[7])document.getElementById("ct1").style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
     if(gupbought[11])document.getElementById("ct2").style="height: 100%; display: flex; flex-direction: column; justify-content: center;";
     document.getElementById("t6").innerHTML=nt(t6);
@@ -64,7 +67,8 @@ function Loadmiddle(){
     document.getElementById("b6").innerHTML="Buy one for "+nt(gpgcost())+" Glitches.";
     document.getElementById("b6").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
     document.getElementById("b6m").style.backgroundColor=(pts>=gpgcost()?"rgb(31, 30, 51)":"rgb(60, 60, 60)");
-    if(gupbought[20])document.getElementById("gpprom").innerHTML="Glitch Power is not resetted on Glitch reset thanks to Glitch Upgrade 6x1."
+    if(gupbought[20])document.getElementById("gpprom").innerHTML="Glitch Power is not resetted on Glitch reset thanks to Glitch Upgrade 6x1.";
+    if(stage>=2)document.getElementById("hcp").innerHTML="Extra Void Tears are not hardcapped because of you being in a Malfunctioning Reality!";
     for(var i=0;i<tg;i++){
         document.getElementById("g"+(i+1)).innerHTML=(goalcomplete[i]==1?"COMPLETED":("REWARD: "+goalreward[i]+" WP"));
         document.getElementById("g"+(i+1)).style.backgroundColor=(goalcomplete[i]==1?"rgb(60, 179, 113)":"rgb(255, 99, 71)");
@@ -133,10 +137,15 @@ function Loadmiddle(){
 		if((Page-1)==(Math.floor(i/4)))canbeshown[i]=1;
 		else canbeshown[i]=0;
 	}
+    if(stage<1)canbeshown[6]=0;
 	for(var i=0;i<canbeshown.length;i++){
 		if(canbeshown[i]==0)document.getElementById("ugr"+(i+1)).style.display="none";
 		else document.getElementById("ugr"+(i+1)).style.display="flex";
 	}
+    if(stage==1)document.getElementById("realityname").innerHTML="You are currently in a Glitched Reality.";
+    if(stage==2)document.getElementById("realityname").innerHTML="You are currently in a Malfunctioning Reality.";
+    if(stage==1)document.getElementById("perks").innerHTML="Willpower effect's exponent's exponent +0.05.";
+    if(stage==2)document.getElementById("perks").innerHTML="Willpower effect's exponent's exponent +0.10.<br>Remove Extra Void Tear's hardcap.";
 }
 function Loadsave(){
     console.log("Loaded save!");
@@ -157,6 +166,7 @@ function Loadsave(){
     glitchpower=Number(LoadItem("glitchpower"));
     hidecompleted=Number(LoadItem("hidecompleted"));
     currentchal=Number(LoadItem("currentchal"));
+    stage=Number(LoadItem("stage"));
     wp=Number(LoadItem("wp"));
     var ttf=LoadItem("ttf");
     if(ttf!="2221")Wipe=1;
@@ -185,6 +195,7 @@ function Save(){
     SaveItem("glitchpower",glitchpower);
     SaveItem("hidecompleted",hidecompleted);
     SaveItem("currentchal",currentchal);
+    SaveItem("stage",stage);
     SaveItem("wp",wp);
     SaveItem("ttf","2221");
 	var tmp="";
@@ -220,7 +231,9 @@ setInterval(function(){
         SaveItem("glitchpower",0);
         SaveItem("hidecompleted",0);
         SaveItem("currentchal",0);
+        SaveItem("stage",0);
         SaveItem("wp",0);
+        SaveItem("ttf","2221");
         var tmp="";
         for(var i=0;i<tg;i++)tmp+="0";
         localStorage.setItem('rigc',tmp);
