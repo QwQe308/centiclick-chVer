@@ -142,6 +142,7 @@ function Loadmiddle(){
 		else canbeshown[i]=0;
 	}
     if(stage<1)canbeshown[6]=0;
+    if(stage<2)canbeshown[7]=0;
 	for(var i=0;i<canbeshown.length;i++){
 		if(canbeshown[i]==0)document.getElementById("ugr"+(i+1)).style.display="none";
 		else document.getElementById("ugr"+(i+1)).style.display="flex";
