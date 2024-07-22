@@ -2,13 +2,14 @@
 <html style="background-color: black;">
 	<head>
 		<meta charset="utf-8">
-		<title>Centiclick indev 0.3.2</title>
+		<title>Centiclick indev 0.3.3</title>
 		<link rel="icon" href="pic/test.png">
 		<script src="module.js" ></script>
 		<script src="goal.js" ></script>
 		<script src="Load.js" ></script>
 		<script src="clickparser.js" ></script>
 		<script src="achiev.js" ></script>
+		<script src="minigame1.js" ></script>
 		<script src="stage.js" ></script>
 		<script src="notation.js" ></script>
 	</head>
@@ -499,6 +500,26 @@
 							</div>
 						</div>
 					</div>
+					<div id="sp13" style="height: 20px;"></div>
+					<div id="cg13" style="display: flex; flex-direction: row;">
+						<div style="width: 10%;"></div>
+						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
+							<div style="display: flex; flex-direction: row; width: 10%;">
+								<div style="width: 5%;"></div>
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="font-size: 20px; color: white;">Goal 13: </div>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: row; width: 70%; justify-content: center;">
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="width: 100%; color: white;">Complete minigame A.</div>
+								</div>
+							</div>
+							<div style="height: 100%; display: flex; flex-direction: column; width: 15%; justify-content: center;">
+								<button id="g13" style="font-family: inherit; font-size: 18px; height: 70%; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;"></button>
+							</div>
+						</div>
+					</div>
 					<div style="height: 120px;"></div>
                 </div>
 				<div id="ctrl3" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
@@ -956,7 +977,7 @@
 										<div style="height: 28%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
 											<button id="chal3" onclick="EnterChal(3)" style="font-family: inherit; font-size: 16px; height: 36px; width: 55%; border-width: 5px; border-radius: 15px; border-color: lime; background-color: white; color: black;">Start on next run</button>
 										</div>
-										<div style="font-size: 14px; text-align: center; height: 8%;">Goal: 234T Points.</div>
+										<div style="font-size: 14px; text-align: center; height: 8%;">Goal: 100 Qa Points.</div>
 										<div style="font-size: 14px; text-align: center; height: 24%;">Reward: Glitch Upgrades 2x2 and 3x2 are stronger. Buff Glitch Upgrade 6x2 by +1. Also 2x Glitch gain.</div>
 										<div style="font-size: 14px; text-align: center; height: 8%;">Effect: x2</div>
 									</div>
@@ -964,9 +985,59 @@
 							</div>
 						</div>
 					</div>
+					<div style="height: 20px;"></div>
+					<div id="mg" style="width: 100%; display: none; flex-direction: row;">
+						<div style="width: 10%;"></div>
+						<div style="width: 80%; display: flex; flex-direction: column;">
+							<div style="height: 300px; display: flex; flex-direction: row;">
+								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
+									<div style="height: 95%; width: 95%; background-color: black; color: white; border: groove; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div style="font-size: 18px; text-align: center; height: 8%;">Minigame A</div>
+										<div style="font-size: 14px; text-align: center; height: 8%;">The Color Ring</div>
+										<div style="font-size: 14px; text-align: center; height: 16%;">Try to figure out how the game works! (the minigame only works while you are in it.)</div>
+										<div style="height: 28%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+											<button id="chal4" onclick="Entermg1()" style="font-family: inherit; font-size: 16px; height: 36px; width: 55%; border-width: 5px; border-radius: 15px; border-color: lime; background-color: white; color: black;">Click to enter</button>
+										</div>
+										<div style="font-size: 14px; text-align: center; height: 8%;">Goal: 1.00 NNn A-points.</div>
+										<div style="height: 32%;"></div>
+									</div>
+								</div>
+								<div style="width: 2%;"></div>
+								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
+								</div>
+								<div style="width: 2%;"></div>
+								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
+								</div>
+							</div>
+						</div>
+					</div>
 					<div style="height: 120px;"></div>
 				</div>
 				<div id="ctrl4" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: plum;">indev 0.3.3</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Jul 22 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Added a new row of Glitch upgrades.</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Added a minigame.</div>
+					</div>
+					<div style="height: 25px;"></div>
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -1265,7 +1336,7 @@
 			</div>
             <button onclick="Reload()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Reload</button>
             <button onclick="Save()" style="position: fixed; top: 55px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Save</button>
-			<button id="completeprom" style="position: absolute; top: 10px; left: 10px; z-index: 2; font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">TEST MESSAGE</button>
+			<button id="completeprom" style="position: absolute; top: 10px; left: 10px; z-index: 75; font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">TEST MESSAGE</button>
 			<div id="stage" style="z-index: 100; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; color: white; display: flex; flex-direction: column; align-items: center;">
 				<div style="height: 10%;"></div>
 				<div style="height: 60%; display: flex; flex-direction: column; justify-content: center;">
@@ -1273,8 +1344,45 @@
 				</div>
 				<button id="staged2" onclick="closestage()" style="font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Start</button>
 				<div style="height: 25px;"></div>
-				<div id="staged3" style="font-size: 18px; text-align: center;">Version indev 0.3.2</div>
+				<div id="staged3" style="font-size: 18px; text-align: center;">Version indev 0.3.3</div>
 				<div id="staged4" style="font-size: 18px; text-align: center;">Developed by l319836</div>
+			</div>
+			<div id="mg1" style="z-index: -50; display: none; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; color: white; flex-direction: column; align-items: center;">
+				<button id="mg10" onclick="mgbuy(0)" style="position: absolute; top: 0px; left: 0px; font-family: inherit; height: 150px; width: 150px; font-size: 22px; background-color: rgb(255,128,128); color: black; border-width: 8px; border-radius: 75px; border-color: red;"></button>
+				<button id="mg11" onclick="mgbuy(1)" style="position: absolute; top: 0px; left: 0px; font-family: inherit; height: 150px; width: 150px; font-size: 22px; background-color: rgb(255,183,128); color: black; border-width: 8px; border-radius: 75px; border-color: rgb(255,112,0);"></button>
+				<button id="mg12" onclick="mgbuy(2)" style="position: absolute; top: 0px; left: 0px; font-family: inherit; height: 150px; width: 150px; font-size: 22px; background-color: rgb(255,255,128); color: black; border-width: 8px; border-radius: 75px; border-color: yellow;"></button>
+				<button id="mg13" onclick="mgbuy(3)" style="position: absolute; top: 0px; left: 0px; font-family: inherit; height: 150px; width: 150px; font-size: 22px; background-color: rgb(128,255,128); color: black; border-width: 8px; border-radius: 75px; border-color: green;"></button>
+				<button id="mg14" onclick="mgbuy(4)" style="position: absolute; top: 0px; left: 0px; font-family: inherit; height: 150px; width: 150px; font-size: 22px; background-color: rgb(128,128,255); color: black; border-width: 8px; border-radius: 75px; border-color: blue;"></button>
+				<button id="mg15" onclick="mgbuy(5)" style="position: absolute; top: 0px; left: 0px; font-family: inherit; height: 150px; width: 150px; font-size: 22px; background-color: rgb(165,128,192); color: black; border-width: 8px; border-radius: 75px; border-color: indigo;"></button>
+				<div id="mg16" style="position: absolute; top: 0px; left: 0px; height: 100px; width: 400px; flex-direction: column; justify-content: center; text-align: center;">
+					<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+						<div style="display: flex; flex-direction: column; justify-content: center;">
+							<div style="font-size: 18px; color: white;">You have </div>
+						</div>
+						<div style="width: 10px;"></div>
+						<div style="display: flex; flex-direction: column; justify-content: center;">
+							<div id="aps1" style="font-size: 22px; color: darkseagreen;"></div>
+						</div>
+						<div style="width: 10px;"></div>
+						<div style="display: flex; flex-direction: column; justify-content: center;">
+							<div style="font-size: 18px; color: white;"> A-points.</div>
+						</div>
+					</div>
+					<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+						<div style="display: flex; flex-direction: column; justify-content: center;">
+							<div style="font-size: 18px; color: white;">(+</div>
+						</div>
+						<div style="width: 10px;"></div>
+						<div style="display: flex; flex-direction: column; justify-content: center;">
+							<div id="aps2" style="font-size: 22px; color: darkseagreen;"></div>
+						</div>
+						<div style="width: 10px;"></div>
+						<div style="display: flex; flex-direction: column; justify-content: center;">
+							<div style="font-size: 18px; color: white;">/s)</div>
+						</div>
+					</div>
+				</div>
+				<button onclick="Exitmg1()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Exit</button>
 			</div>
 		</main>
 	</body>

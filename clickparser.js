@@ -159,8 +159,11 @@ function glitchreset() {
 	t5 = 0;
 	if (!gupbought[20]) glitchpower = 0;
 }
+function wpeffect() {
+	return ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10] + 0.05 * stage))) + 1);
+}
 function calcglitch() {
-	var t = ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10] + 0.05 * stage))) + 1); //Willpower bonus
+	var t = wpeffect(); //Willpower bonus
 	t = Math.pow(t, 1 + 0.1 * gupbought[13]); //Glitch Upgrade 4x2
 	t *= Math.pow((pts / 1000), 0.43); //Base
 	t *= (1 + 0.4 * gupbought[1]); //Glitch Upgrade 1x2
@@ -168,7 +171,7 @@ function calcglitch() {
 	if (chalcomplete[0]) t *= 2; //C1 reward
 	if (chalcomplete[1]) t *= 2; //C2 reward
 	if (chalcomplete[2]) t *= 2; //C3 reward
-	if (t >= 1e+33) t = 1e+33 * (Math.pow(t / 1e+33, 0.5));
+	if (t >= 1e+33) t = 1e+33 * (Math.pow(t / 1e+33, 0.5 + (stage >= 3 ? 0.15 : 0)));
 	return t * (currentchal == 1 ? 0 : 1);
 }
 
