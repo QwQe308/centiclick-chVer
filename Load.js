@@ -141,10 +141,10 @@ function Loadmiddle() {
         document.getElementById("chal4").onclick = "";
     }
     if (bpoint >= 100) {
-        document.getElementById("chal4").style.backgroundColor = "green";
-        document.getElementById("chal4").style.color = "white";
-        document.getElementById("chal4").style.borderColor = "lime";
-        document.getElementById("chal4").innerHTML = "Completed";
+        document.getElementById("chal5").style.backgroundColor = "green";
+        document.getElementById("chal5").style.color = "white";
+        document.getElementById("chal5").style.borderColor = "lime";
+        document.getElementById("chal5").innerHTML = "Completed";
     }
     document.getElementById("pageof").innerHTML = "Page " + Page + " of " + mxpage;
     if (Page == 1) document.getElementById("lastpage").style.visibility = "hidden";
