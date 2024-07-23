@@ -1,6 +1,6 @@
-var goalcomplete = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-var goalreward = [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2];
-var tg = 13;
+var goalcomplete = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var goalreward = [1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2];
+var tg = 14;
 function completegoal(num) {
 	if (goalcomplete[num] != 1) {
 		wp += goalreward[num];
@@ -23,6 +23,7 @@ function parsegoal() {
 	if (pts >= 5e+46) completegoal(10);
 	if (pts >= 6.9e+69) completegoal(11);
 	if (apoint >= m1end) completegoal(12);
+	if (bpoint >= 100) completegoal(13);
 }
 var hidecompleted = 0;
 function changegoaldisplay() {

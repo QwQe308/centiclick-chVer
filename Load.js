@@ -140,6 +140,12 @@ function Loadmiddle() {
         document.getElementById("chal4").innerHTML = "Completed";
         document.getElementById("chal4").onclick = "";
     }
+    if (bpoint >= 100) {
+        document.getElementById("chal4").style.backgroundColor = "green";
+        document.getElementById("chal4").style.color = "white";
+        document.getElementById("chal4").style.borderColor = "lime";
+        document.getElementById("chal4").innerHTML = "Completed";
+    }
     document.getElementById("pageof").innerHTML = "Page " + Page + " of " + mxpage;
     if (Page == 1) document.getElementById("lastpage").style.visibility = "hidden";
     else document.getElementById("lastpage").style.visibility = "";
@@ -183,6 +189,7 @@ function Loadsave() {
     currentchal = Number(LoadItem("currentchal"));
     stage = Number(LoadItem("stage"));
     apoint = Number(LoadItem("apoint"));
+    bpoint = Number(LoadItem("bpoint"));
     wp = Number(LoadItem("wp"));
     var ttf = LoadItem("ttf");
     if (ttf != "2221") Wipe = 1;
@@ -214,6 +221,7 @@ function Save() {
     SaveItem("currentchal", currentchal);
     SaveItem("stage", stage);
     SaveItem("apoint", apoint);
+    SaveItem("bpoint", bpoint);
     SaveItem("wp", wp);
     SaveItem("ttf", "2221");
     var tmp = "";
@@ -251,6 +259,7 @@ setInterval(function () {
         SaveItem("glitchpower", 0);
         SaveItem("hidecompleted", 0);
         SaveItem("currentchal", 0);
+        SaveItem("bpoint", 0);
         SaveItem("stage", 0);
         SaveItem("wp", 0);
         SaveItem("ttf", "2221");

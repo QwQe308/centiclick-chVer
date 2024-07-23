@@ -10,6 +10,8 @@
 		<script src="clickparser.js" ></script>
 		<script src="achiev.js" ></script>
 		<script src="minigame1.js" ></script>
+		<script src="minigame2.js" ></script>
+		<script src="minigame2ans.js" ></script>
 		<script src="stage.js" ></script>
 		<script src="notation.js" ></script>
 	</head>
@@ -520,6 +522,26 @@
 							</div>
 						</div>
 					</div>
+					<div id="sp14" style="height: 20px;"></div>
+					<div id="cg14" style="display: flex; flex-direction: row;">
+						<div style="width: 10%;"></div>
+						<div style="height: 60px; width: 80%; display: flex; flex-direction: row; border: 5px groove white;">
+							<div style="display: flex; flex-direction: row; width: 10%;">
+								<div style="width: 5%;"></div>
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="font-size: 20px; color: white;">Goal 14: </div>
+								</div>
+							</div>
+							<div style="display: flex; flex-direction: row; width: 70%; justify-content: center;">
+								<div style="display: flex; flex-direction: column; justify-content: center;">
+									<div style="width: 100%; color: white;">Complete minigame B.</div>
+								</div>
+							</div>
+							<div style="height: 100%; display: flex; flex-direction: column; width: 15%; justify-content: center;">
+								<button id="g14" style="font-family: inherit; font-size: 18px; height: 70%; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;"></button>
+							</div>
+						</div>
+					</div>
 					<div style="height: 120px;"></div>
                 </div>
 				<div id="ctrl3" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
@@ -992,18 +1014,28 @@
 							<div style="height: 300px; display: flex; flex-direction: row;">
 								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
 									<div style="height: 95%; width: 95%; background-color: black; color: white; border: groove; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-										<div style="font-size: 18px; text-align: center; height: 8%;">Minigame A</div>
-										<div style="font-size: 14px; text-align: center; height: 8%;">The Color Ring</div>
-										<div style="font-size: 14px; text-align: center; height: 16%;">Try to figure out how the game works! (the minigame only works while you are in it.)</div>
-										<div style="height: 28%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+										<div style="font-size: 18px; text-align: center; height: 12%;">Minigame A</div>
+										<div style="font-size: 14px; text-align: center; height: 12%;">The Color Ring</div>
+										<div style="font-size: 14px; text-align: center; height: 20%;">Try to figure out how the game works! (the minigame only works while you are in it.)</div>
+										<div style="height: 32%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
 											<button id="chal4" onclick="Entermg1()" style="font-family: inherit; font-size: 16px; height: 36px; width: 55%; border-width: 5px; border-radius: 15px; border-color: lime; background-color: white; color: black;">Click to enter</button>
 										</div>
-										<div style="font-size: 14px; text-align: center; height: 8%;">Goal: 1.00 NNn A-points.</div>
-										<div style="height: 32%;"></div>
+										<div style="font-size: 14px; text-align: center; height: 12%;">Goal: 1.00 NNn A-points.</div>
+										<div style="height: 12%;"></div>
 									</div>
 								</div>
 								<div style="width: 2%;"></div>
 								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
+									<div style="height: 95%; width: 95%; background-color: black; color: white; border: groove; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div style="font-size: 18px; text-align: center; height: 12%;">Minigame B</div>
+										<div style="font-size: 14px; text-align: center; height: 12%;">Are You A Robot?</div>
+										<div style="font-size: 14px; text-align: center; height: 20%;">Sometimes you have to deal with some annoying things.</div>
+										<div style="height: 32%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+											<button id="chal4" onclick="Entermg2()" style="font-family: inherit; font-size: 16px; height: 36px; width: 55%; border-width: 5px; border-radius: 15px; border-color: lime; background-color: white; color: black;">Click to enter</button>
+										</div>
+										<div style="font-size: 14px; text-align: center; height: 12%;">Goal: 100 B-points.</div>
+										<div style="height: 12%;"></div>
+									</div>
 								</div>
 								<div style="width: 2%;"></div>
 								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
@@ -1383,6 +1415,18 @@
 					</div>
 				</div>
 				<button onclick="Exitmg1()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Exit</button>
+			</div>
+			<div id="mg2" style="z-index: -50; display: none; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; color: white; flex-direction: column; justify-content: center; align-items: center;">
+				<div id="bpt" style="font-size: 22px; color: white; text-align: center;"></div>
+				<div style="height: 30px;"></div>
+				<div id="que" style="font-size: 22px; color: white; text-align: center;"></div>
+				<div style="height: 15px;"></div>
+				<div id="prob" style="width: 100%; display: flex; flex-direction: row; justify-content: center;"></div>
+				<div style="height: 15px;"></div>
+				<button id="connf" onclick="confrrr()" style="z-index: 51; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Confirm</button>
+				<div style="height: 15px;"></div>
+				<div id="res" style="font-size: 22px; color: white; text-align: center;"></div>
+				<button onclick="Exitmg2()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Exit</button>
 			</div>
 		</main>
 	</body>
