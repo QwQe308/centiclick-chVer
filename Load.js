@@ -18,6 +18,10 @@ function Loadheader() {
     document.getElementById("getpoint").innerHTML = "Click to get " + nt(calcpts()) + " points.";
 }
 function Loadmiddle() {
+    wp = 0;
+    for (var i = 0; i < tg; i++)wp += goalcomplete[i] * goalreward[i];
+    if (gupbought[31]) mxpage = 3;
+    else mxpage = 2;
     if (glitchcount >= 1 || stage >= 1) document.getElementById("c1").style = "";
     if (glitchcount >= 1 || stage >= 1) document.getElementById("c1x").style = "width: 10px;";
     if (gupbought[15] || stage >= 1) document.getElementById("c2").style = "";
@@ -60,9 +64,11 @@ function Loadmiddle() {
     document.getElementById("effa1").innerHTML = "Currently: " + nt(Math.pow(lastgl + 1, 0.125 + 0.075 * gupbought[16])) + "x";
     document.getElementById("effa9").innerHTML = "Currently: " + nt(Math.pow((wpeffect() / 2), 0.2)) + "x";
     document.getElementById("effa11").innerHTML = "Effect: " + nt(((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2))) + 1) / 2) + "x -> " + nt(((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.45))) + 1) / 2) + "x";
-    document.getElementById("effa25").innerHTML = "Effect: " + nt(Math.pow(glitchpower, 0.5)) + "x";
-    document.getElementById("effa29").innerHTML = "Effect: " + nt(glitch) + "x";
+    document.getElementById("effa25").innerHTML = "Effect: " + nt(Math.pow(1 + glitchpower, 0.5)) + "x";
+    document.getElementById("effa29").innerHTML = "Effect: " + nt(1 + glitch) + "x";
     document.getElementById("effa30").innerHTML = "Effect: +" + nt(0.1 * Math.log2(extravtfromgpower())) + "";
+    document.getElementById("effa33").innerHTML = "Effect: " + nt(Math.pow(wpeffect(), 3)) + "x";
+    document.getElementById("effa35").innerHTML = "Effect: " + nt(Math.pow(Math.pow(vtbase(), t5 + extravtfromgpower()), 0.35)) + "x";
     if (gupbought[7]) document.getElementById("ct1").style = "height: 100%; display: flex; flex-direction: column; justify-content: center;";
     if (gupbought[11]) document.getElementById("ct2").style = "height: 100%; display: flex; flex-direction: column; justify-content: center;";
     document.getElementById("t6").innerHTML = nt(t6);
@@ -164,9 +170,11 @@ function Loadmiddle() {
     if (stage == 1) document.getElementById("realityname").innerHTML = "You are currently in a Glitched Reality.";
     if (stage == 2) document.getElementById("realityname").innerHTML = "You are currently in a Malfunctioning Reality.";
     if (stage == 3) document.getElementById("realityname").innerHTML = "You are currently in a Meta Reality.";
+    if (stage == 4) document.getElementById("realityname").innerHTML = "You are currently in Florena's Reality.";
     if (stage == 1) document.getElementById("perks").innerHTML = "Willpower effect's exponent's exponent +0.05.";
     if (stage == 2) document.getElementById("perks").innerHTML = "Willpower effect's exponent's exponent +0.10.<br>Remove Extra Void Tear's hardcap.";
     if (stage == 3) document.getElementById("perks").innerHTML = "Willpower effect's exponent's exponent +0.15.<br>Remove Extra Void Tear's hardcap.<br>Glitch gain softcap is slightly lifted.";
+    if (stage == 4) document.getElementById("perks").innerHTML = "Willpower effect's exponent's exponent +0.20.<br>Remove Extra Void Tear's hardcap.<br>Glitch gain softcap is slightly lifted.<br>Minigame progress are kept on any (soft) reset.";
 }
 function Loadsave() {
     console.log("Loaded save!");
@@ -191,6 +199,7 @@ function Loadsave() {
     apoint = Number(LoadItem("apoint"));
     bpoint = Number(LoadItem("bpoint"));
     wp = Number(LoadItem("wp"));
+    tcyc = Number(LoadItem("tcyc"));
     var ttf = LoadItem("ttf");
     if (ttf != "2221") Wipe = 1;
     var tmp = localStorage.getItem('rigc');
@@ -223,12 +232,13 @@ function Save() {
     SaveItem("apoint", apoint);
     SaveItem("bpoint", bpoint);
     SaveItem("wp", wp);
+    SaveItem("tcyc", tcyc);
     SaveItem("ttf", "2221");
     var tmp = "";
     for (var i = 0; i < tg; i++)tmp += goalcomplete[i];
     localStorage.setItem('rigc', tmp);
     tmp = "";
-    for (var i = 0; i < Ugcount; i++)tmp += gupbought[i];
+    for (var i = 0; i < gupbought.length; i++)tmp += gupbought[i];
     localStorage.setItem('rigc2', tmp);
     tmp = "";
     for (var i = 0; i < totalchal; i++)tmp += chalcomplete[i];
@@ -262,12 +272,13 @@ setInterval(function () {
         SaveItem("bpoint", 0);
         SaveItem("stage", 0);
         SaveItem("wp", 0);
+        SaveItem("tcyc", 0);
         SaveItem("ttf", "2221");
         var tmp = "";
         for (var i = 0; i < tg; i++)tmp += "0";
         localStorage.setItem('rigc', tmp);
         tmp = "";
-        for (var i = 0; i < Ugcount; i++)tmp += "0";
+        for (var i = 0; i < gupbought.length; i++)tmp += "0";
         localStorage.setItem('rigc2', tmp);
         tmp = "";
         for (var i = 0; i < totalchal; i++)tmp += "0";

@@ -31,7 +31,22 @@ var prob = [
         "Void Tear",
         "Donald Trump",
         "Arcana Eden",
-        "Compute it with some devilish alcoholic steampunk engines"
+        "Compute it with some devilish alcoholic steampunk engines",
+        "Fracture Ray",
+        "Grievous Lady",
+        "Don't Never Around",
+        "El Condor Pasa",
+        "Meameamealokkapoowa oompa",
+        "Made by l319836.js",
+        "sasakure.UK vs. TJ.Hangneil",
+        "World Ender",
+        "Infinite Strife,",
+        "Innumerably Construct",
+        "Paradoxically Attain",
+        "Existencially Prolong",
+        "Linguistically Expand",
+        "Cosmically Duplicate",
+        "Eternal Flow"
     ],
     [
         "annihilation",
@@ -56,7 +71,17 @@ var prob = [
         "lowiro",
         "subscribe",
         "concvssion",
-        "discrepancy"
+        "discrepancy",
+        "aluminium",
+        "underground",
+        "assassination",
+        "turbulence",
+        "infinite",
+        "eternal",
+        "minigame",
+        "notation",
+        "referee",
+        "mopemope"
     ],
     [
         "+ERABY+E CONNEC+10N",
@@ -75,7 +100,10 @@ var prob = [
         "Destr0yer",
         "DataErr0r",
         "var tql = [1, 1.05, 1.1];",
-        "minecraft:lava_bucket"
+        "minecraft:lava_bucket",
+        "Made by l319836.js",
+        "#1f1e33",
+        "lchzh3473"
     ],
     [
         "JunXion Between Life and Death",
@@ -85,7 +113,8 @@ var prob = [
         "CaSO4 + BaCO3 === BaSO4 + CaCO3",
         "VisuaL StudiO CodE",
         "LeaF HyuN NceS",
-        "DESTRUCTION 3,2,1"
+        "DESTRUCTION 3,2,1",
+        "+ERABY+E CONNEC+10N"
     ],
     [
         "@l319836, You have got into a higher dimension!",
@@ -95,7 +124,8 @@ var prob = [
         "Antimatter Dimensions",
         "Platonic is an MIT graduate.",
         "1.7976e+308",
-        "INFiNiTE ENERZY ~Overdoze~"
+        "INFiNiTE ENERZY ~Overdoze~",
+        "El Condor Pasa"
     ]
 ]
 var probname = [
@@ -170,7 +200,7 @@ function Exitmg2() {
     document.getElementById("connf").style.display = "none";
 }
 function Entermg2() {
-    document.getElementById("mg2").style.zIndex = "50";
+    document.getElementById("mg2").style.zIndex = "110";
     document.getElementById("mg2").style.display = "flex";
     document.getElementById("connf").style.display = "";
     loadgame();

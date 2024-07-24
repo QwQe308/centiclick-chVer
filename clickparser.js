@@ -8,7 +8,7 @@ function clickparser() {
 	if (clickcount % (10 - 4 * (gupbought[2] + chalcomplete[0]) * (currentchal == 1 ? 0 : 1)) == 0) t1 += t2 * Math.pow(vtbase(), t5 + extravtfromgpower());
 	if (clickcount % (15 - 4 * chalcomplete[0] - 7 * gupbought[22]) == 0) t2 += t3 * Math.pow(vtbase(), t5 + extravtfromgpower());
 	if (clickcount % (20 - 4 * chalcomplete[0] - 10 * gupbought[26]) == 0) t3 += t4 * Math.pow(vtbase(), t5 + extravtfromgpower());
-	if (clickcount >= 100) {
+	if (clickcount >= 100 && gupbought[36] == 0) {
 		glitchreset();
 	}
 }
@@ -17,6 +17,7 @@ function vtbase() {
 	if (chalcomplete[1]) base += 0.2; //C2
 	if (gupbought[25]) base += 0.3; //Glitch Upgrade 7x2
 	if (gupbought[29]) base += 0.1 * Math.log2(extravtfromgpower());
+	if (gupbought[36] && tcyc >= 150) base = Math.max(0,base-0.01*(tcyc-150));
 	return base;
 }
 function gp() {
@@ -160,7 +161,7 @@ function glitchreset() {
 	if (!gupbought[20]) glitchpower = 0;
 }
 function wpeffect() {
-	return ((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10] + 0.05 * stage))) + 1);
+	return (((wp + wp * wp + 1)*(g36effect()<0?0:1) + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10] + 0.05 * stage) + Math.pow(g36effect(),5))));
 }
 function calcglitch() {
 	var t = wpeffect(); //Willpower bonus
@@ -172,6 +173,8 @@ function calcglitch() {
 	if (chalcomplete[1]) t *= 2; //C2 reward
 	if (chalcomplete[2]) t *= 2; //C3 reward
 	if (t >= 1e+33) t = 1e+33 * (Math.pow(t / 1e+33, 0.5 + (stage >= 3 ? 0.15 : 0)));
+	if (gupbought[31]) t = Math.pow(t, 1.2);
+	if (gupbought[34]) t *= Math.pow(Math.pow(vtbase(), t5 + extravtfromgpower()), 0.35);
 	return t * (currentchal == 1 ? 0 : 1);
 }
 

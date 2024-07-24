@@ -62,7 +62,7 @@ function Exitmg1(){
     inthisgame1=0;
 }
 function Entermg1(){
-    document.getElementById("mg1").style.zIndex="50";
+    document.getElementById("mg1").style.zIndex="110";
     document.getElementById("mg1").style.display="flex";
     inthisgame1=1;
 }

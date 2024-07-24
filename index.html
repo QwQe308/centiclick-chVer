@@ -2,7 +2,7 @@
 <html style="background-color: black;">
 	<head>
 		<meta charset="utf-8">
-		<title>Centiclick indev 0.3.4</title>
+		<title>Centiclick V1.0.0</title>
 		<link rel="icon" href="pic/test.png">
 		<script src="module.js" ></script>
 		<script src="goal.js" ></script>
@@ -84,7 +84,7 @@
 			<div id="middle" style="display: flex; flex-direction: column; width: 100%;">
 				<div id="ctrl1" style="position: absolute; top: 320px; width: 100%;">
 					<div style="width: 100%; display: flex; justify-content: center;">
-						<div style="font-size: 14px; color: white;">You will encounter a Glitch reset at 100 clicks.</div>
+						<div id="gho0" style="font-size: 14px; color: white;">You will encounter a Glitch reset at 100 clicks.</div>
 					</div>
 					<div style="height: 10px;"></div>
 					<div style="display: flex; flex-direction: row;">
@@ -100,7 +100,7 @@
 									<div id="t1" style="font-size: 20px; color: white;"></div>
 								</div>
 							</div>
-							<div style="display: flex; flex-direction: row; width: 30%; justify-content: center;">
+							<div id="gho1" style="display: flex; flex-direction: row; width: 30%; justify-content: center;">
 								<div style="display: flex; flex-direction: column; justify-content: center;">
 									<div id="eff1" style="width: 100%; color: white;"></div>
 								</div>
@@ -130,7 +130,7 @@
 									<div id="t2" style="font-size: 20px; color: white;"></div>
 								</div>
 							</div>
-							<div style="display: flex; flex-direction: row; width: 30%; justify-content: center;">
+							<div id="gho2" style="display: flex; flex-direction: row; width: 30%; justify-content: center;">
 								<div style="display: flex; flex-direction: column; justify-content: center;">
 									<div id="eff2" style="width: 100%; color: white;"></div>
 								</div>
@@ -160,7 +160,7 @@
 									<div id="t3" style="font-size: 20px; color: white;"></div>
 								</div>
 							</div>
-							<div style="display: flex; flex-direction: row; width: 30%; justify-content: center;">
+							<div id="gho3" style="display: flex; flex-direction: row; width: 30%; justify-content: center;">
 								<div style="display: flex; flex-direction: column; justify-content: center;">
 									<div id="eff3" style="width: 100%; color: white;"></div>
 								</div>
@@ -698,7 +698,7 @@
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug14" onclick="Bg(14)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-										<div id="desc14">[4x2] Raise Glitch gain to the power of ^1.10.</div>
+										<div id="desc14">[4x2] Raise Glitch gain to the power of ^1.10. (Before softcap)</div>
 										<div id="cost14">Cost: 25000 Glitches.</div>
 										<div>Req: 5 Willpower.</div>
 									</button>
@@ -855,9 +855,46 @@
 								</div>
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug32" onclick="Bg(32)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
-										<div id="desc32">[8x4] Unlocks Minigames. (In challenges tab)</div>
+										<div id="desc32">[8x4] Unlocks Minigames & Also raises Glitch gain to ^1.2.</div>
 										<div id="cost32">Cost: 1.00 DDc Glitches.</div>
 										<div>Req: In a Malfunctioning Reality.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="ugr9" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug33" onclick="Bg(33)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc33">[9x1] Willpower effect slightly boosts Glitch Power gain.</div>
+										<div id="cost33">Cost: 150 SxDc Glitches.</div>
+										<div id="effa33"></div>
+										<div>Req: In a Meta Reality.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug34" onclick="Bg(34)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc34">[9x2] You get 1.2x more Void Tears from Glitch Power yet again.</div>
+										<div id="cost34">Cost: 1.00 SpDc Glitches.</div>
+										<div>Req: In a Meta Reality.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug35" onclick="Bg(35)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc35">[9x3] You are close... Void Tears boost Glitch gain very slightly.</div>
+										<div id="cost35">Cost: 200 SpDc Glitches.</div>
+										<div id="effa35"></div>
+										<div>Req: In a Meta Reality.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug36" onclick="Bg(36)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc36">[9x4] Unlocks <b>that</b> upgrade in Reality tab.</div>
+										<div id="cost36">Cost: 400 Vg Glitches.</div>
+										<div>Req: In a Meta Reality.</div>
 									</button>
 								</div>
 							</div>
@@ -1012,6 +1049,7 @@
 						<div style="width: 10%;"></div>
 						<div style="width: 80%; display: flex; flex-direction: column;">
 							<div style="height: 300px; display: flex; flex-direction: row;">
+								<div style="width: 17%;"></div>
 								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
 									<div style="height: 95%; width: 95%; background-color: black; color: white; border: groove; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div style="font-size: 18px; text-align: center; height: 12%;">Minigame A</div>
@@ -1037,15 +1075,37 @@
 										<div style="height: 12%;"></div>
 									</div>
 								</div>
-								<div style="width: 2%;"></div>
-								<div style="width: 32%; display: flex; justify-content: center; align-items: center;">
-								</div>
+								<div style="width: 17%;"></div>
 							</div>
 						</div>
 					</div>
 					<div style="height: 120px;"></div>
 				</div>
 				<div id="ctrl4" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: greenyellow;">1.0.0</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Jul 24 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Added a new row of Glitch upgrades.</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Endgame.</div>
+					</div>
+					<div style="height: 25px;"></div>
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -1383,6 +1443,28 @@
 					<div style="width: 100%; display: flex; justify-content: center;">
 						<div id="perks" style="font-size: 14px; color: white; text-align: center;"></div>
 					</div>
+					<div style="height: 50px;"></div>
+					<div id="ugr10" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 400px; display: flex; flex-direction: row; justify-content: center;">
+								<div style="width: 70%; display: flex; justify-content: center; align-items: center;">
+									<button id="ug37" onclick="Bg(37)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="desc37">[10x1] That Upgrade.</div>
+										<div id="cost37">Cost: 6.66 UVg (6.66e66) Glitches.</div>
+										<div id="effa37">- Increases your Willpower effect's exponent's exponent by 0.5. (based on time)</div>
+										<div>- Removes the clicking button. Instead, auto-click once every 50ms.</div>
+										<div>- Removes the 100 clicks restriction from the game.</div>
+										<div>- You automatically get 10% of the glitches you gain per second.</div>
+										<div>- Removes all buttons for buying. Everything is autobought.</div>
+										<div>- Buy all Glitch upgrades for free.</div>
+										<div id="aftb" style="display: none;">- Enjoy the End.</div>
+										<div>Req: In Florena's Reality.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div style="height: 120px;"></div>
                 </div>
 			</div>
@@ -1392,12 +1474,13 @@
 			<div id="stage" style="z-index: 100; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; color: white; display: flex; flex-direction: column; align-items: center;">
 				<div style="height: 10%;"></div>
 				<div style="height: 60%; display: flex; flex-direction: column; justify-content: center;">
-					<div id="staged1" style="font-size: 30px;">Centiclick</div>
+					<div id="staged1" style="font-size: 30px; text-align: center;">Centiclick</div>
 				</div>
 				<button id="staged2" onclick="closestage()" style="font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Start</button>
 				<div style="height: 25px;"></div>
-				<div id="staged3" style="font-size: 18px; text-align: center;">Version indev 0.3.4</div>
+				<div id="staged3" style="font-size: 18px; text-align: center;">Version 1.0.0</div>
 				<div id="staged4" style="font-size: 18px; text-align: center;">Developed by l319836</div>
+				<button onclick="Entermg2()" style="position: fixed; top: 15px; right: 25px; width: 280px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Play some Minigame B for fun!</button>
 			</div>
 			<div id="mg1" style="z-index: -50; display: none; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; color: white; flex-direction: column; align-items: center;">
 				<button id="mg10" onclick="mgbuy(0)" style="position: absolute; top: 0px; left: 0px; font-family: inherit; height: 150px; width: 150px; font-size: 22px; background-color: rgb(255,128,128); color: black; border-width: 8px; border-radius: 75px; border-color: red;"></button>
