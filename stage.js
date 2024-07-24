@@ -53,6 +53,7 @@ setInterval(function () {
         document.getElementById("staged2").style.width = "550px";
         document.getElementById("staged3").innerHTML = "Paste your completion ticket above ^";
         document.getElementById("staged4").innerHTML = "But have you ever thought that this game might be a minigame of something larger?";
+        document.getElementById("staged2").onclick = "";
     }
 }, 50);
 function stagereset() {
