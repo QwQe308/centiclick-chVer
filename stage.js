@@ -27,33 +27,30 @@ function showstage() {
         document.getElementById("staged4").innerHTML = "Willpower effect's exponent's exponent is buffed by +0.05 and your minigame progress are kept on any (soft) reset to compensate.";
     }
     if (stage == 5) {
-        document.getElementById("staged1").innerHTML = "The End";
-        document.getElementById("staged2").innerHTML = "JrsY28b9Ef0yEtrn3p9onw==";
-        document.getElementById("staged2").style.width = "550px";
-        document.getElementById("staged3").innerHTML = "Paste your completion ticket above ^";
-        document.getElementById("staged4").innerHTML = "But have you ever thought that this game might be a minigame of something larger?";
+        document.getElementById("staged1").innerHTML = "You have nowhere to go. But you are still there, in the System of Existence.";
+        document.getElementById("staged2").innerHTML = "RESET";
+        document.getElementById("staged3").innerHTML = "This will reset everything so far, but also unlock a new tab & some upgrades.";
+        document.getElementById("staged4").innerHTML = "(But have you ever thought that this game might be a minigame of something larger?)";
     }
     document.getElementById("stage").style.display = "flex";
-    if (stage == 5) document.getElementById("staged2").onclick = "";
 }
 function closestage() {
     document.getElementById("stage").style.display = "none";
+    if (stage == 5) SysReset();
     Reload();
 }
 setInterval(function () {
     if (glitch >= stageresetreq[stage]) {
-        stagereset();
+        if (lupbought[2] == 0) stagereset();
         stage++;
-        showstage();
+        if (lupbought[2] == 0) showstage();
         Reload();
     }
     if (stage == 5) {
-        document.getElementById("staged1").innerHTML = "The End";
-        document.getElementById("staged2").innerHTML = "JrsY28b9Ef0yEtrn3p9onw==";
-        document.getElementById("staged2").style.width = "550px";
-        document.getElementById("staged3").innerHTML = "Paste your completion ticket above ^";
-        document.getElementById("staged4").innerHTML = "But have you ever thought that this game might be a minigame of something larger?";
-        document.getElementById("staged2").onclick = "";
+        document.getElementById("staged1").innerHTML = "You have nowhere to go. But you are still there, in the System of Existence.";
+        document.getElementById("staged2").innerHTML = "RESET";
+        document.getElementById("staged3").innerHTML = "This will reset everything so far, but also unlock a new tab & some upgrades.";
+        document.getElementById("staged4").innerHTML = "(But have you ever thought that this game might be a minigame of something larger?)";
     }
 }, 50);
 function stagereset() {
@@ -62,7 +59,7 @@ function stagereset() {
     glitchcount = 0;
     lastgl = 0;
     bestgl = 0;
-    glitch = 0
+    glitch = 0;
     lastpt = 0;
     bestpt = 0;
     clickcount = 0;
@@ -79,4 +76,5 @@ function stagereset() {
     for (var i = 0; i < Ugcount; i++)gupbought[i] = 0;
     for (var i = 0; i < totalchal; i++)chalcomplete[i] = 0;
     gupbought[15] = 1;
+    gupbought[17] = 1;
 }

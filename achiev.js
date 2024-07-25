@@ -1,6 +1,6 @@
 var gupbought = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var Ugcount = 36;
-var Ugcost = [4, 10, 20, 35, 50, 75, 111, 150, 666, 1283, 4e3, 8e3, 1.25e4, 2.5e4, 8e4, 2e5, 5e9, 5e10, 3e11, 6e11, 5e11, 1e12, 5e12, 3e13, 1e16, 2e21, 4e25, 8e28, 1e31, 1e35, 8e37, 1e39, 1.5e53, 1e54, 2e56, 4e65, 6.66e66];
+var Ugcost = [4, 10, 20, 35, 50, 75, 111, 150, 666, 1283, 4e3, 8e3, 1.25e4, 2.5e4, 8e4, 2e5, 5e9, 5e10, 3e11, 6e11, 5e11, 1e12, 5e12, 3e13, 1e16, 2e21, 4e25, 8e28, 1e31, 1e35, 8e37, 1e39, 2e51, 1e54, 1.5e56, 4e65, 6.66e66];
 var Ugreq = [0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 function buyable(num) {
 	if (num < 16) return (wp >= Ugreq[num]);
@@ -17,6 +17,7 @@ function Bg(num) {
 		glitch -= Ugcost[num];
 		gupbought[num] = 1;
 		if (num == 36) {
+			if (lupbought[1]) SysReset();
 			tcyc = 0;
 			for (var i = 0; i < 36; i++)gupbought[i] = 1;
 		}
@@ -88,7 +89,7 @@ function gpps() {
 }
 var tl = 0, tcyc = 0, visualeffecttestervariable = 0;
 function g36effect() {
-	if(gupbought[36]==0)return 0;
+	if (gupbought[36] == 0) return 0;
 	if (tcyc <= 100) return 0.85 + 0.0025 * tcyc;
 	else if (tcyc <= 350) return (1.1 - 0.002 * (tcyc - 100));
 	else return (0.6 - 0.01 * (tcyc - 350));
@@ -97,7 +98,7 @@ setInterval(function () {
 	glitchpower += gpps() / 20;
 	document.getElementById("gpnum").innerHTML = nt(glitchpower);
 	document.getElementById("gpeff").innerHTML = nt(extravtfromgpower());
-	document.getElementById("gpeff2").innerHTML = nt(0.1 * Math.log2(extravtfromgpower()));
+	document.getElementById("gpeff2").innerHTML = nt(0.1 * Math.log2(1 + extravtfromgpower()));
 	tl -= 50;
 	if (tl <= 0) document.getElementById("completeprom").style.display = "none";
 	else if (tl <= 1000) document.getElementById("completeprom").style.opacity = ("" + Math.floor(tl / 10) + "%");
@@ -137,11 +138,11 @@ setInterval(function () {
 		else if (tcyc <= 150) glitchpower /= 1.02;
 		else if (tcyc <= 360) glitchpower /= 1.05;
 		else glitchpower /= 1.1;
-		pts-=0.05;
-		if(glitch>0.05)glitch-=0.05;
-		if(glitchpower>0.05)glitchpower-=0.05;
-		if(stage==4&&pts<=0.1){
-			stage=5;
+		pts -= 0.05;
+		if (glitch > 0.05) glitch -= 0.05;
+		if (glitchpower > 0.05) glitchpower -= 0.05;
+		if (stage == 4 && pts <= 0.1) {
+			stage = 5;
 			showstage();
 		}
 	}

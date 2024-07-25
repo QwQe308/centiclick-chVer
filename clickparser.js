@@ -16,8 +16,8 @@ function vtbase() {
 	var base = 2;
 	if (chalcomplete[1]) base += 0.2; //C2
 	if (gupbought[25]) base += 0.3; //Glitch Upgrade 7x2
-	if (gupbought[29]) base += 0.1 * Math.log2(extravtfromgpower());
-	if (gupbought[36] && tcyc >= 150) base = Math.max(0,base-0.01*(tcyc-150));
+	if (gupbought[29]) base += 0.1 * Math.log2(1 + extravtfromgpower());
+	if (gupbought[36] && tcyc >= 150) base = Math.max(0, base - 0.01 * (tcyc - 150));
 	return base;
 }
 function gp() {
@@ -36,11 +36,15 @@ function calcpts() {
 	f *= (Math.pow((((wp + wp * wp + Math.floor(Math.pow(2, 0.5 * Math.pow(wp, 1.3)))) + 1) / 2), 0.2 * gupbought[8] * (currentchal == 1 ? 0 : 1)));
 	return f * t1;
 }
+function Extrapts() {
+	if (lupbought[6]) return calcpts();
+	else return 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+}
 function buy1() {
 	if (pts >= 10) {
 		pts -= 10;
 		t1++;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -51,7 +55,7 @@ function buy1x2() {
 	if (pts >= 30) {
 		pts -= 30;
 		t1 += 2;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -62,7 +66,7 @@ function buy2() {
 	if (t1 >= 10 - 8 * gupbought[14] * (currentchal == 1 ? 0 : 1)) {
 		t1 -= (10 - 8 * gupbought[14] * (currentchal == 1 ? 0 : 1));
 		t2++;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -73,7 +77,7 @@ function buy2x2() {
 	if (t1 >= 30 - 24 * gupbought[14] * (currentchal == 1 ? 0 : 1)) {
 		t1 -= (30 - 24 * gupbought[14] * (currentchal == 1 ? 0 : 1));
 		t2 += 2;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -84,7 +88,7 @@ function buy3() {
 	if (t2 >= 10 - 8 * gupbought[14] * (currentchal == 1 ? 0 : 1)) {
 		t2 -= (10 - 8 * gupbought[14] * (currentchal == 1 ? 0 : 1));
 		t3++;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -95,7 +99,7 @@ function buy3x2() {
 	if (t2 >= 30 - 24 * gupbought[14] * (currentchal == 1 ? 0 : 1)) {
 		t2 -= (30 - 24 * gupbought[14] * (currentchal == 1 ? 0 : 1));
 		t3 += 2;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -106,7 +110,7 @@ function buy4() {
 	if (t3 >= 10 - 8 * gupbought[14] * (currentchal == 1 ? 0 : 1)) {
 		t3 -= (10 - 8 * gupbought[14] * (currentchal == 1 ? 0 : 1));
 		t4++;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -117,7 +121,7 @@ function buy4x2() {
 	if (t3 >= 30 - 24 * gupbought[14] * (currentchal == 1 ? 0 : 1)) {
 		t3 -= (30 - 24 * gupbought[14] * (currentchal == 1 ? 0 : 1));
 		t4 += 2;
-		pts += 0.15 * calcpts() * (gupbought[5] + gupbought[9]) * (currentchal == 1 ? 0 : 1) * (currentchal == 3 ? 0 : 1) * (1 + chalcomplete[2]);
+		pts += Extrapts();
 		parsegoal();
 		clickparser();
 		Loadheader();
@@ -159,9 +163,10 @@ function glitchreset() {
 	t4 = 0;
 	t5 = 0;
 	if (!gupbought[20]) glitchpower = 0;
+	if (lupbought[10]) buy6max();
 }
 function wpeffect() {
-	return (((wp + wp * wp + 1)*(g36effect()<0?0:1) + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10] + 0.05 * stage) + Math.pow(g36effect(),5))));
+	return (((wp + wp * wp + 1) * (g36effect() < 0 ? 0 : 1) + Math.pow(2, 0.5 * Math.pow(wp, 1.2 + 0.25 * gupbought[10] + 0.05 * stage) + Math.pow(g36effect(), 5))));
 }
 function calcglitch() {
 	var t = wpeffect(); //Willpower bonus
@@ -175,6 +180,10 @@ function calcglitch() {
 	if (t >= 1e+33) t = 1e+33 * (Math.pow(t / 1e+33, 0.5 + (stage >= 3 ? 0.15 : 0)));
 	if (gupbought[31]) t = Math.pow(t, 1.2);
 	if (gupbought[34]) t *= Math.pow(Math.pow(vtbase(), t5 + extravtfromgpower()), 0.35);
+	if (lupbought[0]) t *= 2;
+	if (lupbought[4]) t *= 3;
+	if (lupbought[8]) t *= 4;
+	if (lupbought[12]) t = Math.pow(t, 1.05);
 	return t * (currentchal == 1 ? 0 : 1);
 }
 
@@ -186,6 +195,7 @@ function st1() {
 	Hide("ctrl5");
 	Hide("ctrl6");
 	Hide("ctrl7");
+	Hide("ctrl8");
 }
 function st2() {
 	Hide("ctrl1");
@@ -195,6 +205,7 @@ function st2() {
 	Hide("ctrl5");
 	Hide("ctrl6");
 	Hide("ctrl7");
+	Hide("ctrl8");
 }
 function st3() {
 	Hide("ctrl1");
@@ -204,6 +215,7 @@ function st3() {
 	Hide("ctrl5");
 	Hide("ctrl6");
 	Hide("ctrl7");
+	Hide("ctrl8");
 }
 function st4() {
 	Hide("ctrl1");
@@ -213,6 +225,7 @@ function st4() {
 	Hide("ctrl5");
 	Hide("ctrl6");
 	Hide("ctrl7");
+	Hide("ctrl8");
 }
 function st5() {
 	Hide("ctrl1");
@@ -222,6 +235,7 @@ function st5() {
 	Unhide("ctrl5");
 	Hide("ctrl6");
 	Hide("ctrl7");
+	Hide("ctrl8");
 }
 function st6() {
 	Hide("ctrl1");
@@ -231,6 +245,7 @@ function st6() {
 	Hide("ctrl5");
 	Unhide("ctrl6");
 	Hide("ctrl7");
+	Hide("ctrl8");
 }
 function st7() {
 	Hide("ctrl1");
@@ -240,4 +255,15 @@ function st7() {
 	Hide("ctrl5");
 	Hide("ctrl6");
 	Unhide("ctrl7");
+	Hide("ctrl8");
+}
+function st8() {
+	Hide("ctrl1");
+	Hide("ctrl2");
+	Hide("ctrl3");
+	Hide("ctrl4");
+	Hide("ctrl5");
+	Hide("ctrl6");
+	Hide("ctrl7");
+	Unhide("ctrl8");
 }

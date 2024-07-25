@@ -22,6 +22,7 @@ function Loadmiddle() {
     for (var i = 0; i < tg; i++)wp += goalcomplete[i] * goalreward[i];
     if (gupbought[31]) mxpage = 3;
     else mxpage = 2;
+    if (lupbought[6] && clickcount < 99) buy5();
     if (glitchcount >= 1 || stage >= 1) document.getElementById("c1").style = "";
     if (glitchcount >= 1 || stage >= 1) document.getElementById("c1x").style = "width: 10px;";
     if (gupbought[15] || stage >= 1) document.getElementById("c2").style = "";
@@ -30,6 +31,8 @@ function Loadmiddle() {
     if (gupbought[17] || stage >= 1) document.getElementById("c3x").style = "width: 10px;";
     if (stage >= 1) document.getElementById("c4").style = "";
     if (stage >= 1) document.getElementById("c4x").style = "width: 10px;";
+    if (syscount >= 1) document.getElementById("c5").style = "";
+    if (syscount >= 1) document.getElementById("c5x").style = "width: 10px;";
     if (gupbought[31]) document.getElementById("mg").style.display = "flex";
     document.getElementById("t1").innerHTML = nt(t1);
     document.getElementById("eff1").innerHTML = "Gives you " + nt(t1 * Math.pow(vtbase(), t5 + extravtfromgpower())) + " Points every click.";
@@ -66,9 +69,11 @@ function Loadmiddle() {
     document.getElementById("effa11").innerHTML = "Effect: " + nt(((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.2))) + 1) / 2) + "x -> " + nt(((wp + wp * wp + Math.pow(2, 0.5 * Math.pow(wp, 1.45))) + 1) / 2) + "x";
     document.getElementById("effa25").innerHTML = "Effect: " + nt(Math.pow(1 + glitchpower, 0.5)) + "x";
     document.getElementById("effa29").innerHTML = "Effect: " + nt(1 + glitch) + "x";
-    document.getElementById("effa30").innerHTML = "Effect: +" + nt(0.1 * Math.log2(extravtfromgpower())) + "";
+    document.getElementById("effa30").innerHTML = "Effect: +" + nt(0.1 * Math.log2(1 + extravtfromgpower())) + "";
     document.getElementById("effa33").innerHTML = "Effect: " + nt(Math.pow(wpeffect(), 3)) + "x";
     document.getElementById("effa35").innerHTML = "Effect: " + nt(Math.pow(Math.pow(vtbase(), t5 + extravtfromgpower()), 0.35)) + "x";
+    document.getElementById("locnum").innerHTML = nt(loc);
+    document.getElementById("sysresetcount").innerHTML = "You have done " + nt(syscount) + " System Resets.";
     if (gupbought[7]) document.getElementById("ct1").style = "height: 100%; display: flex; flex-direction: column; justify-content: center;";
     if (gupbought[11]) document.getElementById("ct2").style = "height: 100%; display: flex; flex-direction: column; justify-content: center;";
     document.getElementById("t6").innerHTML = nt(t6);
@@ -95,6 +100,13 @@ function Loadmiddle() {
         else if (buyable(i)) s = "rgb(16, 15, 26)";
         else s = "rgb(0, 0, 0)";
         document.getElementById("ug" + (i + 1)).style.backgroundColor = s;
+    }
+    for (var i = 0; i < lgcount; i++) {
+        var s = "";
+        if (lupbought[i] == 1) s = "rgb(22, 45, 23)";
+        else if (loc >= lgcost[i]) s = "rgb(31, 30, 51)";
+        else s = "rgb(0, 0, 0)";
+        document.getElementById("lug" + (i + 1)).style.backgroundColor = s;
     }
     if (hidecompleted == 1) {
         document.getElementById("cgd").innerHTML = "Show Completed";
@@ -198,6 +210,8 @@ function Loadsave() {
     stage = Number(LoadItem("stage"));
     apoint = Number(LoadItem("apoint"));
     bpoint = Number(LoadItem("bpoint"));
+    syscount = Number(LoadItem("syscount"));
+    loc = Number(LoadItem("loc"));
     wp = Number(LoadItem("wp"));
     tcyc = Number(LoadItem("tcyc"));
     var ttf = LoadItem("ttf");
@@ -206,6 +220,8 @@ function Loadsave() {
     for (var i = 0; i < tmp.length; i++)goalcomplete[i] = Number(tmp[i]);
     tmp = localStorage.getItem('rigc2');
     for (var i = 0; i < tmp.length; i++)gupbought[i] = Number(tmp[i]);
+    tmp = localStorage.getItem('rigc4');
+    for (var i = 0; i < tmp.length; i++)lupbought[i] = Number(tmp[i]);
     tmp = localStorage.getItem('rigc3');
     for (var i = 0; i < tmp.length; i++)chalcomplete[i] = Number(tmp[i]);
     for (var i = 0; i < 6; i++)bd[i] = Number(localStorage.getItem('rigct' + i));
@@ -231,6 +247,8 @@ function Save() {
     SaveItem("stage", stage);
     SaveItem("apoint", apoint);
     SaveItem("bpoint", bpoint);
+    SaveItem("syscount", syscount);
+    SaveItem("loc", loc);
     SaveItem("wp", wp);
     SaveItem("tcyc", tcyc);
     SaveItem("ttf", "2221");
@@ -240,6 +258,9 @@ function Save() {
     tmp = "";
     for (var i = 0; i < gupbought.length; i++)tmp += gupbought[i];
     localStorage.setItem('rigc2', tmp);
+    tmp = "";
+    for (var i = 0; i < lupbought.length; i++)tmp += lupbought[i];
+    localStorage.setItem('rigc4', tmp);
     tmp = "";
     for (var i = 0; i < totalchal; i++)tmp += chalcomplete[i];
     localStorage.setItem('rigc3', tmp);
@@ -270,6 +291,8 @@ setInterval(function () {
         SaveItem("hidecompleted", 0);
         SaveItem("currentchal", 0);
         SaveItem("bpoint", 0);
+        SaveItem("syscount", 0);
+        SaveItem("loc", 0);
         SaveItem("stage", 0);
         SaveItem("wp", 0);
         SaveItem("tcyc", 0);
@@ -280,6 +303,9 @@ setInterval(function () {
         tmp = "";
         for (var i = 0; i < gupbought.length; i++)tmp += "0";
         localStorage.setItem('rigc2', tmp);
+        tmp = "";
+        for (var i = 0; i < lupbought.length; i++)tmp += "0";
+        localStorage.setItem('rigc4', tmp);
         tmp = "";
         for (var i = 0; i < totalchal; i++)tmp += "0";
         localStorage.setItem('rigc3', tmp);

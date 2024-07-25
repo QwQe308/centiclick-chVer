@@ -2,7 +2,7 @@
 <html style="background-color: black;">
 	<head>
 		<meta charset="utf-8">
-		<title>Centiclick V1.0.0</title>
+		<title>Centiclick V1.1.0</title>
 		<link rel="icon" href="pic/test.png">
 		<script src="module.js" ></script>
 		<script src="goal.js" ></script>
@@ -13,6 +13,7 @@
 		<script src="minigame2.js" ></script>
 		<script src="minigame2ans.js" ></script>
 		<script src="stage.js" ></script>
+		<script src="sysreset.js" ></script>
 		<script src="notation.js" ></script>
 	</head>
 	<body onload="Load()">
@@ -78,6 +79,10 @@
 						<button onclick="st7()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Reality</button>
 					</div>
 					<div id="c4x"></div>
+					<div id="c5" style="display: none; width: 0px;">
+						<button onclick="st8()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">System</button>
+					</div>
+					<div id="c5x"></div>
 					<button onclick="st4()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Changelog</button>
 				</div>
 			</div>
@@ -870,7 +875,7 @@
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug33" onclick="Bg(33)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc33">[9x1] Willpower effect slightly boosts Glitch Power gain.</div>
-										<div id="cost33">Cost: 150 SxDc Glitches.</div>
+										<div id="cost33">Cost: 2.00 SxDc Glitches.</div>
 										<div id="effa33"></div>
 										<div>Req: In a Meta Reality.</div>
 									</button>
@@ -885,7 +890,7 @@
 								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
 									<button id="ug35" onclick="Bg(35)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
 										<div id="desc35">[9x3] You are close... Void Tears boost Glitch gain very slightly.</div>
-										<div id="cost35">Cost: 200 SpDc Glitches.</div>
+										<div id="cost35">Cost: 150 SpDc Glitches.</div>
 										<div id="effa35"></div>
 										<div>Req: In a Meta Reality.</div>
 									</button>
@@ -1082,6 +1087,30 @@
 					<div style="height: 120px;"></div>
 				</div>
 				<div id="ctrl4" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: royalblue;">1.1.0</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Jul 25 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Added a new Prestige Layer.</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Bug fixes.</div>
+					</div>
+					<div style="height: 25px;"></div>
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -1467,6 +1496,157 @@
 					</div>
 					<div style="height: 120px;"></div>
                 </div>
+				<div id="ctrl8" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">You have </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div id="locnum" style="font-size: 22px; color: white;"></div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Lines of Code (LoC).</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div id="sysresetcount" style="font-size: 14px; color: white;"></div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">Collect all those upgrades below to unlock True Meta tab!</div>
+					</div>
+					<div style="height: 20px;"></div>
+					<div id="lugr1" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug1" onclick="Bgl(1)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc1">[1x1] Glitch gain x2.</div>
+										<div id="lcost1">Cost: 1 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug2" onclick="Bgl(2)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc2">[1x2] You get a System reset once you buy THAT upgrade. (No timewalls! Yay!)</div>
+										<div id="lcost2">Cost: 1 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug3" onclick="Bgl(3)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc3">[1x3] Reality doesn't reset anything & doesn't pop up that quirky window.</div>
+										<div id="lcost3">Cost: 1 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug4" onclick="Bgl(4)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc4">[1x4] LoC gain x3.</div>
+										<div id="lcost4">Cost: 1 LoC.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="lugr2" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug5" onclick="Bgl(5)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc5">[2x1] Glitch gain x3.</div>
+										<div id="lcost5">Cost: 5 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug6" onclick="Bgl(6)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc6">[2x2] Keep all Page 1 Glitch Upgrades on System reset.</div>
+										<div id="lcost6">Cost: 5 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug7" onclick="Bgl(7)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc7">[2x3] Void Tears are auto-bought if you have remaining clicks, and you gain 100% of the points gained on buying stuff.</div>
+										<div id="lcost7">Cost: 5 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug8" onclick="Bgl(8)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc8">[2x4] LoC gain x3.</div>
+										<div id="lcost8">Cost: 5 LoC.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="lugr3" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug9" onclick="Bgl(9)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc9">[3x1] Glitch gain x4.</div>
+										<div id="lcost9">Cost: 25 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug10" onclick="Bgl(10)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc10">[3x2] Keep all Page 2 Glitch Upgrades on System reset and Challenges completed.</div>
+										<div id="lcost10">Cost: 25 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug11" onclick="Bgl(11)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc11">[3x3] Start with Malfunctioning reality already done, and Glitch Power Generators are auto-bought.</div>
+										<div id="lcost11">Cost: 25 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug12" onclick="Bgl(12)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc12">[3x4] LoC gain x3.</div>
+										<div id="lcost12">Cost: 25 LoC.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="lugr4" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug13" onclick="Bgl(13)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc13">[4x1] Glitch gain ^1.05.</div>
+										<div id="lcost13">Cost: 125 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug14" onclick="Bgl(14)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc14">[4x2] Keep all Glitch Upgrades on System reset and Goals completed.</div>
+										<div id="lcost14">Cost: 125 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug15" onclick="Bgl(15)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc15">[4x3] Start in Florena's Reality.</div>
+										<div id="lcost15">Cost: 125 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug16" onclick="Bgl(16)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc16">[4x4] LoC gain x3.</div>
+										<div id="lcost16">Cost: 125 LoC.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 120px;"></div>
+                </div>
 			</div>
             <button onclick="Reload()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Reload</button>
             <button onclick="Save()" style="position: fixed; top: 55px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Save</button>
@@ -1478,7 +1658,7 @@
 				</div>
 				<button id="staged2" onclick="closestage()" style="font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Start</button>
 				<div style="height: 25px;"></div>
-				<div id="staged3" style="font-size: 18px; text-align: center;">Version 1.0.0</div>
+				<div id="staged3" style="font-size: 18px; text-align: center;">Version 1.1.0</div>
 				<div id="staged4" style="font-size: 18px; text-align: center;">Developed by l319836</div>
 				<button onclick="Entermg2()" style="position: fixed; top: 15px; right: 25px; width: 280px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Play some Minigame B for fun!</button>
 			</div>
