@@ -42,7 +42,7 @@ var cnItems = {
     "[3x2] When you buy something, you get extra free Points equal to 15% of click power.": "[3x2] 当你点击购买时, 你额外获得点击产生的15%点数.",
 
     "[3x3] Start with Malfunctioning reality already done, and Glitch Power Generators are auto-bought.": "[3x3] 以失灵现实开局, 并且自动化故障能量发生器.",
-    "[3x3] Willpower's effect on Glitches is better.": "[3x3] 意志力对故障的效果更好.",
+    "[3x3] Willpower's effect on Glitches is better.": "[3x3] 意志力对故障获取量的加成更强.",
 
     "[3x4] LoC gain x3.": "[3x4] 代码获取量 x3.",
     "[3x4] Unlock the ability to buy two Cracks once at the cost of 30 Faults.": "[3x4] 解锁用30个错误一次性购买2个裂隙的能力.",
@@ -256,8 +256,8 @@ var cnItems = {
     "Minigame progress are kept on any (soft) reset.":"小游戏的进度在任何(软)重置时都不会被重置.",
     "Remove Extra Void Tear's hardcap.":"移除额外虚空裂口的硬上限.",
     "Glitch gain softcap is slightly lifted.":"故障获取量的软上限被小幅度削弱.",
-    "":"",
-    "":"",
+    "Running":"正在进行",
+    "Locked by Challenge 2.":"被挑战2禁用.",
     "":"",
     "":"",
     "":"",
