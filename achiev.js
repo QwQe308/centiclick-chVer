@@ -43,7 +43,7 @@ function awa(num) {
 	document.getElementById("completeprom").innerHTML = "Challenge " + (num + 1) + " completed!";
 }
 function parsechallenge() {
-	if (currentchal == 1 && pts.gte(1070)) awa(0);
+	if (currentchal == 1 && pts.gte(1210)) awa(0);
 	if (currentchal == 2 && pts.gte(4e+5)) awa(1);
 	if (currentchal == 3 && pts.gte(1e+17)) awa(2);
 }
