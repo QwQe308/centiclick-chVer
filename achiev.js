@@ -1,9 +1,9 @@
 var gupbought = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var Ugcount = 36;
-var Ugcost = [4, 10, 20, 35, 50, 75, 111, 150, 666, 1283, 4e3, 8e3, 1.25e4, 2.5e4, 8e4, 2e5, 5e9, 5e10, 3e11, 6e11, 5e11, 1e12, 5e12, 3e13, 1e16, 2e21, 4e25, 8e28, 1e31, 1e35, 8e37, 1e39, 2e51, 1e54, 1.5e56, 4e65, 6.66e66];
+var Ugcost = [Decimal(4), Decimal(10), Decimal(20), Decimal(35), Decimal(50), Decimal(75), Decimal(111), Decimal(150), Decimal(666), Decimal(1283), Decimal(4e3), Decimal(8e3), Decimal(1.25e4), Decimal(2.5e4), Decimal(8e4), Decimal(2e5), Decimal(5e9), Decimal(5e10), Decimal(3e11), Decimal(6e11), Decimal(5e11), Decimal(1e12), Decimal(5e12), Decimal(3e13), Decimal(1e16), Decimal(2e21), Decimal(4e25), Decimal(8e28), Decimal(1e31), Decimal(1e35), Decimal(8e37), Decimal(1e39), Decimal(2e51), Decimal(1e54), Decimal(1.5e56), Decimal(4e65), Decimal(6.66e66)];
 var Ugreq = [0, 0, 1, 1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 function buyable(num) {
-	if (num < 16) return (wp >= Ugreq[num]);
+	if (num < 16) return (wp.gte(Ugreq[num]));
 	else if (num < 20) return (chalcomplete[0]);
 	else if (num < 24) return (chalcomplete[1]);
 	else if (num < 28) return (stage >= 1);
@@ -13,8 +13,8 @@ function buyable(num) {
 }
 function Bg(num) {
 	num = num - 1;
-	if (glitch >= Ugcost[num] && gupbought[num] == 0 && buyable(num)) {
-		glitch -= Ugcost[num];
+	if (glitch.gte(Ugcost[num]) && gupbought[num] == 0 && buyable(num)) {
+		glitch = glitch.sub(Ugcost[num]);
 		gupbought[num] = 1;
 		if (num == 36) {
 			if (lupbought[1]) SysReset();
@@ -43,62 +43,65 @@ function awa(num) {
 	document.getElementById("completeprom").innerHTML = "Challenge " + (num + 1) + " completed!";
 }
 function parsechallenge() {
-	if (currentchal == 1 && pts >= 1070) awa(0);
-	if (currentchal == 2 && pts >= 4e+5) awa(1);
-	if (currentchal == 3 && pts >= 1e+17) awa(2);
+	if (currentchal == 1 && pts.gte(1070)) awa(0);
+	if (currentchal == 2 && pts.gte(4e+5)) awa(1);
+	if (currentchal == 3 && pts.gte(1e+17)) awa(2);
 }
 function dpage(num) {
 	Page += num;
 	Loadmiddle();
 }
-var glitchpower = 0, t6 = 0;
+glitchpower = new Decimal(0);
+t6 = new Decimal(0);
 function extravtfromgpower() {
-	var k = Math.log2(1 + glitchpower) * 0.02 * (1 + 0.5 * gupbought[21] + chalcomplete[2]) * (1 + 0.2 * gupbought[33]);
-	if (stage <= 1 && k >= 6) return 6;
-	else if (stage <= 1 || k < 6) return k;
-	else return (5 + Math.pow(k - 5, 0.7));
+	k = glitchpower.add(1).log(2).mul(0.02).mul(1 + 0.5 * gupbought[21] + chalcomplete[2]).mul(1 + 0.2 * gupbought[33]);
+	if (stage <= 1 && k.gte(6)) return 6;
+	else if (stage <= 1 || k.lt(6)) return k;
+	else return (k.sub(5).pow(0.7).add(5));
 }
 function gpgcost() {
-	var x = 1e+4 * (Math.pow(6 - 2 * gupbought[19] - gupbought[23], t6 - 0.6 * gupbought[27]));
-	if (t6 >= 10) x *= Math.pow(1.1, (t6 - 10) * (t6 - 10));
+	x = new Decimal(1e+4);
+	y = new Decimal(6 - 2 * gupbought[19] - gupbought[23]);
+	x = x.mul(y.pow(t6.sub(0.6*gupbought[27])));
+	if (t6.gte(10)) x = x.mul(Decimal(1.1).pow(t6.sub(10).pow(2)));
 	return x;
 }
 function buy6() {
-	if (glitch >= gpgcost()) {
-		glitch -= gpgcost();
-		t6++;
+	if (glitch.gte(gpgcost())) {
+		glitch.sub(gpgcost());
+		t6 = t6.add(1);
 		Loadmiddle();
 	}
 }
 function buy6max() {
-	while (glitch >= gpgcost()) {
-		glitch -= gpgcost();
-		t6++;
+	while (glitch.gte(gpgcost())) {
+		glitch.sub(gpgcost());
+		t6 = t6.add(1);
 	}
 	Loadmiddle();
 }
 function gpps() {
-	var k = t6;
-	k *= (Math.pow(4 + 2 * gupbought[18], t6));
-	k *= Math.pow((1 + glitchpower), 0.5 * gupbought[24]);
-	k *= Math.pow(1 + glitch, gupbought[28]);
-	k * Math.pow(vtbase(), (t5 + extravtfromgpower()) * gupbought[30]);
-	if (gupbought[32]) k *= Math.pow(wpeffect(), 3);
-	if (k >= 1e+280) return 1e+280;
-	else return k;
+	k = t6;
+	k = k.mul(Decimal(4+2*gupbought[18]).pow(t6));
+	k = k.mul(glitchpower.add(1).pow(0.5*gupbought[24]));
+	k = k.mul(glitch.add(1).pow(gupbought[28]));
+	k = k.mul(vtbase().pow((t5 + extravtfromgpower())*gupbought[30]));
+	if (gupbought[32]) k = k.mul(wpeffect().pow(3));
+	if (k.gte(Decimal(10).pow(300))) k = k.div(Decimal(10).pow(300)).pow(0.1).mul(Decimal(10).pow(300));
+	return k;
 }
 var tl = 0, tcyc = 0, visualeffecttestervariable = 0;
 function g36effect() {
-	if (gupbought[36] == 0) return 0;
-	if (tcyc <= 100) return 0.85 + 0.0025 * tcyc;
-	else if (tcyc <= 350) return (1.1 - 0.002 * (tcyc - 100));
-	else return (0.6 - 0.01 * (tcyc - 350));
+	if (gupbought[36] == 0) return Decimal(0);
+	if (tcyc <= 100) return Decimal(0.85 + 0.0025 * tcyc);
+	else if (tcyc <= 350) return Decimal(1.1 - 0.002 * (tcyc - 100));
+	else return Decimal(0.6 - 0.01 * (tcyc - 350));
 }
 setInterval(function () {
-	glitchpower += gpps() / 20;
-	document.getElementById("gpnum").innerHTML = nt(glitchpower);
-	document.getElementById("gpeff").innerHTML = nt(extravtfromgpower());
-	document.getElementById("gpeff2").innerHTML = nt(0.1 * Math.log2(1 + extravtfromgpower()));
+	glitchpower = glitchpower.add(gpps().div(20));
+	document.getElementById("gpnum").innerHTML = glitchpower.Stdnt(4);
+	document.getElementById("gpeff").innerHTML = extravtfromgpower().Stdnt(4);
+	document.getElementById("gpeff2").innerHTML = extravtfromgpower().add(1).log(2).mul(0.1).Stdnt(4);
 	tl -= 50;
 	if (tl <= 0) document.getElementById("completeprom").style.display = "none";
 	else if (tl <= 1000) document.getElementById("completeprom").style.opacity = ("" + Math.floor(tl / 10) + "%");
@@ -106,7 +109,7 @@ setInterval(function () {
 		document.getElementById("completeprom").style.display = "";
 		document.getElementById("completeprom").style.opacity = "100%";
 	}
-	document.getElementById("effa25").innerHTML = "Effect: " + nt(Math.pow(glitchpower, 0.5)) + "x";
+	document.getElementById("effa25").innerHTML = "Effect: " + glitchpower.pow(0.5).Stdnt(4) + "x";
 	tcyc += 0.05;
 	if (gupbought[36] == 0) document.getElementById("ug37").style.backgroundColor = "rgb(" + (48 + 16 * Math.sin(tcyc)) + ",0,0)";
 	else document.getElementById("ug37").style.backgroundColor = "rgb(" + (192 + 63 * Math.sin(tcyc)) + ",0,0)";
@@ -121,27 +124,26 @@ setInterval(function () {
 		buy3();
 		buy4();
 		buy5();
-		glitch += 0.005 * calcglitch();
+		glitch = glitch.add(calcglitch().mul(0.005));
 		lastgl = calcglitch();
-		if (tcyc <= 30) pts /= 1;
-		else if (tcyc <= 90) pts /= 1.001;
-		else if (tcyc <= 150) pts /= 1.002;
-		else if (tcyc <= 360) pts /= 1.005;
-		else pts /= 1.01;
-		if (tcyc <= 30) glitch /= 1;
-		else if (tcyc <= 90) glitch /= 1.001;
-		else if (tcyc <= 150) glitch /= 1.002;
-		else if (tcyc <= 360) glitch /= 1.005;
-		else glitch /= 1.01;
-		if (tcyc <= 30) glitchpower /= 1;
-		else if (tcyc <= 90) glitchpower /= 1.01;
-		else if (tcyc <= 150) glitchpower /= 1.02;
-		else if (tcyc <= 360) glitchpower /= 1.05;
-		else glitchpower /= 1.1;
-		pts -= 0.05;
-		if (glitch > 0.05) glitch -= 0.05;
-		if (glitchpower > 0.05) glitchpower -= 0.05;
-		if (stage == 4 && pts <= 0.1) {
+		if (tcyc <= 30) pts = pts.div(1);
+		else if (tcyc <= 90) pts = pts.div(1.001);
+		else if (tcyc <= 150) pts = pts.div(1.002);
+		else if (tcyc <= 360) pts = pts.div(1.005);
+		else pts = pts.div(1.01);
+		if (tcyc <= 30) glitch = glitch.div(1);
+		else if (tcyc <= 90) glitch = glitch.div(1.001);
+		else if (tcyc <= 150) glitch = glitch.div(1.002);
+		else if (tcyc <= 360) glitch = glitch.div(1.005);
+		else glitch = glitch.div(1.01);
+		if (tcyc <= 30) glitchpower = glitchpower.div(1);
+		else if (tcyc <= 90) glitchpower = glitchpower.div(1.01);
+		else if (tcyc <= 150) glitchpower = glitchpower.div(1.02);
+		else if (tcyc <= 360) glitchpower = glitchpower.div(1.05);
+		else glitchpower = glitchpower.div(1.1);
+		pts = pts.sub(0.05);
+		if (glitch.gte(0.05)) glitch = glitch.sub(0.05);
+		if (stage == 4 && pts.lte(0.1)) {
 			stage = 5;
 			showstage();
 		}
@@ -149,6 +151,6 @@ setInterval(function () {
 	if (visualeffecttestervariable == 1) {
 		visualeffecttestervariable = 0;
 		stage = 4;
-		glitch = 6.666e+66;
+		glitch = Decimal(6.7e+66);
 	}
 }, 50);

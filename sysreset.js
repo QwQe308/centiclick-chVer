@@ -1,11 +1,12 @@
-var syscount=0,loc=0;
+syscount = new Decimal(0);
+loc = new Decimal(0);
 var lupbought = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var lgcount = 16;
-var lgcost = [1,1,1,1,5,5,5,5,25,25,25,25,125,125,125,125];
+var lgcost = [Decimal(1),Decimal(1),Decimal(1),Decimal(1),Decimal(5),Decimal(5),Decimal(5),Decimal(5),Decimal(25),Decimal(25),Decimal(25),Decimal(25),Decimal(125),Decimal(125),Decimal(125),Decimal(125)];
 function Bgl(num) {
 	num = num - 1;
-	if (loc >= lgcost[num] && lupbought[num] == 0) {
-		loc -= lgcost[num];
+	if (loc.gte(lgcost[num]) && lupbought[num] == 0) {
+		loc.sub(lgcost[num]);
 		lupbought[num] = 1;
 	}
     if(lupbought[5])for(var i=0;i<16;i++)gupbought[i]=1;
@@ -22,22 +23,22 @@ function SysReset(){
     console.log("RESETTTTT!!!");
     currentchal = 0;
     pendingchal = 0;
-    glitchcount = 0;
-    lastgl = 0;
-    bestgl = 0;
-    glitch = 0;
-    lastpt = 0;
-    bestpt = 0;
-    clickcount = 0;
-    pts = 0;
-    t1 = 1;
-    t2 = 0;
-    t3 = 0;
-    t4 = 0;
-    t5 = 0;
-    t6 = 0;
-    wp = 0;
-    glitchpower = 0;
+    glitchcount = Decimal(0);
+    lastgl = Decimal(0);
+    bestgl = Decimal(0);
+    glitch = Decimal(0);
+    lastpt = Decimal(0);
+    bestpt = Decimal(0);
+    clickcount = Decimal(0);
+    pts = Decimal(0);
+    t1 = Decimal(1);
+    t2 = Decimal(0);
+    t3 = Decimal(0);
+    t4 = Decimal(0);
+    t5 = Decimal(0);
+    t6 = Decimal(0);
+    wp = Decimal(0);
+    glitchpower = Decimal(0);
     for (var i = 0; i < tg; i++)goalcomplete[i] = 0;
     for (var i = 0; i < 37; i++)gupbought[i] = 0;
     for (var i = 0; i < totalchal; i++)chalcomplete[i] = 0;
@@ -51,15 +52,15 @@ function SysReset(){
     if(lupbought[14])stage=4;
     if(lupbought[9])for(var i=0;i<totalchal;i++)chalcomplete[i]=1;
     if(lupbought[13])for(var i=0;i<tg;i++)goalcomplete[i]=1;
-    syscount++;
-    loc+=loconreset();
+    syscount = syscount.add(1);
+    loc = loc.add(loconreset());
     Reload();
 }
 function loconreset() {
-    var inc=2;
-    if(lupbought[3])inc*=3;
-    if(lupbought[7])inc*=3;
-    if(lupbought[11])inc*=3;
-    if(lupbought[15])inc*=3;
+    inc = new Decimal(2);
+    if(lupbought[3])inc = inc.mul(3);
+    if(lupbought[7])inc = inc.mul(3);
+    if(lupbought[11])inc = inc.mul(3);
+    if(lupbought[15])inc = inc.mul(3);
     return inc;
 }

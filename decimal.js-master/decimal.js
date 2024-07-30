@@ -197,6 +197,7 @@
    * Return a new Decimal whose value is the absolute value of this Decimal.
    *
    */
+  
   P.absoluteValue = P.abs = function () {
     var x = new this.constructor(this);
     if (x.s < 0) x.s = 1;
@@ -2005,6 +2006,13 @@
 
     return x.isNeg() && !x.isZero() ? '-' + str : str;
   };
+  
+  P.Stdnt = function(num){
+    var x = this;
+	  if(x.gte(1e+5)) return x.toExponential(3);
+    else return x.toSD(3);
+    // return x.toSD(3);
+  };
 
 
   /*
@@ -2466,7 +2474,6 @@
 
     return x.isNeg() ? '-' + str : str;
   };
-
 
   // Helper functions for Decimal.prototype (P) and/or Decimal methods, and their callers.
 

@@ -1,6 +1,6 @@
 var stage = 0;
 var totalstage = 4;
-var stageresetreq = [7.99e+12, 7.99e+28, 9.99e+38, 3.99e+65];
+stageresetreq = [Decimal(7.99e+12), Decimal(7.99e+28), Decimal(9.99e+38), Decimal(3.99e+65), Decimal(Infinity)];
 function showstage() {
     if (stage == 1) {
         document.getElementById("staged1").innerHTML = "Too many Glitches have made the reality glitched.";
@@ -40,7 +40,7 @@ function closestage() {
     Reload();
 }
 setInterval(function () {
-    if (glitch >= stageresetreq[stage]) {
+    if (glitch.gte(stageresetreq[stage])) {
         if (lupbought[2] == 0) stagereset();
         stage++;
         if (lupbought[2] == 0) showstage();
@@ -56,22 +56,22 @@ setInterval(function () {
 function stagereset() {
     currentchal = 0;
     pendingchal = 0;
-    glitchcount = 0;
-    lastgl = 0;
-    bestgl = 0;
-    glitch = 0;
-    lastpt = 0;
-    bestpt = 0;
-    clickcount = 0;
-    pts = 0;
-    t1 = 1;
-    t2 = 0;
-    t3 = 0;
-    t4 = 0;
-    t5 = 0;
-    t6 = 0;
-    wp = 0;
-    glitchpower = 0;
+    glitchcount = Decimal(0);
+    lastgl = Decimal(0);
+    bestgl = Decimal(0);
+    glitch = Decimal(0);
+    lastpt = Decimal(0);
+    bestpt = Decimal(0);
+    clickcount = Decimal(0);
+    pts = Decimal(0);
+    t1 = Decimal(1);
+    t2 = Decimal(0);
+    t3 = Decimal(0);
+    t4 = Decimal(0);
+    t5 = Decimal(0);
+    t6 = Decimal(0);
+    wp = Decimal(0);
+    glitchpower = Decimal(0);
     for (var i = 0; i < tg; i++)goalcomplete[i] = 0;
     for (var i = 0; i < Ugcount; i++)gupbought[i] = 0;
     for (var i = 0; i < totalchal; i++)chalcomplete[i] = 0;
