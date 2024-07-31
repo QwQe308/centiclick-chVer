@@ -54,8 +54,9 @@ function dpage(num) {
 glitchpower = new Decimal(0);
 t6 = new Decimal(0);
 function extravtfromgpower() {
+	k = new Decimal(0);
 	k = glitchpower.add(1).log(2).mul(0.02).mul(1 + 0.5 * gupbought[21] + chalcomplete[2]).mul(1 + 0.2 * gupbought[33]);
-	if (stage <= 1 && k.gte(6)) return 6;
+	if (stage <= 1 && k.gte(6)) return Decimal(6);
 	else if (stage <= 1 || k.lt(6)) return k;
 	else return (k.sub(5).pow(0.7).add(5));
 }
