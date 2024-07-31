@@ -6,7 +6,7 @@ var lgcost = [Decimal(1),Decimal(1),Decimal(1),Decimal(1),Decimal(5),Decimal(5),
 function Bgl(num) {
 	num = num - 1;
 	if (loc.gte(lgcost[num]) && lupbought[num] == 0) {
-		loc.sub(lgcost[num]);
+		loc = loc.sub(lgcost[num]);
 		lupbought[num] = 1;
 	}
     if(lupbought[5])for(var i=0;i<16;i++)gupbought[i]=1;
