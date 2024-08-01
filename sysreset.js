@@ -100,7 +100,7 @@ setInterval(function(){
     else document.getElementById("fq1").style.opacity="100%";
     document.getElementById("fq1").innerHTML=florenaquote[quotenum];
     tsn-=50;
-    var flag=0;
+    var flag=1;
     for(var i=0;i<lgcount;i++)flag*=lupbought[i];
     if(flag==1&&rdquote==0){
         rdquote=1;
