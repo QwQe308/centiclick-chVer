@@ -1,4 +1,4 @@
-var bpoint = 0;
+bpoint = new Decimal(0);
 var prob = [
     [
         "Hevipelle is from Finland.",
@@ -153,7 +153,7 @@ function switchstate(num) {
 }
 var esp = 0;
 function loadgame() {
-    document.getElementById("bpt").innerHTML = "You have " + bpoint + " B-points.";
+    document.getElementById("bpt").innerHTML = "You have " + bpoint.floor() + " B-points.";
     esp = 1;
     console.log("load");
     if (bpoint >= 100) Exitmg2();
@@ -182,17 +182,17 @@ function confrrr() {
         stdans = ans[det][probnum];
         if (curans == stdans) {
             document.getElementById("res").innerHTML = "Correct!";
-            bpoint += 1;
+            bpoint = bpoint.add(1);
         }
         else {
             document.getElementById("res").innerHTML = "Wrong!";
-            bpoint -= (5 + Math.floor(bpoint / 20));
-            bpoint = Math.max(bpoint, 0);
+            bpoint = bpoint.sub(bpoint.div(20).floor().add(5));
+            if (bpoint.lte(0)) bpoint = Decimal(0);
         }
         document.getElementById("connf").innerHTML = "Continue";
         esp = 0;
     }
-    document.getElementById("bpt").innerHTML = "You have " + bpoint + " B-points.";
+    document.getElementById("bpt").innerHTML = "You have " + bpoint.floor() + " B-points.";
 }
 function Exitmg2() {
     document.getElementById("mg2").style.zIndex = "-50";
