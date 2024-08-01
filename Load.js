@@ -228,14 +228,14 @@ function Loadmiddle() {
             if (stage == 0 && tabnum == 5) tabnum--;
             if (gupbought[17] == 0 && stage == 0 && tabnum == 4) tabnum--;
             if (gupbought[15] == 0 && stage == 0 && tabnum == 3) tabnum--;
-            if (glitchcount.le(1) && stage == 0 && tabnum == 2) tabnum--;
+            if (glitchcount.lt(1) && stage == 0 && tabnum == 2) tabnum--;
             st(numtab[tabnum]);
             cd[5] = 100;
         }
         if (event.key === 'ArrowRight' && Hotkeyon == 1 && cd[6] <= 0) {
             tabnum++;
             tabnum = (tabnum + 9) % 9;
-            if (glitchcount.le(1) && stage == 0 && tabnum == 2) tabnum++;
+            if (glitchcount.lt(1) && stage == 0 && tabnum == 2) tabnum++;
             if (gupbought[15] == 0 && stage == 0 && tabnum == 3) tabnum++;
             if (gupbought[17] == 0 && stage == 0 && tabnum == 4) tabnum++;
             if (stage == 0 && tabnum == 5) tabnum++;
