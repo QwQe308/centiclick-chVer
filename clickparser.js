@@ -190,7 +190,7 @@ function calcglitch() {
 	t = t.pow(1 + 0.1 * gupbought[13]); //Glitch Upgrade 4x2
 	t = t.mul(pts.div(1000).pow(0.43)); //Base
 	t = t.mul(1 + 0.4 * gupbought[1]); //Glitch Upgrade 1x2
-	if (pts.gte(bestpt.pow(0.98).mul(0.6))) t = t.mul(0.4); //Idle penalty
+	if (pts.lte(bestpt.pow(0.98).mul(0.6))) t = t.mul(0.4); //Idle penalty
 	if (chalcomplete[0]) t = t.mul(2); //C1 reward
 	if (chalcomplete[1]) t = t.mul(2); //C2 reward
 	if (chalcomplete[2]) t = t.mul(2); //C3 reward
