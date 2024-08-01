@@ -119,13 +119,6 @@ setInterval(function () {
 		document.getElementById("aftb").style.display = "";
 		document.getElementById("gho0").innerHTML = "You will never encounter a glitch reset again. Never."
 		if (!lupbought[16]) document.getElementById("effa37").innerHTML = "- Increases your Willpower effect's exponent's exponent by " + nt(g36effect()) + ". (based on time)"
-		gp();
-		buy1();
-		buy2();
-		buy3();
-		buy4();
-		buy5();
-		buy6max();
 		glitch = glitch.add(calcglitch().mul(0.005));
 		lastgl = calcglitch();
 		if (!lupbought[16]) {
@@ -158,3 +151,14 @@ setInterval(function () {
 		glitch = Decimal(6.7e+66);
 	}
 }, 50);
+setInterval(function(){
+	if (gupbought[36] == 1 || lupbought[16]){
+		gp();
+		buy1();
+		buy2();
+		buy3();
+		buy4();
+		buy5();
+		buy6max();
+	}
+},1000);

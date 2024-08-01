@@ -65,3 +65,45 @@ function loconreset() {
     if (lupbought[17]) inc = inc.mul(glitch.add(1).log(Decimal(6e+66)).pow(3));
     return inc;
 }
+
+var quotenum=0, tsn=0, pend=0, rdquote=0;
+var Sysresetcheat=0;
+var florenaquote=[
+    "Hi.",
+    "You are here."
+];
+function Showquote() {
+    document.getElementById("fq").style.zIndex = "98";
+    document.getElementById("fq").style.display = "flex";
+}
+function nextquote() {
+    pend=1;
+    tsn=2000;
+}
+setInterval(function(){
+    console.log("running awa");
+    if(Sysresetcheat==1){
+        SysReset();
+        Sysresetcheat=0;
+    }
+    if(pend==1&&tsn<=1000){
+        pend=0;
+        quotenum++;
+        if(quotenum==florenaquote.length){
+            quotenum=0;
+            document.getElementById("fq").style.zIndex = "-98";
+            document.getElementById("fq").style.display = "none";
+        }
+    }
+    if(1000<=tsn&&tsn<=2000)document.getElementById("fq1").style.opacity=""+(Math.floor((tsn-1000)/10))+"%";
+    else if(1000>=tsn&&tsn>=0)document.getElementById("fq1").style.opacity=""+(Math.floor((1000-tsn)/10))+"%";
+    else document.getElementById("fq1").style.opacity="100%";
+    document.getElementById("fq1").innerHTML=florenaquote[quotenum];
+    tsn-=50;
+    var flag=0;
+    for(var i=0;i<lgcount;i++)flag*=lupbought[i];
+    if(flag==1&&rdquote==0){
+        rdquote=1;
+        Showquote();
+    }
+},50);
