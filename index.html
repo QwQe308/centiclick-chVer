@@ -2,7 +2,7 @@
 <html style="background-color: black;">
 	<head>
 		<meta charset="utf-8">
-		<title>Centiclick V1.2.0</title>
+		<title>Centiclick V1.2.1</title>
 		<link rel="icon" href="pic/test.png">
 		<script src="./decimal.js-master/decimal.js"></script>
 		<script src="module.js" ></script>
@@ -61,31 +61,31 @@
 			<div style="display: flex; flex-direction: column; justify-content: center; z-index: 1;">
 				<div style="height: 25px;"></div>
 				<div style="display: flex; flex-direction: row; justify-content: center;">
-					<button onclick="st1()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Main</button>
+					<button id="tb1" onclick="st(1)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Main</button>
 					<div style="width: 10px;"></div>
-					<button onclick="st2()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Goal</button>
+					<button id="tb2" onclick="st(2)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Goal</button>
 					<div style="width: 10px;"></div>
 					<div id="c1" style="display: none; width: 0px;">
-						<button onclick="st3()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Glitch</button>
+						<button id="tb3" onclick="st(3)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Glitch</button>
 					</div>
 					<div id="c1x"></div>
 					<div id="c2" style="display: none; width: 0px;">
-						<button onclick="st5()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Challenge</button>
+						<button id="tb5" onclick="st(5)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Challenge</button>
 					</div>
 					<div id="c2x"></div>
 					<div id="c3" style="display: none; width: 0px;">
-						<button onclick="st6()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Power</button>
+						<button id="tb6" onclick="st(6)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Power</button>
 					</div>
 					<div id="c3x"></div>
 					<div id="c4" style="display: none; width: 0px;">
-						<button onclick="st7()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Reality</button>
+						<button id="tb7" onclick="st(7)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Reality</button>
 					</div>
 					<div id="c4x"></div>
 					<div id="c5" style="display: none; width: 0px;">
-						<button onclick="st8()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">System</button>
+						<button id="tb8" onclick="st(8)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">System</button>
 					</div>
 					<div id="c5x"></div>
-					<button onclick="st4()" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Changelog</button>
+					<button id="tb4" onclick="st(4)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Changelog</button>
 				</div>
 			</div>
 			<div id="middle" style="display: flex; flex-direction: column; width: 100%;">
@@ -236,6 +236,10 @@
 								<button id="b5" onclick="buy5()" style="font-family: inherit; font-size: 18px; height: 70%; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;"></button>
 							</div>
 						</div>
+					</div>
+					<div style="height: 20px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">Hotkeys: Space to get points, 1~5 to buy respective stuff.</div>
 					</div>
 					<div style="height: 120px;"></div>
 				</div>
@@ -997,6 +1001,11 @@
 							</div>
 						</div>
 					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">Hotkeys: 6 to buy Glitch Power Genenrators.</div>
+					</div>
+					<div style="height: 120px;"></div>
                 </div>
 				<div id="ctrl5" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
 					<div style="width: 100%; display: flex; justify-content: center;">
@@ -1089,6 +1098,26 @@
 					<div style="height: 120px;"></div>
 				</div>
 				<div id="ctrl4" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: plum;">1.2.1</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Aug 1 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Hotkeys.</div>
+					</div>
+					<div style="height: 25px;"></div>
 					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
 						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
 							<div style="display: flex; flex-direction: column; justify-content: center;">
@@ -1568,6 +1597,10 @@
 					</div>
 					<div style="height: 10px;"></div>
 					<div style="width: 100%; display: flex; justify-content: center;">
+						<div id="locgot" style="font-size: 14px; color: white;"></div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
 						<div style="font-size: 14px; color: white;">Collect all those upgrades below to unlock True Meta tab!</div>
 					</div>
 					<div style="height: 20px;"></div>
@@ -1695,6 +1728,26 @@
 							</div>
 						</div>
 					</div>
+					<div id="lugr5" style="width: 100%; display: flex; flex-direction: row;">
+						<div style="width: 20%;"></div>
+						<div style="width: 60%; display: flex; flex-direction: column;">
+							<div style="height: 150px; display: flex; flex-direction: row;">
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug17" onclick="Bgl(17)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc17">[5x1] Most buffs of THAT UPGRADE is on all the time.</div>
+										<div id="lcost17">Cost: 400000 LoC.</div>
+									</button>
+								</div>
+								<div style="width: 25%; display: flex; justify-content: center; align-items: center;">
+									<button id="lug18" onclick="Bgl(18)" style="font-family: inherit; height: 95%; width: 95%; background-color: black; color: white; border-width: 2px; border-radius: 5px; border-color: white; display: flex; flex-direction: column; justify-content: space-around; align-items: center;">
+										<div id="ldesc18">[5x2] Gain extra LoC based on Glitch count.</div>
+										<div id="lcost18">Cost: 625 LoC.</div>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 					<div style="height: 120px;"></div>
                 </div>
 			</div>
@@ -1702,7 +1755,8 @@
             <button onclick="Save()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Save</button>
 			<button onclick="Export()" style="position: fixed; top: 55px; right: 175px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Export</button>
             <button onclick="Exportintofile()" style="position: fixed; top: 55px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Export to file</button>
-			<button onclick="Import()" style="position: fixed; top: 95px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Import</button>
+			<button onclick="Import()" style="position: fixed; top: 95px; right: 175px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Import</button>
+			<button id="hk" onclick="sHotkey()" style="position: fixed; top: 95px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Hotkey OFF</button>
             
 			<button id="completeprom" style="position: absolute; top: 10px; left: 10px; z-index: 75; font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">TEST MESSAGE</button>
 			<div id="stage" style="z-index: 100; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; color: white; display: flex; flex-direction: column; align-items: center;">
@@ -1712,7 +1766,7 @@
 				</div>
 				<button id="staged2" onclick="closestage()" style="font-family: inherit; height: 80px; width: 300px; font-size: 22px; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Start</button>
 				<div style="height: 25px;"></div>
-				<div id="staged3" style="font-size: 18px; text-align: center;">Version 1.2.0</div>
+				<div id="staged3" style="font-size: 18px; text-align: center;">Version 1.2.1</div>
 				<div id="staged4" style="font-size: 18px; text-align: center;">Developed by l319836</div>
 				<button onclick="Entermg2()" style="position: fixed; top: 15px; right: 25px; width: 280px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Play some Minigame B for fun!</button>
 			</div>

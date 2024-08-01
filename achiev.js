@@ -63,7 +63,7 @@ function extravtfromgpower() {
 function gpgcost() {
 	x = new Decimal(1e+4);
 	y = new Decimal(6 - 2 * gupbought[19] - gupbought[23]);
-	x = x.mul(y.pow(t6.sub(0.6*gupbought[27])));
+	x = x.mul(y.pow(t6.sub(0.6 * gupbought[27])));
 	if (t6.gte(10)) x = x.mul(Decimal(1.1).pow(t6.sub(10).pow(2)));
 	return x;
 }
@@ -83,10 +83,10 @@ function buy6max() {
 }
 function gpps() {
 	k = t6;
-	k = k.mul(Decimal(4+2*gupbought[18]).pow(t6));
-	k = k.mul(glitchpower.add(1).pow(0.5*gupbought[24]));
+	k = k.mul(Decimal(4 + 2 * gupbought[18]).pow(t6));
+	k = k.mul(glitchpower.add(1).pow(0.5 * gupbought[24]));
 	k = k.mul(glitch.add(1).pow(gupbought[28]));
-	k = k.mul(vtbase().pow((t5 + extravtfromgpower())*gupbought[30]));
+	k = k.mul(vtbase().pow((t5 + extravtfromgpower()) * gupbought[30]));
 	if (gupbought[32]) k = k.mul(wpeffect().pow(3));
 	if (k.gte(Decimal(10).pow(300))) k = k.div(Decimal(10).pow(300)).pow(0.1).mul(Decimal(10).pow(300));
 	return k;
@@ -115,38 +115,41 @@ setInterval(function () {
 	if (gupbought[36] == 0) document.getElementById("ug37").style.backgroundColor = "rgb(" + (48 + 16 * Math.sin(tcyc)) + ",0,0)";
 	else document.getElementById("ug37").style.backgroundColor = "rgb(" + (192 + 63 * Math.sin(tcyc)) + ",0,0)";
 	parsegoal();
-	if (gupbought[36] == 1) {
+	if (gupbought[36] == 1 || lupbought[16]) {
 		document.getElementById("aftb").style.display = "";
 		document.getElementById("gho0").innerHTML = "You will never encounter a glitch reset again. Never."
-		document.getElementById("effa37").innerHTML = "- Increases your Willpower effect's exponent's exponent by " + nt(g36effect()) + ". (based on time)"
+		if (!lupbought[16]) document.getElementById("effa37").innerHTML = "- Increases your Willpower effect's exponent's exponent by " + nt(g36effect()) + ". (based on time)"
 		gp();
 		buy1();
 		buy2();
 		buy3();
 		buy4();
 		buy5();
+		buy6max();
 		glitch = glitch.add(calcglitch().mul(0.005));
 		lastgl = calcglitch();
-		if (tcyc <= 30) pts = pts.div(1);
-		else if (tcyc <= 90) pts = pts.div(1.001);
-		else if (tcyc <= 150) pts = pts.div(1.005);
-		else if (tcyc <= 240) pts = pts.div(1.025);
-		else pts = pts.div(2);
-		if (tcyc <= 30) glitch = glitch.div(1);
-		else if (tcyc <= 90) glitch = glitch.div(1.001);
-		else if (tcyc <= 150) glitch = glitch.div(1.005);
-		else if (tcyc <= 240) glitch = glitch.div(1.025);
-		else glitch = glitch.div(1.5);
-		if (tcyc <= 30) glitchpower = glitchpower.div(1);
-		else if (tcyc <= 90) glitchpower = glitchpower.div(1.001);
-		else if (tcyc <= 150) glitchpower = glitchpower.div(1.008);
-		else if (tcyc <= 240) glitchpower = glitchpower.div(1.050);
-		else glitchpower = glitchpower.div(3);
-		pts = pts.sub(0.05);
-		if (glitch.gte(0.05)) glitch = glitch.sub(0.05);
-		if (stage == 4 && pts.lte(0.1)) {
-			stage = 5;
-			showstage();
+		if (!lupbought[16]) {
+			if (tcyc <= 30) pts = pts.div(1);
+			else if (tcyc <= 90) pts = pts.div(1.001);
+			else if (tcyc <= 150) pts = pts.div(1.005);
+			else if (tcyc <= 240) pts = pts.div(1.025);
+			else pts = pts.div(2);
+			if (tcyc <= 30) glitch = glitch.div(1);
+			else if (tcyc <= 90) glitch = glitch.div(1.001);
+			else if (tcyc <= 150) glitch = glitch.div(1.005);
+			else if (tcyc <= 240) glitch = glitch.div(1.025);
+			else glitch = glitch.div(1.5);
+			if (tcyc <= 30) glitchpower = glitchpower.div(1);
+			else if (tcyc <= 90) glitchpower = glitchpower.div(1.001);
+			else if (tcyc <= 150) glitchpower = glitchpower.div(1.008);
+			else if (tcyc <= 240) glitchpower = glitchpower.div(1.050);
+			else glitchpower = glitchpower.div(3);
+			pts = pts.sub(0.05);
+			if (glitch.gte(0.05)) glitch = glitch.sub(0.05);
+			if (stage == 4 && pts.lte(0.1)) {
+				stage = 5;
+				showstage();
+			}
 		}
 	}
 	if (visualeffecttestervariable == 1) {

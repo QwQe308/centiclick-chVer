@@ -1,29 +1,31 @@
 syscount = new Decimal(0);
 loc = new Decimal(0);
-var lupbought = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var lgcount = 16;
-var lgcost = [Decimal(1),Decimal(1),Decimal(1),Decimal(1),Decimal(5),Decimal(5),Decimal(5),Decimal(5),Decimal(25),Decimal(25),Decimal(25),Decimal(25),Decimal(125),Decimal(125),Decimal(125),Decimal(125)];
+var lupbought = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+var lgcount = 18;
+var lgcost = [Decimal(1), Decimal(1), Decimal(1), Decimal(1), Decimal(5), Decimal(5), Decimal(5), Decimal(5), Decimal(25), Decimal(25), Decimal(25), Decimal(25), Decimal(125), Decimal(125), Decimal(125), Decimal(125), Decimal(4e5), Decimal(625)];
 function Bgl(num) {
-	num = num - 1;
-	if (loc.gte(lgcost[num]) && lupbought[num] == 0) {
-		loc = loc.sub(lgcost[num]);
-		lupbought[num] = 1;
-	}
-    if(lupbought[5])for(var i=0;i<16;i++)gupbought[i]=1;
-    if(lupbought[9])for(var i=16;i<32;i++)gupbought[i]=1;
-    if(lupbought[13])for(var i=32;i<36;i++)gupbought[i]=1;
-    if(lupbought[10])stage=2;
-    if(lupbought[14])stage=4;
-    if(lupbought[9])for(var i=0;i<totalchal;i++)chalcomplete[i]=1;
-    if(lupbought[13])for(var i=0;i<tg;i++)goalcomplete[i]=1;
-	Loadheader();
-	Loadmiddle();
+    num = num - 1;
+    if (loc.gte(lgcost[num]) && lupbought[num] == 0) {
+        loc = loc.sub(lgcost[num]);
+        lupbought[num] = 1;
+    }
+    if (lupbought[5]) for (var i = 0; i < 16; i++)gupbought[i] = 1;
+    if (lupbought[9]) for (var i = 16; i < 32; i++)gupbought[i] = 1;
+    if (lupbought[13]) for (var i = 32; i < 36; i++)gupbought[i] = 1;
+    if (lupbought[10]) stage = 2;
+    if (lupbought[14]) stage = 4;
+    if (lupbought[9]) for (var i = 0; i < totalchal; i++)chalcomplete[i] = 1;
+    if (lupbought[13]) for (var i = 0; i < tg; i++)goalcomplete[i] = 1;
+    Loadheader();
+    Loadmiddle();
 }
-function SysReset(){
+function SysReset() {
     console.log("RESETTTTT!!!");
+    loc = loc.add(loconreset());
+    syscount = syscount.add(1);
     currentchal = 0;
     pendingchal = 0;
-    glitchcount = Decimal(0);
+    glitchcount = Decimal(1);
     lastgl = Decimal(0);
     bestgl = Decimal(0);
     glitch = Decimal(0);
@@ -44,23 +46,22 @@ function SysReset(){
     for (var i = 0; i < totalchal; i++)chalcomplete[i] = 0;
     gupbought[15] = 1;
     gupbought[17] = 1;
-    stage=0;
-    if(lupbought[5])for(var i=0;i<16;i++)gupbought[i]=1;
-    if(lupbought[9])for(var i=16;i<32;i++)gupbought[i]=1;
-    if(lupbought[13])for(var i=32;i<36;i++)gupbought[i]=1;
-    if(lupbought[10])stage=2;
-    if(lupbought[14])stage=4;
-    if(lupbought[9])for(var i=0;i<totalchal;i++)chalcomplete[i]=1;
-    if(lupbought[13])for(var i=0;i<tg;i++)goalcomplete[i]=1;
-    syscount = syscount.add(1);
-    loc = loc.add(loconreset());
+    stage = 0;
+    if (lupbought[5]) for (var i = 0; i < 16; i++)gupbought[i] = 1;
+    if (lupbought[9]) for (var i = 16; i < 32; i++)gupbought[i] = 1;
+    if (lupbought[13]) for (var i = 32; i < 36; i++)gupbought[i] = 1;
+    if (lupbought[10]) stage = 2;
+    if (lupbought[14]) stage = 4;
+    if (lupbought[9]) for (var i = 0; i < totalchal; i++)chalcomplete[i] = 1;
+    if (lupbought[13]) for (var i = 0; i < tg; i++)goalcomplete[i] = 1;
     Reload();
 }
 function loconreset() {
     inc = new Decimal(2);
-    if(lupbought[3])inc = inc.mul(3);
-    if(lupbought[7])inc = inc.mul(3);
-    if(lupbought[11])inc = inc.mul(3);
-    if(lupbought[15])inc = inc.mul(3);
+    if (lupbought[3]) inc = inc.mul(3);
+    if (lupbought[7]) inc = inc.mul(3);
+    if (lupbought[11]) inc = inc.mul(3);
+    if (lupbought[15]) inc = inc.mul(3);
+    if (lupbought[17]) inc = inc.mul(glitch.add(1).log(Decimal(6e+66)).pow(3));
     return inc;
 }
