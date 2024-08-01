@@ -104,7 +104,6 @@ function nextquote() {
     }
 }
 setInterval(function(){
-    console.log(ntsn);
     if(Sysresetcheat==1){
         SysReset();
         Sysresetcheat=0;
