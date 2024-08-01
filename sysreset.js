@@ -90,8 +90,7 @@ var florenaquote=[
     "Therefore, I grant you a part of my power.",
     "But remember.",
     "They are limited.",
-    "100 clicks. Not one more.",
-    "Centiclick ~Meta~"
+    "100 clicks. Not one more."
 ];
 function Showquote() {
     document.getElementById("fq").style.zIndex = "98";

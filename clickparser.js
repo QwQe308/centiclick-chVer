@@ -162,7 +162,7 @@ function glitchreset() {
 	parsechallenge();
 	currentchal = pendingchal;
 	pendingchal = Decimal(0);
-	if (glitchcount.eq(0) && stage == 0) st3();
+	if (glitchcount.eq(0) && stage == 0) st(3);
 	glitchcount = glitchcount.add(1);
 	lastgl = calcglitch();
 	if (bestgl.lte(calcglitch())) bestgl = calcglitch();
