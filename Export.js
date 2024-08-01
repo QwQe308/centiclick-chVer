@@ -1,5 +1,5 @@
 function base64TemplateMerge(){
-    let res=`${clickcount} ${t1-1} ${t2} ${t3} ${t4} ${t5} ${t6} ${pts} ${lastpt} ${bestpt} ${lastgl} ${bestgl} ${glitch} ${glitchcount} ${glitchpower} ${hidecompleted} ${currentchal} ${stage} ${apoint} ${bpoint} ${syscount} ${loc} ${wp} ${tcyc} ${JSON.stringify(goalcomplete)} ${JSON.stringify(gupbought)} ${JSON.stringify(lupbought)} ${JSON.stringify(chalcomplete)}`
+    let res=`${clickcount} ${t1-1} ${t2} ${t3} ${t4} ${t5} ${t6} ${pts} ${lastpt} ${bestpt} ${lastgl} ${bestgl} ${glitch} ${glitchcount} ${glitchpower} ${hidecompleted} ${currentchal} ${stage} ${apoint} ${bpoint} ${syscount} ${loc} ${wp} ${tcyc} ${JSON.stringify(goalcomplete)} ${JSON.stringify(gupbought)} ${JSON.stringify(lupbought)} ${JSON.stringify(chalcomplete)} ${rdquote}`
     return res;
 }
 function Export() {
@@ -90,7 +90,7 @@ function Import() {
 */
 function Handle(decodedData){
     var g1,g2,g3,g4;
-    [clickcount,t1,t2,t3,t4,t5,t6,pts,lastpt,bestpt,lastgl,bestgl,glitch,glitchcount,glitchpower,hidecompleted,currentchal,stage,apoint,bpoint,syscount,loc,wp,tcyc,g1,g2,g3,g4]=decodedData.split(' ');
+    [clickcount,t1,t2,t3,t4,t5,t6,pts,lastpt,bestpt,lastgl,bestgl,glitch,glitchcount,glitchpower,hidecompleted,currentchal,stage,apoint,bpoint,syscount,loc,wp,tcyc,g1,g2,g3,g4,rdquote]=decodedData.split(' ');
     // console.log(g1);
     goalcomplete=JSON.parse(g1);
     // console.log(goalcomplete);
@@ -124,6 +124,7 @@ function Handle(decodedData){
     loc=Decimal(loc);
     wp=Decimal(wp);
     tcyc=Number(tcyc);
+    rdquote=Number(rdquote);
 	tl = 3000;
 	document.getElementById("completeprom").innerHTML = "Imported from Clipboard!";
     Reload();

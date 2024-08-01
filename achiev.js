@@ -161,4 +161,4 @@ setInterval(function(){
 		buy5();
 		buy6max();
 	}
-},1000);
+},50);

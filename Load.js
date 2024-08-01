@@ -34,6 +34,8 @@ function Loadmiddle() {
     if (stage >= 1) document.getElementById("c4x").style = "width: 10px;";
     if (syscount.gte(1)) document.getElementById("c5").style = "";
     if (syscount.gte(1)) document.getElementById("c5x").style = "width: 10px;";
+    if (rdquote) document.getElementById("c6").style = "";
+    if (rdquote) document.getElementById("c6x").style = "width: 10px;";
     if (gupbought[31]) document.getElementById("mg").style.display = "flex";
     document.getElementById("t1").innerHTML = t1.Stdnt(4);
     document.getElementById("eff1").innerHTML = "Gives you " + t1.mul(vtbase().pow(t5.add(extravtfromgpower()))).Stdnt(4) + " Points every click.";
@@ -220,13 +222,25 @@ function Loadmiddle() {
         }
         if (event.key === 'ArrowLeft' && Hotkeyon == 1 && cd[5] <= 0) {
             tabnum--;
-            tabnum = (tabnum + 8) % 8;
+            tabnum = (tabnum + 9) % 9;
+            if (rdquote == 0 && tabnum == 7) tabnum--;
+            if (syscount.eq(0) && tabnum == 6) tabnum--;
+            if (stage == 0 && tabnum == 5) tabnum--;
+            if (gupbought[17] == 0 && stage == 0 && tabnum == 4) tabnum--;
+            if (gupbought[15] == 0 && stage == 0 && tabnum == 3) tabnum--;
+            if (glitchcount.le(1) && stage == 0 && tabnum == 2) tabnum--;
             st(numtab[tabnum]);
             cd[5] = 100;
         }
         if (event.key === 'ArrowRight' && Hotkeyon == 1 && cd[6] <= 0) {
             tabnum++;
-            tabnum = (tabnum + 8) % 8;
+            tabnum = (tabnum + 9) % 9;
+            if (glitchcount.le(1) && stage == 0 && tabnum == 2) tabnum++;
+            if (gupbought[15] == 0 && stage == 0 && tabnum == 3) tabnum++;
+            if (gupbought[17] == 0 && stage == 0 && tabnum == 4) tabnum++;
+            if (stage == 0 && tabnum == 5) tabnum++;
+            if (syscount.eq(0) && tabnum == 6) tabnum++;
+            if (rdquote == 0 && tabnum == 7) tabnum++;
             st(numtab[tabnum]);
             cd[6] = 100;
         }
@@ -261,6 +275,7 @@ function Loadsave() {
     wp = Decimal(LoadItem("wp"));
     tcyc = Number(LoadItem("tcyc"));
     Hotkeyon = Number(LoadItem("Hotkeyon"));
+    rdquote = Number(LoadItem("rdquote"));
     var ttf = LoadItem("ttf");
     if (ttf != "2221") Wipe = 1;
     var tmp = localStorage.getItem('rigc');
@@ -299,6 +314,7 @@ function Save() {
     SaveItem("wp", wp);
     SaveItem("tcyc", tcyc);
     SaveItem("Hotkeyon", Hotkeyon);
+    SaveItem("rdquote", rdquote);
     SaveItem("ttf", "2221");
     var tmp = "";
     for (var i = 0; i < tg; i++)tmp += goalcomplete[i];
@@ -343,6 +359,7 @@ setInterval(function () {
         SaveItem("loc", Decimal(0));
         SaveItem("stage", 0);
         SaveItem("wp", Decimal(0));
+        SaveItem("rdquote", Decimal(0));
         SaveItem("tcyc", 0);
         SaveItem("ttf", "2221");
         var tmp = "";

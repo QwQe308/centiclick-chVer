@@ -85,6 +85,10 @@
 						<button id="tb8" onclick="st(8)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">System</button>
 					</div>
 					<div id="c5x"></div>
+					<div id="c6" style="display: none; width: 0px;">
+						<button id="tb9" onclick="st(9)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Meta</button>
+					</div>
+					<div id="c6x"></div>
 					<button id="tb4" onclick="st(4)" style="font-family: inherit; background-color: black; color: white; border-width: 3px; border-radius: 10px; border-color: white;">Changelog</button>
 				</div>
 			</div>
@@ -1105,6 +1109,30 @@
 							</div>
 							<div style="width: 10px;"></div>
 							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 22px; color: plum;">1.2.2</div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;"> Aug 1 2024</div>
+							</div>
+						</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- Fixed bugs about hotkeys jumping to a locked tab.</div>
+					</div>
+					<div style="height: 10px;"></div>
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">- A tiny bit of new content.</div>
+					</div>
+					<div style="height: 25px;"></div>
+					<div style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+						<div style="display: flex; flex-direction: row; text-align: center; justify-content: center;">
+							<div style="display: flex; flex-direction: column; justify-content: center;">
+								<div style="font-size: 18px; color: white;">Version </div>
+							</div>
+							<div style="width: 10px;"></div>
+							<div style="display: flex; flex-direction: column; justify-content: center;">
 								<div style="font-size: 22px; color: plum;">1.2.1</div>
 							</div>
 							<div style="width: 10px;"></div>
@@ -1750,6 +1778,12 @@
 					</div>
 					<div style="height: 120px;"></div>
                 </div>
+				<div id="ctrl9" style="display: none; z-index: -1; position: absolute; top: 320px; width: 100%;">
+					<div style="width: 100%; display: flex; justify-content: center;">
+						<div style="font-size: 14px; color: white;">To Be Done</div>
+					</div>
+					<div style="height: 120px;"></div>
+                </div>
 			</div>
             <button onclick="Reload()" style="position: fixed; top: 15px; right: 175px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Reload</button>
             <button onclick="Save()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-width: 5px; border-radius: 6px; border-color: black; background-color: white; color: black;">Save</button>
@@ -1822,7 +1856,7 @@
 			<div id="fq" style="z-index: -50; display: none; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; background-color: black; color: white; flex-direction: column; justify-content: center; align-items: center;">
 				<div id="fq1" style="font-size: 22px; color: white; text-align: center;"></div>
 				<div style="height: 50px;"></div>
-				<button onclick="nextquote()" style="position: fixed; top: 15px; right: 25px; width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-style: outset; border-width: 5px; border-radius: 6px; border-color: white; background-color: black; color: white;">Continue</button>
+				<button id="fq2" onclick="nextquote()" style="width: 140px; text-align: center; font-family: inherit; font-size: 16px; height: 36px; border-style: outset; border-width: 1px; border-radius: 6px; border-color: white; background-color: black; color: white;">Continue</button>
 			</div>
 		</main>
 	</body>

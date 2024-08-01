@@ -204,10 +204,10 @@ function calcglitch() {
 	return t.mul(currentchal == 1 ? 0 : 1);
 }
 var tabnum = 0, Hotkeyon = 0;
-var numtab = [1, 2, 3, 5, 6, 7, 8, 4];
-var rev_numtab = [-1, 0, 1, 2, 7, 3, 4, 5, 6];
+var numtab = [1, 2, 3, 5, 6, 7, 8, 9, 4];
+var rev_numtab = [-1, 0, 1, 2, 8, 3, 4, 5, 6, 7];
 function st(num) {
-	for (var i = 1; i <= 8; i++) {
+	for (var i = 1; i <= 9; i++) {
 		Hide("ctrl" + i);
 		document.getElementById("tb" + i).style.backgroundColor = "black";
 	}
