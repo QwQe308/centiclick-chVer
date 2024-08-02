@@ -101,7 +101,7 @@ function Handle(decodedData){
     lupbought=JSON.parse(g3);
     chalcomplete=JSON.parse(g4);
     clickcount=Decimal(clickcount);
-    t1=Decimal(t1)+1;
+    t1=Decimal(t1).add(1);
     t2=Decimal(t2);
     t3=Decimal(t3);
     t4=Decimal(t4);
