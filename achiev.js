@@ -89,6 +89,7 @@ function gpps() {
 	k = k.mul(vtbase().pow((t5 + extravtfromgpower()) * gupbought[30]));
 	if (gupbought[32]) k = k.mul(wpeffect().pow(3));
 	if (k.gte(Decimal(10).pow(300))) k = k.div(Decimal(10).pow(300)).pow(0.1).mul(Decimal(10).pow(300));
+	k = k.pow(Cboost.pow(0.3).mul(0.5).add(1));
 	return k;
 }
 var tl = 0, tcyc = 0, visualeffecttestervariable = 0;

@@ -62,7 +62,7 @@ function loconreset() {
     if (lupbought[7]) inc = inc.mul(3);
     if (lupbought[11]) inc = inc.mul(3);
     if (lupbought[15]) inc = inc.mul(3);
-    if (lupbought[17]) inc = inc.mul(glitch.add(1).log(Decimal(6e+66)).pow(3));
+    if (lupbought[17]) inc = inc.mul(glitch.add(1).pow(0.0057));
     return inc;
 }
 
@@ -143,3 +143,13 @@ setInterval(function(){
         Load();
     }
 },50);
+
+Aboost = new Decimal(0);
+Bboost = new Decimal(0);
+Cboost = new Decimal(0);
+function Tg(num){
+    if(num==1)Aboost = Aboost.add(1);
+    if(num==2)Bboost = Bboost.add(1);
+    if(num==3)Cboost = Cboost.add(1);
+    Reload();
+}

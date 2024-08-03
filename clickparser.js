@@ -45,6 +45,8 @@ function calcpts() {
 	f = f.mul(1 + 2 * gupbought[4] * (currentchal == 1 ? 0 : 1) * (clickcount.lte(3) ? 1 : 0));
 	f = f.mul(1 + 4 * gupbought[12] * (currentchal == 1 ? 0 : 1) * (clickcount.gte(95) ? 1 : 0));
 	f = f.mul(wpeffect().pow(0.2 * gupbought[8] * (currentchal == 1 ? 0 : 1)));
+	f = f.mul(Decimal(100).pow(Aboost));
+	f = f.pow(Aboost.pow(0.5).mul(0.5).add(1));
 	return f.mul(t1);
 }
 function Extrapts() {
@@ -201,6 +203,8 @@ function calcglitch() {
 	if (lupbought[4]) t = t.mul(3);
 	if (lupbought[8]) t = t.mul(4);
 	if (lupbought[12]) t = t.pow(1.05);
+	t = t.mul(Decimal(10).pow(Bboost));
+	t = t.pow(Bboost.pow(0.5).mul(0.5).add(1));
 	return t.mul(currentchal == 1 ? 0 : 1);
 }
 var tabnum = 0, Hotkeyon = 0;

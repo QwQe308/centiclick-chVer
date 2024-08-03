@@ -247,6 +247,9 @@ function Loadmiddle() {
     });
     if (Hotkeyon == 0) document.getElementById("hk").innerHTML = "Hotkey OFF";
     else document.getElementById("hk").innerHTML = "Hotkey ON";
+    document.getElementById("effb1").innerHTML = "Current Effect: *1e"+Aboost.mul(100).toFixed(0)+" ^"+Aboost.pow(0.5).mul(0.5).add(1).Stdnt(4);
+    document.getElementById("effb2").innerHTML = "Current Effect: *1e"+Bboost.mul(100).toFixed(0)+" ^"+Bboost.pow(0.5).mul(0.5).add(1).Stdnt(4);
+    document.getElementById("effb3").innerHTML = "Current Effect: ^"+Cboost.pow(0.3).mul(0.5).add(1).Stdnt(4);
 }
 function Loadsave() {
     console.log("Loaded save!");
