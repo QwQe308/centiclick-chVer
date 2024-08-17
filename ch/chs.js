@@ -428,7 +428,7 @@ var cnRegReplace = new Map([
     [/^Goal (\d+)$/, "目标 $1"],
     [/^Goal: (.+) Points.$/, "目标: $1 点数."],
     [/^Cost: (.+) Glitches.$/, "价格: $1 故障."],
-    [/^Req: (\d+) Willpower.$/, "价格: $1 意志力."],
+    [/^Req: (\d+) Willpower.$/, "要求: $1 意志力."],
     [/^Effect: (.+)$/, "效果: $1"],
     [/^REWARD: (\d+) WP$/, "奖励: $1 意志力"],
     [/^Cost: (.+) LoC.$/, "价格: $1 代码行."],
