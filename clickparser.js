@@ -19,15 +19,15 @@ function clickparser() {
 	if (clickcount.mod((10 - 4 * (gupbought[2] + chalcomplete[0]) * (currentchal == 1 ? 0 : 1))).eq(0)) t1 = t1.add(t2.mul(vtbase().pow(t5.add(extravtfromgpower()))));
 	if (clickcount.mod((15 - 4 * chalcomplete[0] - 7 * gupbought[22])).eq(0)) t2 = t2.add(t3.mul(vtbase().pow(t5.add(extravtfromgpower()))));
 	if (clickcount.mod((20 - 4 * chalcomplete[0] - 10 * gupbought[26])).eq(0)) t3 = t3.add(t4.mul(vtbase().pow(t5.add(extravtfromgpower()))));
-	if (clickcount.gte(100) && gupbought[36] == 0) glitchreset();
+	if (clickcount.gte(100) && gupbought[36] == 0 && lupbought[16] == 0) glitchreset();
 }
 function vtbase() {
 	base = new Decimal(2);
 	if (chalcomplete[1]) base = base.add(0.2); //C2
 	if (gupbought[25]) base = base.add(0.3); //Glitch Upgrade 7x2
 	if (gupbought[29]) base = base.add(extravtfromgpower().add(1).log(2).mul(0.1));
-	if (gupbought[36] && tcyc >= 150) base = base.sub(0.01*(tcyc-150));
-	if (base.lte(0))base = Decimal(0);
+	if (gupbought[36] && tcyc >= 150) base = base.sub(0.01 * (tcyc - 150));
+	if (base.lte(0)) base = Decimal(0);
 	return base;
 }
 function gp() {
@@ -45,6 +45,8 @@ function calcpts() {
 	f = f.mul(1 + 2 * gupbought[4] * (currentchal == 1 ? 0 : 1) * (clickcount.lte(3) ? 1 : 0));
 	f = f.mul(1 + 4 * gupbought[12] * (currentchal == 1 ? 0 : 1) * (clickcount.gte(95) ? 1 : 0));
 	f = f.mul(wpeffect().pow(0.2 * gupbought[8] * (currentchal == 1 ? 0 : 1)));
+	f = f.mul(Decimal(100).pow(Aboost));
+	f = f.pow(Aboost.pow(0.5).mul(0.5).add(1));
 	return f.mul(t1);
 }
 function Extrapts() {
@@ -162,7 +164,7 @@ function glitchreset() {
 	parsechallenge();
 	currentchal = pendingchal;
 	pendingchal = Decimal(0);
-	if (glitchcount.eq(0) && stage == 0) st3();
+	if (glitchcount.eq(0) && stage == 0) st(3);
 	glitchcount = glitchcount.add(1);
 	lastgl = calcglitch();
 	if (bestgl.lte(calcglitch())) bestgl = calcglitch();
@@ -196,91 +198,35 @@ function calcglitch() {
 	if (chalcomplete[2]) t = t.mul(2); //C3 reward
 	if (t.gte(1e+33)) t = t.div(1e+33).pow(0.5 + (stage >= 3 ? 0.15 : 0)).mul(1e+33);
 	if (gupbought[31]) t = t.pow(1.2);
-	if (gupbought[34]) t = t.mul(vtbase().pow(t5+extravtfromgpower()).pow(0.35));
+	if (gupbought[34]) t = t.mul(vtbase().pow(t5.add(extravtfromgpower())).pow(0.35));
 	if (lupbought[0]) t = t.mul(2);
 	if (lupbought[4]) t = t.mul(3);
 	if (lupbought[8]) t = t.mul(4);
 	if (lupbought[12]) t = t.pow(1.05);
+	t = t.mul(Decimal(10).pow(Bboost));
+	t = t.pow(Bboost.pow(0.5).mul(0.5).add(1));
 	return t.mul(currentchal == 1 ? 0 : 1);
 }
-
-function st1() {
-	Unhide("ctrl1");
-	Hide("ctrl2");
-	Hide("ctrl3");
-	Hide("ctrl4");
-	Hide("ctrl5");
-	Hide("ctrl6");
-	Hide("ctrl7");
-	Hide("ctrl8");
+var tabnum = 0, Hotkeyon = 0;
+var numtab = [1, 2, 3, 5, 6, 7, 8, 9, 4];
+var rev_numtab = [-1, 0, 1, 2, 8, 3, 4, 5, 6, 7];
+function st(num) {
+	for (var i = 1; i <= 9; i++) {
+		Hide("ctrl" + i);
+		document.getElementById("tb" + i).style.backgroundColor = "black";
+	}
+	Unhide("ctrl" + num);
+	document.getElementById("tb" + num).style.backgroundColor = "rgb(64,64,64)";
+	tabnum = rev_numtab[num];
+	console.log("Set tab to " + num);
 }
-function st2() {
-	Hide("ctrl1");
-	Unhide("ctrl2");
-	Hide("ctrl3");
-	Hide("ctrl4");
-	Hide("ctrl5");
-	Hide("ctrl6");
-	Hide("ctrl7");
-	Hide("ctrl8");
+function sHotkey() {
+	Hotkeyon = 1 - Hotkeyon;
+	if (Hotkeyon == 0) document.getElementById("hk").innerHTML = "Hotkey OFF";
+	else document.getElementById("hk").innerHTML = "Hotkey ON";
+	console.log("Hotkey set to " + Hotkeyon);
 }
-function st3() {
-	Hide("ctrl1");
-	Hide("ctrl2");
-	Unhide("ctrl3");
-	Hide("ctrl4");
-	Hide("ctrl5");
-	Hide("ctrl6");
-	Hide("ctrl7");
-	Hide("ctrl8");
-}
-function st4() {
-	Hide("ctrl1");
-	Hide("ctrl2");
-	Hide("ctrl3");
-	Unhide("ctrl4");
-	Hide("ctrl5");
-	Hide("ctrl6");
-	Hide("ctrl7");
-	Hide("ctrl8");
-}
-function st5() {
-	Hide("ctrl1");
-	Hide("ctrl2");
-	Hide("ctrl3");
-	Hide("ctrl4");
-	Unhide("ctrl5");
-	Hide("ctrl6");
-	Hide("ctrl7");
-	Hide("ctrl8");
-}
-function st6() {
-	Hide("ctrl1");
-	Hide("ctrl2");
-	Hide("ctrl3");
-	Hide("ctrl4");
-	Hide("ctrl5");
-	Unhide("ctrl6");
-	Hide("ctrl7");
-	Hide("ctrl8");
-}
-function st7() {
-	Hide("ctrl1");
-	Hide("ctrl2");
-	Hide("ctrl3");
-	Hide("ctrl4");
-	Hide("ctrl5");
-	Hide("ctrl6");
-	Unhide("ctrl7");
-	Hide("ctrl8");
-}
-function st8() {
-	Hide("ctrl1");
-	Hide("ctrl2");
-	Hide("ctrl3");
-	Hide("ctrl4");
-	Hide("ctrl5");
-	Hide("ctrl6");
-	Hide("ctrl7");
-	Unhide("ctrl8");
-}
+var cd = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+setInterval(function () {
+	for (var i = 0; i < 9; i++)cd[i] -= 50;
+}, 50);
