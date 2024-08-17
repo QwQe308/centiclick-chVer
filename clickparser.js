@@ -198,7 +198,7 @@ function calcglitch() {
 	if (chalcomplete[2]) t = t.mul(2); //C3 reward
 	if (t.gte(1e+33)) t = t.div(1e+33).pow(0.5 + (stage >= 3 ? 0.15 : 0)).mul(1e+33);
 	if (gupbought[31]) t = t.pow(1.2);
-	if (gupbought[34]) t = t.mul(vtbase().pow(t5 + extravtfromgpower()).pow(0.35));
+	if (gupbought[34]) t = t.mul(vtbase().pow(t5.add(extravtfromgpower())).pow(0.35));
 	if (lupbought[0]) t = t.mul(2);
 	if (lupbought[4]) t = t.mul(3);
 	if (lupbought[8]) t = t.mul(4);
