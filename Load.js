@@ -2,7 +2,6 @@ function Load() {
     Loadsave();
     Loadheader();
     Loadmiddle();
-    st(1);
 }
 function Reload() {
     Loadheader();
@@ -10,7 +9,7 @@ function Reload() {
 }
 function Loadheader() {
     document.getElementById("points").innerHTML = pts.Stdnt(4);
-    document.getElementById("cl").innerHTML = (clickcount.gte(1e+5) ? clickcount.gte(4) : clickcount);
+    document.getElementById("cl").innerHTML = (clickcount.gte(1e+5)?clickcount.gte(4):clickcount);
     if (clickcount.lte(20)) document.getElementById("cl").style = "font-size: 22px; color: green;";
     else if (clickcount.lte(40)) document.getElementById("cl").style = "font-size: 22px; color: yellowgreen;";
     else if (clickcount.lte(60)) document.getElementById("cl").style = "font-size: 22px; color: yellow;";
@@ -34,8 +33,6 @@ function Loadmiddle() {
     if (stage >= 1) document.getElementById("c4x").style = "width: 10px;";
     if (syscount.gte(1)) document.getElementById("c5").style = "";
     if (syscount.gte(1)) document.getElementById("c5x").style = "width: 10px;";
-    if (rdquote) document.getElementById("c6").style = "";
-    if (rdquote) document.getElementById("c6x").style = "width: 10px;";
     if (gupbought[31]) document.getElementById("mg").style.display = "flex";
     document.getElementById("t1").innerHTML = t1.Stdnt(4);
     document.getElementById("eff1").innerHTML = "Gives you " + t1.mul(vtbase().pow(t5.add(extravtfromgpower()))).Stdnt(4) + " Points every click.";
@@ -182,7 +179,6 @@ function Loadmiddle() {
         if (canbeshown[i] == 0) document.getElementById("ugr" + (i + 1)).style.display = "none";
         else document.getElementById("ugr" + (i + 1)).style.display = "flex";
     }
-    document.getElementById("locgot").innerHTML = "You will get " + loconreset().Stdnt() + " Lines of Code on reset.";
     if (stage == 1) document.getElementById("realityname").innerHTML = "You are currently in a Glitched Reality.";
     if (stage == 2) document.getElementById("realityname").innerHTML = "You are currently in a Malfunctioning Reality.";
     if (stage == 3) document.getElementById("realityname").innerHTML = "You are currently in a Meta Reality.";
@@ -191,65 +187,6 @@ function Loadmiddle() {
     if (stage == 2) document.getElementById("perks").innerHTML = "Willpower effect's exponent's exponent +0.10.<br>Remove Extra Void Tear's hardcap.";
     if (stage == 3) document.getElementById("perks").innerHTML = "Willpower effect's exponent's exponent +0.15.<br>Remove Extra Void Tear's hardcap.<br>Glitch gain softcap is slightly lifted.";
     if (stage == 4) document.getElementById("perks").innerHTML = "Willpower effect's exponent's exponent +0.20.<br>Remove Extra Void Tear's hardcap.<br>Glitch gain softcap is slightly lifted.<br>Minigame progress are kept on any (soft) reset.";
-    document.addEventListener('keydown', function (event) {
-        if (event.key === ' ' && Hotkeyon == 1 && cd[0] <= 0) {
-            gp();
-            cd[0] = 100;
-        }
-        if (event.key === '1' && Hotkeyon == 1 && cd[1] <= 0) {
-            buy1();
-            cd[1] = 100;
-        }
-        if (event.key === '2' && Hotkeyon == 1 && cd[2] <= 0) {
-            buy2();
-            cd[2] = 100;
-        }
-        if (event.key === '3' && Hotkeyon == 1 && cd[3] <= 0) {
-            buy3();
-            cd[3] = 100;
-        }
-        if (event.key === '4' && Hotkeyon == 1 && cd[4] <= 0) {
-            buy4();
-            cd[4] = 100;
-        }
-        if (event.key === '5' && Hotkeyon == 1 && cd[7] <= 0) {
-            buy5();
-            cd[7] = 100;
-        }
-        if (event.key === '6' && Hotkeyon == 1 && cd[8] <= 0) {
-            buy6();
-            cd[8] = 100;
-        }
-        if (event.key === 'ArrowLeft' && Hotkeyon == 1 && cd[5] <= 0) {
-            tabnum--;
-            tabnum = (tabnum + 9) % 9;
-            if (rdquote == 0 && tabnum == 7) tabnum--;
-            if (syscount.eq(0) && tabnum == 6) tabnum--;
-            if (stage == 0 && tabnum == 5) tabnum--;
-            if (gupbought[17] == 0 && stage == 0 && tabnum == 4) tabnum--;
-            if (gupbought[15] == 0 && stage == 0 && tabnum == 3) tabnum--;
-            if (glitchcount.lt(1) && stage == 0 && tabnum == 2) tabnum--;
-            st(numtab[tabnum]);
-            cd[5] = 100;
-        }
-        if (event.key === 'ArrowRight' && Hotkeyon == 1 && cd[6] <= 0) {
-            tabnum++;
-            tabnum = (tabnum + 9) % 9;
-            if (glitchcount.lt(1) && stage == 0 && tabnum == 2) tabnum++;
-            if (gupbought[15] == 0 && stage == 0 && tabnum == 3) tabnum++;
-            if (gupbought[17] == 0 && stage == 0 && tabnum == 4) tabnum++;
-            if (stage == 0 && tabnum == 5) tabnum++;
-            if (syscount.eq(0) && tabnum == 6) tabnum++;
-            if (rdquote == 0 && tabnum == 7) tabnum++;
-            st(numtab[tabnum]);
-            cd[6] = 100;
-        }
-    });
-    if (Hotkeyon == 0) document.getElementById("hk").innerHTML = "Hotkey OFF";
-    else document.getElementById("hk").innerHTML = "Hotkey ON";
-    document.getElementById("effb1").innerHTML = "Current Effect: *1e"+Aboost.mul(100).toFixed(0)+" ^"+Aboost.pow(0.5).mul(0.5).add(1).Stdnt(4);
-    document.getElementById("effb2").innerHTML = "Current Effect: *1e"+Bboost.mul(100).toFixed(0)+" ^"+Bboost.pow(0.5).mul(0.5).add(1).Stdnt(4);
-    document.getElementById("effb3").innerHTML = "Current Effect: ^"+Cboost.pow(0.3).mul(0.5).add(1).Stdnt(4);
 }
 function Loadsave() {
     console.log("Loaded save!");
@@ -277,8 +214,6 @@ function Loadsave() {
     loc = Decimal(LoadItem("loc"));
     wp = Decimal(LoadItem("wp"));
     tcyc = Number(LoadItem("tcyc"));
-    Hotkeyon = Number(LoadItem("Hotkeyon"));
-    rdquote = Number(LoadItem("rdquote"));
     var ttf = LoadItem("ttf");
     if (ttf != "2221") Wipe = 1;
     var tmp = localStorage.getItem('rigc');
@@ -316,8 +251,6 @@ function Save() {
     SaveItem("loc", loc);
     SaveItem("wp", wp);
     SaveItem("tcyc", tcyc);
-    SaveItem("Hotkeyon", Hotkeyon);
-    SaveItem("rdquote", rdquote);
     SaveItem("ttf", "2221");
     var tmp = "";
     for (var i = 0; i < tg; i++)tmp += goalcomplete[i];
@@ -362,7 +295,6 @@ setInterval(function () {
         SaveItem("loc", Decimal(0));
         SaveItem("stage", 0);
         SaveItem("wp", Decimal(0));
-        SaveItem("rdquote", Decimal(0));
         SaveItem("tcyc", 0);
         SaveItem("ttf", "2221");
         var tmp = "";
